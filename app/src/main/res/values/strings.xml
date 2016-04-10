@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">肾管家</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="fragment_info">精选</string>
+    <string name="fragment_checks">检查</string>
+    <string name="fragment_my">我的</string>
+    <string name="check_gangongneng">肝功能</string>
+    <string name="check_shengongneng">肾功能</string>
+    <string name="check_xueya">血压</string>
+    <string name="check_xuetang">血糖</string>
+    <string name="check_tizhong">体重</string>
+    <string name="check_niaodanbai">尿蛋白</string>
+    <string name="check_niaochanggui">尿常规</string>
+    <string name="check_niaosixiang">尿四项</string>
+</resources>

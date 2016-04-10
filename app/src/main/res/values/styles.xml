@@ -1,0 +1,102 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+
+    <style name="MyNavigationDrawerTheme" parent="MaterialNavigationDrawerTheme">
+        <item name="colorPrimary">#5677fc</item>
+        <item name="colorPrimaryDark">#455ede</item>
+        <item name="colorAccent">#FFFFFF</item>
+        <item name="singleAccount">true</item>
+        <item name="toolbarElevation">true</item>
+        <item name="drawerType">@integer/DRAWERTYPE_CUSTOM</item>
+        <item name="learningPattern">false</item>
+        <item name="drawerColor">#eeeeee</item>
+        <item name="rippleBackport">true</item>
+        <item name="sectionStyle">@style/MySectionTheme</item>
+        <item name="subheaderStyle">@style/MySubheaderTheme</item>
+    </style>
+
+    <style name="MySubheaderTheme">
+        <item name="subheaderTitleColor">#00F</item>
+    </style>
+
+    <style name="MySectionTheme">
+        <item name="sectionColorIcon">#00F</item>
+        <item name="sectionColorText">#000000</item>
+        <item name="sectionColorNotification">#00F</item>
+        <item name="sectionBackgroundColorPressed">#03a9f4</item>
+        <item name="sectionBackgroundColorSelected">#81d4fa</item>
+        <item name="sectionBackgroundColor">#000000FF</item>
+    </style>
+
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+
+
+    <style name="check_linearlayout_right">
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginRight">15dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:background">@drawable/check_linearlayout_selector</item>
+
+    </style>
+
+
+
+
+    <style name="check_linearlayout_left">
+        <item name="android:paddingTop">15dp</item>
+        <item name="android:paddingBottom">15dp</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+        <item name="android:background">@drawable/check_linearlayout_selector</item>
+    </style>
+
+    <style name="check_linearlayout_top">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">15dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+
+
+    <style name="check_ll_image">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_height">80dp</item>
+    </style>
+
+    <style name="check_ll_text">
+        <item name="android:textColor">@color/material_blue_500</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+
+</resources>

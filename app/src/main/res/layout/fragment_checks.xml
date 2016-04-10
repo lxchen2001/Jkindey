@@ -1,0 +1,167 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_background"
+    android:orientation="vertical"
+    tools:context="com.liji.jkidney.fragment.FragmentChecks">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/ic_banner_1"
+        android:visibility="gone"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/check_linearlayout_top">
+
+                <LinearLayout
+                    android:id="@+id/check_ll_gangongneng"
+                    style="@style/check_linearlayout_left">
+
+                    <ImageView
+                        style="@style/check_ll_image"
+                        android:background="@drawable/ic_xueye"/>
+
+                    <TextView
+                        style="@style/check_ll_text"
+                        android:text="@string/check_gangongneng"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/check_ll_shengongneng"
+                    style="@style/check_linearlayout_right">
+
+                    <ImageView
+                        style="@style/check_ll_image"
+                        android:background="@drawable/ic_shengongneng"/>
+
+                    <TextView
+                        style="@style/check_ll_text"
+                        android:text="@string/check_shengongneng"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/check_linearlayout_top">
+
+                <LinearLayout
+                    android:id="@+id/check_ll_niaodanbai"
+                    style="@style/check_linearlayout_left">
+
+                    <ImageView
+                        style="@style/check_ll_image"
+                        android:background="@drawable/ic_niaodanbai"/>
+
+                    <TextView
+                        style="@style/check_ll_text"
+                        android:text="@string/check_niaodanbai"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/check_ll_niaochanggui"
+                    style="@style/check_linearlayout_right">
+
+                    <ImageView
+                        style="@style/check_ll_image"
+                        android:background="@drawable/ic_niaochanggui"/>
+
+                    <TextView
+                        style="@style/check_ll_text"
+                        android:text="@string/check_niaochanggui"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/check_linearlayout_top">
+
+                <LinearLayout
+                    android:id="@+id/check_ll_niaosixiang"
+                    style="@style/check_linearlayout_left">
+
+                    <ImageView
+                        style="@style/check_ll_image"
+                        android:background="@drawable/ic_niaosixiang"/>
+
+                    <TextView
+                        style="@style/check_ll_text"
+                        android:text="@string/check_niaosixiang"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/check_ll_tizhong"
+                    style="@style/check_linearlayout_right">
+
+                    <ImageView
+                        style="@style/check_ll_image"
+                        android:background="@drawable/ic_tizhong"/>
+
+                    <TextView
+                        style="@style/check_ll_text"
+                        android:text="@string/check_tizhong"
+                        />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/check_linearlayout_top"
+                android:layout_marginBottom="15dp">
+
+                <LinearLayout
+                    android:id="@+id/check_ll_xuetang"
+                    style="@style/check_linearlayout_left">
+
+                    <ImageView
+                        style="@style/check_ll_image"
+                        android:background="@drawable/ic_xuetang"/>
+
+                    <TextView
+                        style="@style/check_ll_text"
+                        android:text="@string/check_xuetang"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/check_ll_xueya"
+                    style="@style/check_linearlayout_right">
+
+                    <ImageView
+                        style="@style/check_ll_image"
+                        android:background="@drawable/ic_xueya"/>
+
+                    <TextView
+                        style="@style/check_ll_text"
+                        android:text="@string/check_xueya"/>
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

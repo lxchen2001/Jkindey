@@ -1,0 +1,27 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_background"
+    android:orientation="vertical"
+    tools:context="com.liji.jkidney.fragment.FragmentChecks">
+
+    <GridView
+        android:id="@+id/fragment_checks_gridview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="15dp"
+        android:columnWidth="150dp"
+        android:gravity="center"
+        android:horizontalSpacing="15dp"
+        android:numColumns="2"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        android:scrollbars="none"
+        android:stretchMode="spacingWidth"
+        android:verticalSpacing="15dp"
+        />
+
+
+</LinearLayout>
