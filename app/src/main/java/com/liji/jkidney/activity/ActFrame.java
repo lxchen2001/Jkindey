@@ -1,6 +1,5 @@
 package com.liji.jkidney.activity;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,17 +44,6 @@ public class ActFrame extends MaterialNavigationDrawer {
         ImageView img_headview = (ImageView) view.findViewById(R.id.img_user);
         TextView tv_name = (TextView) view.findViewById(R.id.tv_username);
         TextView tv_nickname = (TextView) view.findViewById(R.id.tv_nickname);
-//        KUser user=BmobUser.getCurrentUser(this,KUser.class);
-//        tv_name.setText(user.getUsername());
-//        tv_nickname.setText(user.getSignAture());
-////        rl_headimg.setOnClickListener(new View.OnClickListener() {
-////            @Override
-////            public void onClick(View v) {
-////                Intent intent=new Intent();
-////                intent.setClass(ActDrawerMenu.this,ActPersonalCenter.class);
-////                startActivity(intent);
-////            }
-////        });
         return view;
     }
 
