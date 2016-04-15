@@ -8,6 +8,12 @@ tags:
 - APP开发
 ---
 
+博客记录
+1. [APP Jkidney开发记录（一）由来](http://crazyandcoder.github.io/2016/04/10/APP-Jkidney%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/)
+2. [APP Jkidney开发记录（二）项目搭建](http://crazyandcoder.github.io/2016/04/10/APP-Jkidney%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/)
+
+## 写在前面的话
+
 毕业快两年了，一直都想自己开发一款APP。以前在学校的时候也开发过一款APP，参加了一些比赛，虽然获得一些奖项，但还是感觉太菜，估计是在学校里面开发的吧，现在毕业快两年了，也该开发一款自己的APP来检测一下自己目前的水平如何？这款APP其实已经构思了好久了，估计得有1年了，早就想把它实现出来，但是一直都是拖呀拖的，现在已经下决心要将它实现出来，哪怕每天实现一点，总归可以完成的。
 <!--more-->
 
