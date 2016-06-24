@@ -16,6 +16,7 @@ public class FragmentInfo extends Fragment {
 
 
     public FragmentInfo() {
+
     }
 
 
