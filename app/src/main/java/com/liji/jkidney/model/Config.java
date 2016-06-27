@@ -6,7 +6,6 @@ package com.liji.jkidney.model;
  */
 public class Config {
 
-    public static final String APPID = "Sum9BtR9Asw4AQff3BHQqdwi-gzGzoHsz";
-    public static final String APPKEY = "afOHkGdtWdkWQADQ4scz4IE8";
+    public static final String APPID = "a6602b47d442e334677ea662a65293c6";
 
 }
