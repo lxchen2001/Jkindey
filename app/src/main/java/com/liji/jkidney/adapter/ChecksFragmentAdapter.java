@@ -1,88 +1,79 @@
 package com.liji.jkidney.adapter;
 
 import android.content.Context;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.liji.jkidney.R;
+import com.liji.jkidney.model.M_ChcekInfo;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * 检查项目adapters
  * Created by liji on 2016/4/10.
  */
-public class ChecksFragmentAdapter extends BaseAdapter {
+public class ChecksFragmentAdapter extends RecyclerView.Adapter<ChecksFragmentAdapter.ItemTag> {
 
     private Context mContext;
     private LayoutInflater mInflater;
+    List<M_ChcekInfo> m_chcekInfos = new ArrayList<>();
 
 
-    private String[] mChecksNames = {"肝功能", "肾功能", "尿蛋白", "尿常规", "尿四项", "体重", "血糖", "血压"};
-    private int[] mChecksResId = {R.drawable.ic_xueye, R.drawable.ic_shengongneng,
-            R.drawable.ic_niaodanbai, R.drawable.ic_niaochanggui,
-            R.drawable.ic_niaosixiang, R.drawable.ic_tizhong,
-            R.drawable.ic_xuetang, R.drawable.ic_xueya};
-
-    public ChecksFragmentAdapter(Context context) {
-
+    public ChecksFragmentAdapter(Context context, List<M_ChcekInfo> m_chcekInfos) {
         this.mContext = context;
         mInflater = LayoutInflater.from(context);
+        this.m_chcekInfos = m_chcekInfos;
+    }
+
+
+    @Override
+    public ItemTag onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.item_checks, parent, false);
+        ItemTag viewHolder = new ItemTag(view);
+        return viewHolder;
     }
 
     @Override
-    public int getCount() {
-        return mChecksNames.length;
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return mChecksNames[position];
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-
-        ItemTag viewTag;
-        if (convertView == null) {
-            convertView = mInflater.inflate(R.layout.item_checks_fragment_gridview, null);
-            viewTag = new ItemTag((LinearLayout) convertView.findViewById(R.id.item_llayout), (ImageView) convertView.findViewById(R.id.item_img), (TextView) convertView.findViewById(R.id.item_txt));
-            convertView.setTag(viewTag);
-        } else {
-            viewTag = (ItemTag) convertView.getTag();
-        }
-
-        viewTag.mCheckImg.setBackgroundResource(mChecksResId[position]);
-        viewTag.mCheckTxt.setText(mChecksNames[position]);
-        viewTag.mCheckLayout.setOnClickListener(new View.OnClickListener() {
+    public void onBindViewHolder(ItemTag holder, final int position) {
+        M_ChcekInfo chcekInfo = m_chcekInfos.get(position);
+        holder.mCheckImg.setBackgroundResource(chcekInfo.getCheckResourceId());
+        holder.mCheckTxt.setText(chcekInfo.getCheckName());
+        holder.mCheckLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext, "" + mChecksNames[position], Toast.LENGTH_LONG).show();
+//                Toast.makeText(mContext, "" + mChecksNames[position], Toast.LENGTH_LONG).show();
             }
         });
 
-
-        return convertView;
     }
 
-    private class ItemTag {
-        LinearLayout mCheckLayout;
+
+    @Override
+    public int getItemCount() {
+        return m_chcekInfos.size();
+    }
+
+
+    public static class ItemTag extends RecyclerView.ViewHolder {
+        RelativeLayout mCheckLayout;
         ImageView mCheckImg;
         TextView mCheckTxt;
+        TextView mCheckContent;
 
-        public ItemTag(LinearLayout mCheckLayout, ImageView mCheckImg, TextView mCheckTxt) {
-            this.mCheckLayout = mCheckLayout;
-            this.mCheckImg = mCheckImg;
-            this.mCheckTxt = mCheckTxt;
+        public ItemTag(View convertView) {
+            super(convertView);
+            this.mCheckLayout = (RelativeLayout) convertView.findViewById(R.id.item_rlayout);
+            this.mCheckImg = (ImageView) convertView.findViewById(R.id.item_img);
+            this.mCheckTxt = (TextView) convertView.findViewById(R.id.item_txt);
+            this.mCheckContent = (TextView) convertView.findViewById(R.id.item_content);
 
         }
     }

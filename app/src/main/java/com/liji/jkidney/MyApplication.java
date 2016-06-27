@@ -4,6 +4,8 @@ import android.app.Application;
 
 import com.liji.jkidney.model.Config;
 
+import org.xutils.x;
+
 import cn.bmob.v3.Bmob;
 
 /**
@@ -16,8 +18,11 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //第一：默认初始化
+        //bmob init
         Bmob.initialize(this, Config.APPID);
+
+        //xutils init
+        x.Ext.init(this);
 
     }
 }

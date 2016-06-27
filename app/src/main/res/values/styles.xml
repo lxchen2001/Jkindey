@@ -42,9 +42,9 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
     <style name="check_linearlayout_right">
@@ -60,8 +60,6 @@
         <item name="android:background">@drawable/check_linearlayout_selector</item>
 
     </style>
-
-
 
 
     <style name="check_linearlayout_left">
@@ -84,8 +82,9 @@
     </style>
 
 
-
     <style name="check_ll_image">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentLeft">true</item>
         <item name="android:layout_width">80dp</item>
         <item name="android:layout_height">80dp</item>
     </style>
@@ -94,8 +93,7 @@
         <item name="android:textColor">@color/material_blue_500</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_marginTop">10dp</item>
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
 

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_rlayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:background="@drawable/item_checkinfo_background_selector"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+    <ImageView
+        android:id="@+id/item_img"
+        style="@style/check_ll_image" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/item_img"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/item_img"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_txt"
+            style="@style/check_ll_text"
+            android:text="尿蛋白" />
+
+        <TextView
+            android:id="@+id/item_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:maxLines="4"
+            android:text="尿内出现蛋白称为蛋白尿，也即尿蛋白。正常尿液中含少量小分子蛋白，普通尿常规检查测不出，当尿中蛋白增加，尿常规检查可以测出即为蛋白尿。蛋白尿是肾脏病的常见表现，全身性疾病亦可出现蛋白尿。"
+            android:textColor="@color/c_999999" />
+
+    </LinearLayout>
+
+
+</RelativeLayout>
