@@ -1,14 +1,31 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             android:background="@color/c_background"
-             tools:context="com.liji.jkidney.fragment.FragmentMy">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/c_background"
+    tools:context="com.liji.jkidney.fragment.FragmentMy">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <com.liji.jkidney.widget.CustomeHeadView
+        android:id="@+id/headview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_height="wrap_content">
 
-</FrameLayout>
+    </com.liji.jkidney.widget.CustomeHeadView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/headview"
+        android:background="@drawable/ic_my_bg">
+
+
+        <com.liji.jkidney.widget.RoundImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:background="@color/colorPrimary" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

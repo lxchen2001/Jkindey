@@ -12,7 +12,7 @@
         android:layout_centerVertical="true"
         android:layout_marginLeft="5dp"
         android:background="@drawable/headview_back_selector"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
 
     <TextView
@@ -22,7 +22,8 @@
         android:layout_centerInParent="true"
         android:text="我的"
         android:textColor="@color/white"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:visibility="invisible" />
 
 
     <TextView
@@ -35,6 +36,6 @@
         android:text="确定"
         android:textColor="@color/white"
         android:textSize="18sp"
-        android:visibility="visible" />
+        android:visibility="invisible" />
 
 </RelativeLayout>

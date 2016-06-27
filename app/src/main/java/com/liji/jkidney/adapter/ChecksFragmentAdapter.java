@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import com.liji.jkidney.R;
 import com.liji.jkidney.model.M_ChcekInfo;
+import com.liji.jkidney.utils.XCallbackListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,14 +24,16 @@ import java.util.List;
 public class ChecksFragmentAdapter extends RecyclerView.Adapter<ChecksFragmentAdapter.ItemTag> {
 
     private Context mContext;
+    private XCallbackListener listener;
     private LayoutInflater mInflater;
     List<M_ChcekInfo> m_chcekInfos = new ArrayList<>();
 
 
-    public ChecksFragmentAdapter(Context context, List<M_ChcekInfo> m_chcekInfos) {
+    public ChecksFragmentAdapter(Context context, List<M_ChcekInfo> m_chcekInfos, XCallbackListener listener) {
         this.mContext = context;
         mInflater = LayoutInflater.from(context);
         this.m_chcekInfos = m_chcekInfos;
+        this.listener = listener;
     }
 
 
@@ -46,10 +49,11 @@ public class ChecksFragmentAdapter extends RecyclerView.Adapter<ChecksFragmentAd
         M_ChcekInfo chcekInfo = m_chcekInfos.get(position);
         holder.mCheckImg.setBackgroundResource(chcekInfo.getCheckResourceId());
         holder.mCheckTxt.setText(chcekInfo.getCheckName());
+        holder.mCheckContent.setText("" + chcekInfo.getCheckContent());
         holder.mCheckLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Toast.makeText(mContext, "" + mChecksNames[position], Toast.LENGTH_LONG).show();
+                listener.call(position);
             }
         });
 
