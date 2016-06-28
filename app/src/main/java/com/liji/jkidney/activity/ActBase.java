@@ -15,10 +15,13 @@ public abstract class ActBase extends FragmentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
+        create(savedInstanceState);
         initView(savedInstanceState);
         setData(savedInstanceState);
 
     }
+
+    abstract void create(Bundle savedInstanceState);
 
     abstract int getLayoutId();
 

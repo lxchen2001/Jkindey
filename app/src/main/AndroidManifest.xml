@@ -30,7 +30,8 @@
             android:name=".activity.ActFrame"
             android:theme="@style/MyNavigationDrawerTheme" />
         <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.ActLifeHealthy"></activity>
+        <activity android:name=".activity.ActLifeHealthy" />
+        <activity android:name=".activity.ActWebShow"></activity>
     </application>
 
 </manifest>

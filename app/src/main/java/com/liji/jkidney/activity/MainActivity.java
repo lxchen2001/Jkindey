@@ -29,6 +29,11 @@ public class MainActivity extends ActBase {
 
 
     @Override
+    void create(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     int getLayoutId() {
         return R.layout.activity_main;
     }
