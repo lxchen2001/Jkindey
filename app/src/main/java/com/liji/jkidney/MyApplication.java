@@ -2,6 +2,7 @@ package com.liji.jkidney;
 
 import android.app.Application;
 
+import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.liji.jkidney.model.Config;
 
 
@@ -24,6 +25,9 @@ public class MyApplication extends Application {
 
         //xutils init
         x.Ext.init(this);
+
+        //ApiStoreSDK
+        ApiStoreSDK.init(this, Config.ApiStoreSDKID);
 
     }
 }

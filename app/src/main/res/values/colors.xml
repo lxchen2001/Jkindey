@@ -15,11 +15,13 @@
     <color name="text_time">#666666</color>
     <color name="line">#999999</color>
     <color name="c_999999">#999999</color>
+    <color name="c_333333">#333333</color>
     <color name="material_blue_500">#03a9f4</color>
     <color name="material_blue_700">#0288d1</color>
     <color name="half_transparent">#20000000</color>
     <color name="transparent">#00000000</color>
     <color name="material_grey_900">#212121</color>
     <color name="material_blue_personal_center_bg">#0091ea</color>
-    <color name="c_background">#e9e9e9</color>
+    <color name="c_background">#f4f5f6</color>
+    <color name="c_common_bg_selected">#EEEEEE</color>
 </resources>
