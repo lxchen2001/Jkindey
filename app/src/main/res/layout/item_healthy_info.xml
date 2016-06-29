@@ -18,7 +18,7 @@
         android:layout_height="75dp"
         android:layout_centerVertical="true"
         android:layout_marginTop="3dp"
-        android:background="@drawable/ic_test" />
+        android:scaleType="fitXY" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -33,7 +33,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLines="2"
-            android:text="健康热点资讯，科学传播，拒绝谣言"
             android:textColor="@color/c_333333" />
 
         <TextView
@@ -42,10 +41,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/item_title"
             android:maxLines="2"
-            android:text="挂号 预约 医院 患者 窗口"
+            android:layout_marginTop="1dp"
             android:textColor="@color/c_999999"
             android:textSize="12sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
 
         <TextView
@@ -56,7 +55,6 @@
             android:layout_marginBottom="2dp"
             android:layout_marginLeft="3dp"
             android:layout_toRightOf="@+id/item_img_read"
-            android:text="500"
             android:textColor="@color/c_999999"
             android:textSize="10sp" />
 
@@ -76,7 +74,6 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_marginBottom="2dp"
-            android:text="2015-12-24 12:51"
             android:textColor="@color/c_999999"
             android:textSize="10sp" />
     </RelativeLayout>

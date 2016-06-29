@@ -29,7 +29,8 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.ActLifeHealthy" />
         <activity android:name=".activity.ActWebShow" />
-        <activity android:name=".activity.ActHealthyInfo"></activity>
+        <activity android:name=".activity.ActHealthyInfo" />
+        <activity android:name=".activity.ActInfoShowDetail"></activity>
     </application>
 
 </manifest>

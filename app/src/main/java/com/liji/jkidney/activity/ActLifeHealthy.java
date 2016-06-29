@@ -69,7 +69,14 @@ public class ActLifeHealthy extends ActBase implements SwipeRefreshLayout.OnRefr
             }
         });
 
-        reLoadData();
+
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(true);
+                reLoadData();
+            }
+        });
     }
 
     @Override
@@ -162,6 +169,7 @@ public class ActLifeHealthy extends ActBase implements SwipeRefreshLayout.OnRefr
 
     @Override
     public void onRefresh() {
+        JLogUtils.D("onRefresh");
         reLoadData();
     }
 

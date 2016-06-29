@@ -16,6 +16,7 @@ import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.baidu.apistore.sdk.network.Parameters;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
+import com.liji.jkidney.activity.ActInfoShowDetail;
 import com.liji.jkidney.activity.ActWebShow;
 import com.liji.jkidney.adapter.HealthyInfoAda;
 import com.liji.jkidney.adapter.LifeHealthyInfoAda;
@@ -86,11 +87,11 @@ public class FragmentHealthyInfoViewPager extends FragmentBase implements SwipeR
         healthyInfoAda.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int i) {
-                M_Life_Healthy life_healthy = (M_Life_Healthy) healthyInfoAda.getData().get(i);
+                M_HealthyInfoList life_healthy = (M_HealthyInfoList) healthyInfoAda.getData().get(i);
                 Intent intent = new Intent();
-                intent.setClass(getContext(), ActWebShow.class);
+                intent.setClass(getContext(), ActInfoShowDetail.class);
                 intent.putExtra("title", "" + life_healthy.getTitle());
-                intent.putExtra("url", "" + life_healthy.getUrl());
+                intent.putExtra("id", "" + life_healthy.getId());
                 startActivity(intent);
             }
         });
@@ -101,8 +102,14 @@ public class FragmentHealthyInfoViewPager extends FragmentBase implements SwipeR
         //加载更多
         healthyInfoAda.openLoadMore(10, true);
         healthyInfoAda.setOnLoadMoreListener(this);
-        reLoadData();
 
+        swipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                swipeRefreshLayout.setRefreshing(true);
+                reLoadData();
+            }
+        });
 
         return view;
     }

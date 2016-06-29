@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.liji.jkidney.model.M_Common;
+import com.liji.jkidney.model.M_HealthyInfoShow;
 import com.liji.jkidney.model.M_J_HealthInfoClassicfy;
 
 import org.json.JSONException;
@@ -60,13 +61,29 @@ public class JSONHandleUtils {
             if (classicfy.isStatus()) {
                 return getObjectList(classicfy.getTngou(), cls);
             }
-        } else if (type==2){
+        } else if (type == 2) {
             M_J_HealthInfoClassicfy classicfy = JSONUtils.deserialize(jsonString, M_J_HealthInfoClassicfy.class);
             if (classicfy.isStatus()) {
                 return getObjectList(classicfy.getTngou(), cls);
             }
         }
         return null;
+    }
+
+    /**
+     * 获取健康咨询详情
+     *
+     * @param jsonString
+     * @return
+     * @throws JSONException
+     */
+    public static String getInfoDetailUrl(String jsonString) throws JSONException {
+        M_HealthyInfoShow baseData = JSONUtils.deserialize(jsonString, M_HealthyInfoShow.class);
+        if (!baseData.isStatus()) {
+            //后台有异常，当未做提示；测试阶段可提示数据异常，正式环境不做任何处理
+            throw new JSONException("数据异常");
+        }
+        return baseData.getUrl();
     }
 
     public static <T> List<T> getObjectList(String jsonString, Class<T> cls) {
