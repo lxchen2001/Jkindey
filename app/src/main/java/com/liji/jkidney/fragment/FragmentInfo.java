@@ -9,18 +9,18 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
+import com.liji.jkidney.activity.ActHealthyInfo;
 import com.liji.jkidney.activity.ActLifeHealthy;
-import com.liji.jkidney.adapter.ChecksFragmentAdapter;
-import com.liji.jkidney.adapter.InfoFragmentAdapter;
-import com.liji.jkidney.model.M_ChcekInfo;
+import com.liji.jkidney.adapter.InfoAda;
 import com.liji.jkidney.model.M_Info;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
+
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +36,7 @@ public class FragmentInfo extends FragmentBase {
     @ViewInject(R.id.headview)
     CustomeHeadView headView;
 
-    InfoFragmentAdapter infoFragmentAdapter;
+    InfoAda infoAdapter;
     List<M_Info> infos = new ArrayList<>();
 
     private String[] mNewsType = {"生活健康", "健康资讯", "健康知识"};
@@ -64,7 +64,7 @@ public class FragmentInfo extends FragmentBase {
     @Override
     public View getOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_index, container, false);
-        ViewUtils.inject(this, view);
+        x.view().inject(this, view);
         headView.setTitle("资讯");
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
@@ -73,21 +73,35 @@ public class FragmentInfo extends FragmentBase {
 
         infos = getInfoList();
 
-        infoFragmentAdapter = new InfoFragmentAdapter(getContext(), infos, new XCallbackListener() {
+        infoAdapter = new InfoAda(infos);
+        infoAdapter.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
-            protected void callback(Object... obj) {
-                int pos = (Integer) obj[0];
+            public void onItemClick(View view, int i) {
                 Intent go = new Intent();
-                switch (pos) {
-                    case 0:
+                switch (i) {
+                    case 0://生活健康
                         go.setClass(getContext(), ActLifeHealthy.class);
-                        go.putExtra("title", mNewsType[pos]);
+                        go.putExtra("title", mNewsType[i]);
+                        getContext().startActivity(go);
+                        break;
+
+                    case 1://健康资讯
+                        go.setClass(getContext(), ActHealthyInfo.class);
+                        go.putExtra("title", mNewsType[i]);
+                        getContext().startActivity(go);
+                        break;
+
+                    case 2://健康知识
+                        go.setClass(getContext(), ActHealthyInfo.class);
+                        go.putExtra("title", mNewsType[i]);
                         getContext().startActivity(go);
                         break;
                 }
             }
+
         });
-        recyclerView.setAdapter(infoFragmentAdapter);
+
+        recyclerView.setAdapter(infoAdapter);
         return view;
     }
 

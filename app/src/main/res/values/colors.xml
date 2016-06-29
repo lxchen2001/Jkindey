@@ -24,4 +24,5 @@
     <color name="material_blue_personal_center_bg">#0091ea</color>
     <color name="c_background">#f4f5f6</color>
     <color name="c_common_bg_selected">#EEEEEE</color>
+    <color name="background_window">#FFE5E5E5</color>
 </resources>

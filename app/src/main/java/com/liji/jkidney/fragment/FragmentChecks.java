@@ -8,17 +8,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.GridView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 import com.liji.jkidney.R;
-import com.liji.jkidney.adapter.ChecksFragmentAdapter;
+import com.liji.jkidney.adapter.ChecksAda;
 import com.liji.jkidney.model.M_ChcekInfo;
-import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
+
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +32,7 @@ public class FragmentChecks extends FragmentBase {
     @ViewInject(R.id.headview)
     CustomeHeadView headView;
 
-    ChecksFragmentAdapter mChecksFragmentAdapter;
+    ChecksAda checksAda;
     List<M_ChcekInfo> m_chcekInfos = new ArrayList<>();
 
     private String[] mChecksNames = {"肝功能", "肾功能", "尿蛋白", "尿常规", "体重", "血糖", "血压"};
@@ -72,7 +69,7 @@ public class FragmentChecks extends FragmentBase {
     @Override
     public View getOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_checks_gridview, container, false);
-        ViewUtils.inject(this, view);
+        x.view().inject(this, view);
 
         headView.setTitle("检查");
 
@@ -82,14 +79,8 @@ public class FragmentChecks extends FragmentBase {
 
         m_chcekInfos = getM_chcekInfos();
 
-        mChecksFragmentAdapter = new ChecksFragmentAdapter(getContext(), m_chcekInfos, new XCallbackListener() {
-            @Override
-            protected void callback(Object... obj) {
-                int pos = (Integer) obj[0];
-                Toast.makeText(getContext(), "" + mCheckContents[pos], Toast.LENGTH_LONG).show();
-            }
-        });
-        recyclerView.setAdapter(mChecksFragmentAdapter);
+        checksAda = new ChecksAda(m_chcekInfos);
+        recyclerView.setAdapter(checksAda);
 
         return view;
     }

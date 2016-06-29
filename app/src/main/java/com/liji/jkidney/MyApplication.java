@@ -4,6 +4,9 @@ import android.app.Application;
 
 import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.liji.jkidney.model.Config;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 
 import org.xutils.x;
@@ -29,5 +32,26 @@ public class MyApplication extends Application {
         //ApiStoreSDK
         ApiStoreSDK.init(this, Config.ApiStoreSDKID);
 
+
+        //设置图片加载方式
+        initImageLoader();
+
+
+    }
+
+    /**
+     * 设置图片加载方式
+     */
+    private void initImageLoader() {
+        DisplayImageOptions defaultOptions = new DisplayImageOptions.Builder().cacheInMemory(true)
+                .cacheOnDisc(true)
+                .build();
+        ImageLoaderConfiguration config = new ImageLoaderConfiguration.Builder(getApplicationContext())
+                .defaultDisplayImageOptions(defaultOptions)
+                .discCacheSize(50 * 1024 * 1024)//
+                .discCacheFileCount(100)//缓存一百张图片
+                .writeDebugLogs()
+                .build();
+        ImageLoader.getInstance().init(config);
     }
 }

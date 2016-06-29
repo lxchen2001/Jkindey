@@ -14,16 +14,11 @@ public abstract class ActBase extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(getLayoutId());
-        create(savedInstanceState);
+        x.view().inject(this);
         initView(savedInstanceState);
         setData(savedInstanceState);
-
     }
 
-    abstract void create(Bundle savedInstanceState);
-
-    abstract int getLayoutId();
 
     abstract void initView(Bundle savedInstanceState);
 

@@ -18,6 +18,9 @@ allprojects {
         jcenter()
         //Bmob的maven仓库地址--必填
         maven { url "https://raw.github.com/bmob/bmob-android-sdk/master" }
+
+        //https://github.com/CymChad/BaseRecyclerViewAdapterHelper/blob/master/README-cn.md
+        maven { url "https://jitpack.io" }
     }
 }
 

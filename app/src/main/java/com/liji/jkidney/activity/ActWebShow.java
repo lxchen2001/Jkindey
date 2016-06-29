@@ -1,29 +1,54 @@
 package com.liji.jkidney.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.liji.jkidney.R;
+import com.liji.jkidney.utils.XCallbackListener;
+import com.liji.jkidney.widget.CustomeHeadView;
+import com.liji.jkidney.widget.SuperWebView;
 
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
+
+@ContentView(R.layout.activity_act_web_show)
 public class ActWebShow extends ActBase {
 
-    @Override
-    void create(Bundle savedInstanceState) {
+    @ViewInject(R.id.webview)
+    SuperWebView webView;
 
-    }
+    @ViewInject(R.id.headview)
+    CustomeHeadView headView;
+
+    private String title;
+    private String url;
 
     @Override
-    int getLayoutId() {
-        return R.layout.activity_act_web_show;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     void initView(Bundle savedInstanceState) {
+
+        title = this.getIntent().getStringExtra("title");
+        url = this.getIntent().getStringExtra("url");
+
+        headView.setTitle("" + title);
+        headView.setBack(new XCallbackListener() {
+            @Override
+            protected void callback(Object... obj) {
+                finish();
+            }
+        });
+
+        webView.loadUrl(url);
 
     }
 
     @Override
     void setData(Bundle savedInstanceState) {
 
+
     }
+
 }

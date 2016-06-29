@@ -7,12 +7,13 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.lidroid.xutils.ViewUtils;
-import com.lidroid.xutils.view.annotation.ViewInject;
 import com.liji.jkidney.R;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
 import com.liji.jkidney.widget.RoundImageView;
+
+import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 public class FragmentMy extends FragmentBase {
 
@@ -37,7 +38,7 @@ public class FragmentMy extends FragmentBase {
     public View getOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_my, container, false);
-        ViewUtils.inject(this, view);
+        x.view().inject(this, view);
 
         headView.setTitle("我的");
         headView.setRightImgAction(R.drawable.my_edit_selector, new XCallbackListener() {

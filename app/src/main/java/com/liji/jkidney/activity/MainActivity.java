@@ -1,48 +1,37 @@
 package com.liji.jkidney.activity;
 
-import android.app.Activity;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.os.PersistableBundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentActivity;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
-import com.lidroid.xutils.view.annotation.ViewInject;
 import com.liji.jkidney.R;
 import com.liji.jkidney.adapter.BottomTabViewPagerAdapter;
 
-import org.xutils.x;
+import org.xutils.view.annotation.ContentView;
+import org.xutils.view.annotation.ViewInject;
 
 import java.util.ArrayList;
 
-
+@ContentView(R.layout.activity_main)
 public class MainActivity extends ActBase {
 
     private BottomTabViewPagerAdapter adapter;
     private ArrayList<AHBottomNavigationItem> bottomNavigationItems = new ArrayList<>();
     // UI
+    @ViewInject(R.id.view_pager)
     private AHBottomNavigationViewPager viewPager;
+
+    @ViewInject(R.id.bottom_navigation)
     private AHBottomNavigation bottomNavigation;
 
-
     @Override
-    void create(Bundle savedInstanceState) {
-
-    }
-
-    @Override
-    int getLayoutId() {
-        return R.layout.activity_main;
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
     void initView(Bundle savedInstanceState) {
-        bottomNavigation = (AHBottomNavigation) findViewById(R.id.bottom_navigation);
-        viewPager = (AHBottomNavigationViewPager) findViewById(R.id.view_pager);
-
         AHBottomNavigationItem infoItem = new AHBottomNavigationItem(getResources().getString(R.string.fragment_info), R.drawable.ic_menu_jingxuan_sel);
         AHBottomNavigationItem checkItem = new AHBottomNavigationItem(getResources().getString(R.string.fragment_checks), R.drawable.ic_menu_jiancha_sel);
         AHBottomNavigationItem myItem = new AHBottomNavigationItem(getResources().getString(R.string.fragment_my), R.drawable.ic_menu_my_sel);
@@ -54,7 +43,7 @@ public class MainActivity extends ActBase {
         bottomNavigation.addItems(bottomNavigationItems);
         adapter = new BottomTabViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
-        
+
         bottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override
             public boolean onTabSelected(int position, boolean wasSelected) {
@@ -68,4 +57,6 @@ public class MainActivity extends ActBase {
     void setData(Bundle savedInstanceState) {
 
     }
+
+
 }

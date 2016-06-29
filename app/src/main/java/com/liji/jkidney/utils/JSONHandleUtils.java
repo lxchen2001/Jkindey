@@ -5,6 +5,7 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.liji.jkidney.model.M_Common;
+import com.liji.jkidney.model.M_J_HealthInfoClassicfy;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,6 +47,27 @@ public class JSONHandleUtils {
         return getObjectList(baseData.getNewslist(), cls);
     }
 
+
+    public static <T> List<T> parseResponseArray(String jsonString, Class<T> cls, int type) throws JSONException {
+        if (type == 0) {
+            M_Common baseData = JSONUtils.deserialize(jsonString, M_Common.class);
+            if (baseData.getCode() != 200) {
+                throw new JSONException(baseData.getMsg());
+            }
+            return getObjectList(baseData.getNewslist(), cls);
+        } else if (type == 1) {//健康资讯总类
+            M_J_HealthInfoClassicfy classicfy = JSONUtils.deserialize(jsonString, M_J_HealthInfoClassicfy.class);
+            if (classicfy.isStatus()) {
+                return getObjectList(classicfy.getTngou(), cls);
+            }
+        } else if (type==2){
+            M_J_HealthInfoClassicfy classicfy = JSONUtils.deserialize(jsonString, M_J_HealthInfoClassicfy.class);
+            if (classicfy.isStatus()) {
+                return getObjectList(classicfy.getTngou(), cls);
+            }
+        }
+        return null;
+    }
 
     public static <T> List<T> getObjectList(String jsonString, Class<T> cls) {
         return JSON.parseArray(jsonString, cls);

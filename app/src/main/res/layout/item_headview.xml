@@ -18,10 +18,12 @@
 
     <TextView
         android:id="@+id/item_head_tv_title"
-        android:layout_width="wrap_content"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="我的"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="2"
         android:textColor="@color/white"
         android:textSize="20sp"
         android:visibility="invisible" />

@@ -1,108 +1,112 @@
-package com.liji.jkidney.activity;
+package com.liji.jkidney.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.baidu.apistore.sdk.ApiCallBack;
 import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.baidu.apistore.sdk.network.Parameters;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
+import com.liji.jkidney.activity.ActWebShow;
+import com.liji.jkidney.adapter.HealthyInfoAda;
 import com.liji.jkidney.adapter.LifeHealthyInfoAda;
+import com.liji.jkidney.model.M_HealthyInfoList;
 import com.liji.jkidney.model.M_Life_Healthy;
 import com.liji.jkidney.model.URL;
 import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JSONHandleUtils;
-import com.liji.jkidney.utils.XCallbackListener;
-import com.liji.jkidney.widget.CustomeHeadView;
 
 import org.json.JSONException;
-import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
+import org.xutils.x;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@ContentView(R.layout.activity_act_life_healthy)
-public class ActLifeHealthy extends ActBase implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
+/**
+ * 作者：liji on 2016/6/29 16:19
+ * 邮箱：lijiwork@sina.com
+ */
+public class FragmentHealthyInfoViewPager extends FragmentBase implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
 
+    private static final String ARG_ID = "id";
 
-    @ViewInject(R.id.swipeLayout)
-    SwipeRefreshLayout swipeRefreshLayout;
+    private int id;
 
     @ViewInject(R.id.rlv_content)
     RecyclerView recyclerView;
 
-    @ViewInject(R.id.headview)
-    CustomeHeadView headView;
-
-    LifeHealthyInfoAda lifeHealthyInfoAda;
+    @ViewInject(R.id.swipeLayout)
+    SwipeRefreshLayout swipeRefreshLayout;
 
     boolean isRefresh = true;
-    String title = "";
 
     //分页
     private int page = 1;
 
     //每页加载文章的数量
-    private int num = 10;
+    private int num = 20;
 
-    List<M_Life_Healthy> life_healthies = new ArrayList<>();
+    List<M_HealthyInfoList> healthyInfoLists = new ArrayList<>();
+    HealthyInfoAda healthyInfoAda;
+
+    public static FragmentHealthyInfoViewPager newInstance(int id) {
+        FragmentHealthyInfoViewPager f = new FragmentHealthyInfoViewPager();
+        Bundle b = new Bundle();
+        b.putInt(ARG_ID, id);
+        f.setArguments(b);
+        return f;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        id = this.getArguments().getInt(ARG_ID);
     }
 
     @Override
-    void initView(Bundle savedInstanceState) {
-        title = this.getIntent().getStringExtra("title");
-        headView.setTitle("" + title);
-        headView.setBack(new XCallbackListener() {
-            @Override
-            protected void callback(Object... obj) {
-                finish();
-            }
-        });
-
-        reLoadData();
-    }
-
-    @Override
-    void setData(Bundle savedInstanceState) {
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(ActLifeHealthy.this);
+    public View getOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_healthyinfo_viewpager, container, false);
+        x.view().inject(this, view);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
-        lifeHealthyInfoAda = new LifeHealthyInfoAda(life_healthies);
-        lifeHealthyInfoAda.openLoadAnimation();
-        lifeHealthyInfoAda.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
+        healthyInfoAda = new HealthyInfoAda(healthyInfoLists);
+        healthyInfoAda.openLoadAnimation();
+        healthyInfoAda.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int i) {
-                M_Life_Healthy life_healthy = (M_Life_Healthy) lifeHealthyInfoAda.getData().get(i);
+                M_Life_Healthy life_healthy = (M_Life_Healthy) healthyInfoAda.getData().get(i);
                 Intent intent = new Intent();
-                intent.setClass(ActLifeHealthy.this, ActWebShow.class);
+                intent.setClass(getContext(), ActWebShow.class);
                 intent.putExtra("title", "" + life_healthy.getTitle());
                 intent.putExtra("url", "" + life_healthy.getUrl());
                 startActivity(intent);
             }
         });
-        recyclerView.setAdapter(lifeHealthyInfoAda);
+        recyclerView.setAdapter(healthyInfoAda);
         //上拉刷新
         swipeRefreshLayout.setOnRefreshListener(this);
 
         //加载更多
-        lifeHealthyInfoAda.openLoadMore(10, true);
-        lifeHealthyInfoAda.setOnLoadMoreListener(this);
+        healthyInfoAda.openLoadMore(10, true);
+        healthyInfoAda.setOnLoadMoreListener(this);
+        reLoadData();
+
+
+        return view;
     }
 
-    /**
-     * 刷新数据
-     */
     private void reLoadData() {
         page = 1;
         isRefresh = true;
@@ -118,6 +122,7 @@ public class ActLifeHealthy extends ActBase implements SwipeRefreshLayout.OnRefr
         requestData(page);
     }
 
+
     /**
      * 请求数据
      *
@@ -125,9 +130,10 @@ public class ActLifeHealthy extends ActBase implements SwipeRefreshLayout.OnRefr
      */
     private void requestData(int page) {
         Parameters para = new Parameters();
-        para.put("num", "10");
+        para.put("id", id);
+        para.put("rows", "20");
         para.put("page", "" + page);
-        ApiStoreSDK.execute(URL.url_life_healthy,
+        ApiStoreSDK.execute(URL.url_news_list,
                 ApiStoreSDK.GET,
                 para,
                 new ApiCallBack() {
@@ -136,16 +142,16 @@ public class ActLifeHealthy extends ActBase implements SwipeRefreshLayout.OnRefr
                     public void onSuccess(int status, String responseString) {
                         JLogUtils.Json(responseString);
                         try {
-                            life_healthies = JSONHandleUtils.parseResponseArray(responseString, M_Life_Healthy.class);
+                            healthyInfoLists = JSONHandleUtils.parseResponseArray(responseString, M_HealthyInfoList.class, 2);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
                         if (isRefresh) {
-                            lifeHealthyInfoAda.setNewData(life_healthies);
+                            healthyInfoAda.setNewData(healthyInfoLists);
                             swipeRefreshLayout.setRefreshing(false);
                         } else {
-                            lifeHealthyInfoAda.notifyDataChangedAfterLoadMore(life_healthies, true);
+                            healthyInfoAda.notifyDataChangedAfterLoadMore(healthyInfoLists, true);
                         }
                     }
 
