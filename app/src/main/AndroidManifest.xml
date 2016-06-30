@@ -30,7 +30,8 @@
         <activity android:name=".activity.ActLifeHealthy" />
         <activity android:name=".activity.ActWebShow" />
         <activity android:name=".activity.ActHealthyInfo" />
-        <activity android:name=".activity.ActInfoShowDetail"></activity>
+        <activity android:name=".activity.ActInfoShowDetail" />
+        <activity android:name=".activity.ActHealthyKnowledge"></activity>
     </application>
 
 </manifest>

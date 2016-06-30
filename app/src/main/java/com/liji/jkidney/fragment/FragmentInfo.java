@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActHealthyInfo;
+import com.liji.jkidney.activity.ActHealthyKnowledge;
 import com.liji.jkidney.activity.ActLifeHealthy;
 import com.liji.jkidney.adapter.InfoAda;
 import com.liji.jkidney.model.M_Info;
@@ -92,7 +93,7 @@ public class FragmentInfo extends FragmentBase {
                         break;
 
                     case 2://健康知识
-                        go.setClass(getContext(), ActHealthyInfo.class);
+                        go.setClass(getContext(), ActHealthyKnowledge.class);
                         go.putExtra("title", mNewsType[i]);
                         getContext().startActivity(go);
                         break;

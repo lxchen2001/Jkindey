@@ -30,6 +30,8 @@ public class ActInfoShowDetail extends ActBase {
 
     private String title;
     private String id;
+    private int type;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,10 @@ public class ActInfoShowDetail extends ActBase {
     void initView(Bundle savedInstanceState) {
         title = this.getIntent().getStringExtra("title");
         id = this.getIntent().getStringExtra("id");
+        type = this.getIntent().getIntExtra("type", 1);
+
+        //根据总类或者相应的URL
+        url = getUrl(type);
 
         headView.setTitle("" + title);
         headView.setBack(new XCallbackListener() {
@@ -49,19 +55,37 @@ public class ActInfoShowDetail extends ActBase {
             }
         });
 
-
         requestData(id);
 
     }
 
     /**
-     * 请求数据
+     * 根据总类或者相应的URL
      *
+     * @param type
+     * @return
+     */
+    private String getUrl(int type) {
+        String urlDeafult = null;
+        switch (type) {
+            case 1://健康知识
+                urlDeafult = URL.url_knowledge_show;
+                break;
+
+            case 2://健康信息
+                urlDeafult = URL.url_news_show;
+                break;
+        }
+        return urlDeafult;
+    }
+
+    /**
+     * 请求数据
      */
     private void requestData(String id) {
         Parameters para = new Parameters();
         para.put("id", id);
-        ApiStoreSDK.execute(URL.url_news_show,
+        ApiStoreSDK.execute(url,
                 ApiStoreSDK.GET,
                 para,
                 new ApiCallBack() {
@@ -70,8 +94,13 @@ public class ActInfoShowDetail extends ActBase {
                     public void onSuccess(int status, String responseString) {
                         JLogUtils.Json(responseString);
                         try {
-                            String url = JSONHandleUtils.getInfoDetailUrl(responseString);
-                            webView.loadUrl(url);
+                            String urlDetail = null;
+                            if (type == 1) {//健康知识
+                                urlDetail = JSONHandleUtils.getKnowledgeDetailUrl(responseString);
+                            } else if (type == 2) {//健康信息
+                                urlDetail = JSONHandleUtils.getInfoDetailUrl(responseString);
+                            }
+                            webView.loadUrl(urlDetail);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         } catch (Exception e) {

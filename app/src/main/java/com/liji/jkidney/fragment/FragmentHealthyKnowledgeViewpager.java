@@ -3,7 +3,6 @@ package com.liji.jkidney.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,11 +16,10 @@ import com.baidu.apistore.sdk.network.Parameters;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActInfoShowDetail;
-import com.liji.jkidney.activity.ActWebShow;
 import com.liji.jkidney.adapter.HealthyInfoAda;
-import com.liji.jkidney.adapter.LifeHealthyInfoAda;
+import com.liji.jkidney.adapter.HealthyKnowledgeAda;
 import com.liji.jkidney.model.M_HealthyInfoList;
-import com.liji.jkidney.model.M_Life_Healthy;
+import com.liji.jkidney.model.M_HealthyKnowledgeList;
 import com.liji.jkidney.model.URL;
 import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JSONHandleUtils;
@@ -34,10 +32,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 作者：liji on 2016/6/29 16:19
- * 邮箱：lijiwork@sina.com
+ * 健康知识每个tab对应下面的fragment
  */
-public class FragmentHealthyInfoViewPager extends FragmentBase implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
+public class FragmentHealthyKnowledgeViewpager extends FragmentBase  implements SwipeRefreshLayout.OnRefreshListener, BaseQuickAdapter.RequestLoadMoreListener {
 
     private static final String ARG_ID = "id";
 
@@ -57,16 +54,22 @@ public class FragmentHealthyInfoViewPager extends FragmentBase implements SwipeR
     //每页加载文章的数量
     private int num = 20;
 
-    List<M_HealthyInfoList> healthyInfoLists = new ArrayList<>();
-    HealthyInfoAda healthyInfoAda;
+    List<M_HealthyKnowledgeList> healthyInfoLists = new ArrayList<>();
+    HealthyKnowledgeAda healthyKnowledgeAda;
 
-    public static FragmentHealthyInfoViewPager newInstance(int id) {
-        FragmentHealthyInfoViewPager f = new FragmentHealthyInfoViewPager();
+
+
+    public FragmentHealthyKnowledgeViewpager() {
+    }
+
+    public static FragmentHealthyKnowledgeViewpager newInstance(int id) {
+        FragmentHealthyKnowledgeViewpager f = new FragmentHealthyKnowledgeViewpager();
         Bundle b = new Bundle();
         b.putInt(ARG_ID, id);
         f.setArguments(b);
         return f;
     }
+
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -82,28 +85,34 @@ public class FragmentHealthyInfoViewPager extends FragmentBase implements SwipeR
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);
 
-        healthyInfoAda = new HealthyInfoAda(healthyInfoLists);
-        healthyInfoAda.openLoadAnimation();
-        healthyInfoAda.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
+        healthyKnowledgeAda = new HealthyKnowledgeAda(healthyInfoLists);
+        healthyKnowledgeAda.openLoadAnimation();
+
+
+        //健康知识详情
+        healthyKnowledgeAda.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int i) {
-                M_HealthyInfoList life_healthy = (M_HealthyInfoList) healthyInfoAda.getData().get(i);
+                M_HealthyKnowledgeList life_healthy = (M_HealthyKnowledgeList) healthyKnowledgeAda.getData().get(i);
                 Intent intent = new Intent();
                 intent.setClass(getContext(), ActInfoShowDetail.class);
                 intent.putExtra("title", "" + life_healthy.getTitle());
                 intent.putExtra("id", "" + life_healthy.getId());
-                intent.putExtra("type", 2);
+                intent.putExtra("type", 1);
+
                 startActivity(intent);
             }
         });
-        recyclerView.setAdapter(healthyInfoAda);
+        recyclerView.setAdapter(healthyKnowledgeAda);
         //上拉刷新
         swipeRefreshLayout.setOnRefreshListener(this);
 
         //加载更多
-        healthyInfoAda.openLoadMore(10, true);
-        healthyInfoAda.setOnLoadMoreListener(this);
+        healthyKnowledgeAda.openLoadMore(10, true);
+        healthyKnowledgeAda.setOnLoadMoreListener(this);
 
+
+        //自动加载
         swipeRefreshLayout.post(new Runnable() {
             @Override
             public void run() {
@@ -115,6 +124,9 @@ public class FragmentHealthyInfoViewPager extends FragmentBase implements SwipeR
         return view;
     }
 
+    /**
+     * 刷新数据
+     */
     private void reLoadData() {
         page = 1;
         isRefresh = true;
@@ -141,7 +153,7 @@ public class FragmentHealthyInfoViewPager extends FragmentBase implements SwipeR
         para.put("id", id);
         para.put("rows", "20");
         para.put("page", "" + page);
-        ApiStoreSDK.execute(URL.url_news_list,
+        ApiStoreSDK.execute(URL.url_knowledge_list,
                 ApiStoreSDK.GET,
                 para,
                 new ApiCallBack() {
@@ -150,16 +162,16 @@ public class FragmentHealthyInfoViewPager extends FragmentBase implements SwipeR
                     public void onSuccess(int status, String responseString) {
                         JLogUtils.Json(responseString);
                         try {
-                            healthyInfoLists = JSONHandleUtils.parseResponseArray(responseString, M_HealthyInfoList.class, 2);
+                            healthyInfoLists = JSONHandleUtils.parseResponseArray(responseString, M_HealthyKnowledgeList.class, 2);
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
 
                         if (isRefresh) {
-                            healthyInfoAda.setNewData(healthyInfoLists);
+                            healthyKnowledgeAda.setNewData(healthyInfoLists);
                             swipeRefreshLayout.setRefreshing(false);
                         } else {
-                            healthyInfoAda.notifyDataChangedAfterLoadMore(healthyInfoLists, true);
+                            healthyKnowledgeAda.notifyDataChangedAfterLoadMore(healthyInfoLists, true);
                         }
                     }
 
