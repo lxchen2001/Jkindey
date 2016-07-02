@@ -8,9 +8,8 @@ tags:
 - APP开发
 ---
 
-## 博客记录
-> 1. [APP Jkidney开发记录（一）由来](http://crazyandcoder.github.io/2016/04/10/APP-Jkidney%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95/)
-> 2. [APP Jkidney开发记录（二）项目搭建](http://crazyandcoder.github.io/2016/04/10/APP-Jkidney%E5%BC%80%E5%8F%91%E8%AE%B0%E5%BD%95%EF%BC%88%E4%BA%8C%EF%BC%89%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA/)
+
+
 
 ## 写在前面的话
 
