@@ -16,8 +16,7 @@ import com.liji.jkidney.activity.ActHealthyInfo;
 import com.liji.jkidney.activity.ActHealthyKnowledge;
 import com.liji.jkidney.activity.ActLifeHealthy;
 import com.liji.jkidney.adapter.InfoAda;
-import com.liji.jkidney.model.M_Info;
-import com.liji.jkidney.utils.XCallbackListener;
+import com.liji.jkidney.model.info.M_Info;
 import com.liji.jkidney.widget.CustomeHeadView;
 
 import org.xutils.view.annotation.ViewInject;

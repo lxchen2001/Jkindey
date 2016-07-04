@@ -4,10 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.liji.jkidney.fragment.FragmentHealthyInfoViewPager;
 import com.liji.jkidney.fragment.FragmentHealthyKnowledgeViewpager;
-import com.liji.jkidney.model.M_HealthyInfoClassify;
-import com.liji.jkidney.model.M_HealthyKnowledgeClassicfy;
+import com.liji.jkidney.model.info.M_HealthyKnowledgeClassicfy;
 
 import java.util.ArrayList;
 import java.util.List;

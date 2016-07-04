@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/ll_login"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:clipToPadding="true"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <com.liji.jkidney.widget.CustomeHeadView
+        android:id="@+id/headview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="欢迎使用肾管家小助手"
+        android:textColor="#999999"
+        android:textSize="12sp"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="15dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/edit_phone_selector"
+            android:button="@null"
+            android:focusable="true"
+            android:hint="请输入账号"
+            android:padding="10dp"
+            android:singleLine="true"
+            android:textColorHint="#cccccc"
+            android:textSize="17sp"/>
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_phone_selector"
+        android:button="@null"
+        android:hint="请输入密码"
+        android:inputType="phone"
+        android:maxLength="4"
+        android:padding="10dp"
+        android:textColorHint="#cccccc"
+        android:textSize="17sp"/>
+
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="fill_parent"
+        android:layout_height="45dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_login"
+        android:textColor="@color/btn_login_text_selector"
+        android:text="登录"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:id="@+id/tv_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="没有账号？赶快注册一个吧"
+        android:textColor="@color/material_red_500"
+        android:textSize="12sp"/>
+
+</LinearLayout>

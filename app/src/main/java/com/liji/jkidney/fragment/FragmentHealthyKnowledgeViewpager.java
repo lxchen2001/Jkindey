@@ -16,11 +16,9 @@ import com.baidu.apistore.sdk.network.Parameters;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActInfoShowDetail;
-import com.liji.jkidney.adapter.HealthyInfoAda;
 import com.liji.jkidney.adapter.HealthyKnowledgeAda;
-import com.liji.jkidney.model.M_HealthyInfoList;
-import com.liji.jkidney.model.M_HealthyKnowledgeList;
-import com.liji.jkidney.model.URL;
+import com.liji.jkidney.model.info.M_HealthyKnowledgeList;
+import com.liji.jkidney.model.info.URL;
 import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JSONHandleUtils;
 

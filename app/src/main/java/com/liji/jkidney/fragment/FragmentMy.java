@@ -1,5 +1,6 @@
 package com.liji.jkidney.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.Toast;
 
 import com.liji.jkidney.R;
+import com.liji.jkidney.activity.user.ActLogin;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
 import com.liji.jkidney.widget.RoundImageView;
@@ -45,6 +47,7 @@ public class FragmentMy extends FragmentBase {
             @Override
             protected void callback(Object... obj) {
                 Toast.makeText(getContext(), "editting", Toast.LENGTH_SHORT).show();
+                getContext().startActivity(new Intent(getContext(), ActLogin.class));
             }
         });
 

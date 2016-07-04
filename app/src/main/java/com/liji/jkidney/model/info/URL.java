@@ -1,4 +1,4 @@
-package com.liji.jkidney.model;
+package com.liji.jkidney.model.info;
 
 /**
  * 作者：liji on 2016/6/28 17:22

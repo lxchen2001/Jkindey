@@ -28,7 +28,7 @@ public class ActWebShow extends ActBase {
     }
 
     @Override
-    void initView(Bundle savedInstanceState) {
+    public  void initView(Bundle savedInstanceState) {
 
         title = this.getIntent().getStringExtra("title");
         url = this.getIntent().getStringExtra("url");
@@ -46,7 +46,7 @@ public class ActWebShow extends ActBase {
     }
 
     @Override
-    void setData(Bundle savedInstanceState) {
+    public void setData(Bundle savedInstanceState) {
 
 
     }

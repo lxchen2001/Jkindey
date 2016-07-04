@@ -31,7 +31,7 @@ public class MainActivity extends ActBase {
     }
 
     @Override
-    void initView(Bundle savedInstanceState) {
+    public void initView(Bundle savedInstanceState) {
         AHBottomNavigationItem infoItem = new AHBottomNavigationItem(getResources().getString(R.string.fragment_info), R.drawable.ic_menu_jingxuan_sel);
         AHBottomNavigationItem checkItem = new AHBottomNavigationItem(getResources().getString(R.string.fragment_checks), R.drawable.ic_menu_jiancha_sel);
         AHBottomNavigationItem myItem = new AHBottomNavigationItem(getResources().getString(R.string.fragment_my), R.drawable.ic_menu_my_sel);
@@ -54,7 +54,7 @@ public class MainActivity extends ActBase {
     }
 
     @Override
-    void setData(Bundle savedInstanceState) {
+    public void setData(Bundle savedInstanceState) {
 
     }
 

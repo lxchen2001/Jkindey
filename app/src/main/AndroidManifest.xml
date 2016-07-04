@@ -31,7 +31,10 @@
         <activity android:name=".activity.ActWebShow" />
         <activity android:name=".activity.ActHealthyInfo" />
         <activity android:name=".activity.ActInfoShowDetail" />
-        <activity android:name=".activity.ActHealthyKnowledge"></activity>
+        <activity android:name=".activity.ActHealthyKnowledge" />
+        <activity android:name=".activity.check.ActCheckNiaodanbai" />
+        <activity android:name=".activity.user.ActLogin" />
+        <activity android:name=".activity.user.ActRegister"></activity>
     </application>
 
 </manifest>

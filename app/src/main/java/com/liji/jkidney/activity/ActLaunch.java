@@ -35,12 +35,12 @@ public class ActLaunch extends ActBase {
     }
 
     @Override
-    void initView(Bundle savedInstanceState) {
+    public void initView(Bundle savedInstanceState) {
 
     }
 
     @Override
-    void setData(Bundle savedInstanceState) {
+    public void setData(Bundle savedInstanceState) {
 
     }
 

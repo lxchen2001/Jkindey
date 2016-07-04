@@ -20,8 +20,8 @@ public abstract class ActBase extends FragmentActivity {
     }
 
 
-    abstract void initView(Bundle savedInstanceState);
+    protected abstract void initView(Bundle savedInstanceState);
 
-    abstract void setData(Bundle savedInstanceState);
+    protected abstract void setData(Bundle savedInstanceState);
 
 }

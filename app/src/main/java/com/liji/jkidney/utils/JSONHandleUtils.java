@@ -1,18 +1,15 @@
 package com.liji.jkidney.utils;
 
-import android.content.Intent;
 import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
-import com.liji.jkidney.model.M_Common;
-import com.liji.jkidney.model.M_HealthyInfoShow;
-import com.liji.jkidney.model.M_HealthyKnowledgeShow;
-import com.liji.jkidney.model.M_J_HealthInfoClassicfy;
+import com.liji.jkidney.model.info.M_Common;
+import com.liji.jkidney.model.info.M_HealthyInfoShow;
+import com.liji.jkidney.model.info.M_HealthyKnowledgeShow;
+import com.liji.jkidney.model.info.M_J_HealthInfoClassicfy;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

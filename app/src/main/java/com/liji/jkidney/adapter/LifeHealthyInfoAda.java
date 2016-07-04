@@ -1,14 +1,11 @@
 package com.liji.jkidney.adapter;
 
-import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.liji.jkidney.R;
-import com.liji.jkidney.model.M_Life_Healthy;
+import com.liji.jkidney.model.info.M_Life_Healthy;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.List;

@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 
 import com.liji.jkidney.R;
 import com.liji.jkidney.adapter.ChecksAda;
-import com.liji.jkidney.model.M_ChcekInfo;
+import com.liji.jkidney.model.info.M_ChcekInfo;
 import com.liji.jkidney.widget.CustomeHeadView;
 
 import org.xutils.view.annotation.ViewInject;

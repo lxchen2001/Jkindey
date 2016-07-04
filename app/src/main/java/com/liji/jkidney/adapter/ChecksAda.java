@@ -1,21 +1,10 @@
 package com.liji.jkidney.adapter;
 
-import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.liji.jkidney.R;
-import com.liji.jkidney.model.M_ChcekInfo;
-import com.liji.jkidney.utils.XCallbackListener;
+import com.liji.jkidney.model.info.M_ChcekInfo;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

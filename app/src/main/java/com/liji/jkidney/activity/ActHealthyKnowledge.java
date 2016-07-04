@@ -1,7 +1,6 @@
 package com.liji.jkidney.activity;
 
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.TypedValue;
 
@@ -10,11 +9,9 @@ import com.baidu.apistore.sdk.ApiCallBack;
 import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.baidu.apistore.sdk.network.Parameters;
 import com.liji.jkidney.R;
-import com.liji.jkidney.adapter.HealthyInfoViewPagerAdapter;
 import com.liji.jkidney.adapter.HealthyKnowledgeViewPagerAdapter;
-import com.liji.jkidney.model.M_HealthyInfoClassify;
-import com.liji.jkidney.model.M_HealthyKnowledgeClassicfy;
-import com.liji.jkidney.model.URL;
+import com.liji.jkidney.model.info.M_HealthyKnowledgeClassicfy;
+import com.liji.jkidney.model.info.URL;
 import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JSONHandleUtils;
 import com.liji.jkidney.utils.XCallbackListener;
@@ -53,7 +50,7 @@ public class ActHealthyKnowledge extends ActBase {
     }
 
     @Override
-    void initView(Bundle savedInstanceState) {
+    public void initView(Bundle savedInstanceState) {
         title = this.getIntent().getStringExtra("title");
         headView.setTitle("" + title);
         headView.setBack(new XCallbackListener() {
@@ -101,7 +98,7 @@ public class ActHealthyKnowledge extends ActBase {
     }
 
     @Override
-    void setData(Bundle savedInstanceState) {
+    public void setData(Bundle savedInstanceState) {
 
     }
 }

@@ -1,4 +1,4 @@
-package com.liji.jkidney.model;
+package com.liji.jkidney.model.info;
 
 import android.os.Parcel;
 import android.os.Parcelable;
