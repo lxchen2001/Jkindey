@@ -10,33 +10,52 @@ import cn.bmob.v3.BmobUser;
  * 邮箱：lijiwork@sina.com
  */
 public class MyUser extends BmobUser implements Parcelable {
-    private Boolean sex;
-    private String nick;
-    private Integer age;
+    String nickname;
+    String sex;
+    String career;
+    String address;
+    String info;
 
 
-    public Boolean getSex() {
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(Boolean sex) {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
-    public String getNick() {
-        return nick;
+    public String getCareer() {
+        return career;
     }
 
-    public void setNick(String nick) {
-        this.nick = nick;
+    public void setCareer(String career) {
+        this.career = career;
     }
 
-    public Integer getAge() {
-        return age;
+
+    public String getAddress() {
+        return address;
     }
 
-    public void setAge(Integer age) {
-        this.age = age;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 
     @Override
@@ -46,18 +65,26 @@ public class MyUser extends BmobUser implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeValue(this.sex);
-        dest.writeString(this.nick);
-        dest.writeValue(this.age);
+
+        dest.writeString(this.nickname);
+        dest.writeString(this.sex);
+        dest.writeString(this.career);
+
+        dest.writeString(this.address);
+        dest.writeString(this.info);
     }
 
     public MyUser() {
     }
 
     protected MyUser(Parcel in) {
-        this.sex = (Boolean) in.readValue(Boolean.class.getClassLoader());
-        this.nick = in.readString();
-        this.age = (Integer) in.readValue(Integer.class.getClassLoader());
+
+        this.nickname = in.readString();
+        this.sex = in.readString();
+        this.career = in.readString();
+
+        this.address = in.readString();
+        this.info = in.readString();
     }
 
     public static final Parcelable.Creator<MyUser> CREATOR = new Parcelable.Creator<MyUser>() {
