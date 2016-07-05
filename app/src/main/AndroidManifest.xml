@@ -32,9 +32,12 @@
         <activity android:name=".activity.ActHealthyInfo" />
         <activity android:name=".activity.ActInfoShowDetail" />
         <activity android:name=".activity.ActHealthyKnowledge" />
-        <activity android:name=".activity.check.ActCheckNiaodanbai" />
+        <activity android:name=".activity.check.Niaodanbai.ActCheckNiaodanbai" />
         <activity android:name=".activity.user.ActLogin" />
-        <activity android:name=".activity.user.ActRegister"></activity>
+        <activity android:name=".activity.user.ActRegister" />
+        <activity android:name=".activity.check.Niaodanbai.ActCheckNiaodanbaiAdd" />
+        <activity android:name=".activity.check.Niaodanbai.ActCheckNiaodanbaiUpdate" />
+        <activity android:name=".activity.ActSetting"></activity>
     </application>
 
 </manifest>

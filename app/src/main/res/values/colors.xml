@@ -8,6 +8,7 @@
     <color name="material_red_700">#d01716</color>
     <color name="white">#ffffff</color>
     <color name="background">#EEEEEE</color>
+    <color name="c_f8f8f8">#f8f8f8</color>
     <color name="item_background_selected">#f1f1f1</color>
     <color name="item_background_normal">#FAFAFA</color>
     <color name="text_grey">#B6A693</color>
@@ -15,6 +16,7 @@
     <color name="text_time">#666666</color>
     <color name="line">#999999</color>
     <color name="c_999999">#999999</color>
+    <color name="c_dddddd">#DDDDDD</color>
     <color name="c_333333">#333333</color>
     <color name="material_blue_500">#03a9f4</color>
     <color name="material_blue_700">#0288d1</color>

@@ -39,10 +39,7 @@ public class ActLaunch extends ActBase {
 
     }
 
-    @Override
-    public void setData(Bundle savedInstanceState) {
 
-    }
 
 
 }

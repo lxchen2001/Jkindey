@@ -7,7 +7,7 @@
     android:layout_marginRight="10dp"
     android:layout_marginTop="5dp"
     android:layout_marginBottom="5dp"
-    android:background="@drawable/item_checkinfo_background_selector"
+    android:background="@drawable/check_info_bg_selector"
     android:orientation="vertical"
     android:padding="10dp">
 

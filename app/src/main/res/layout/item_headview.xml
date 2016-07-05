@@ -51,4 +51,14 @@
         android:background="@drawable/my_edit_selector"
         android:visibility="gone" />
 
+    <ImageView
+        android:id="@+id/item_head_right_img_action2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_toLeftOf="@+id/item_head_right_img_action"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="5dp"
+        android:background="@drawable/my_edit_selector"
+        android:visibility="gone" />
+
 </RelativeLayout>

@@ -16,9 +16,19 @@ public class JTimeUtils {
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String d = format.format(time);
         return d;
-//        Date date=format.parse(d);
-//        System.out.println("Format To String(Date):"+d);
-//        System.out.println("Format To Date:"+date);
+
+    }
+
+    /**
+     * 获取当前时间
+     *
+     * @return
+     */
+    public static String getCurrentTime() {
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String d = format.format(date.getTime());
+        return d;
     }
 
 }

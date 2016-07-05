@@ -45,10 +45,6 @@ public class ActWebShow extends ActBase {
 
     }
 
-    @Override
-    public void setData(Bundle savedInstanceState) {
 
-
-    }
 
 }

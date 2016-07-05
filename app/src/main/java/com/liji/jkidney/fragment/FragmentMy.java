@@ -11,6 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.liji.jkidney.R;
+import com.liji.jkidney.activity.ActSetting;
 import com.liji.jkidney.activity.user.ActLogin;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.XCallbackListener;
@@ -81,7 +82,7 @@ public class FragmentMy extends FragmentBase {
         item_ll_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "setting", Toast.LENGTH_SHORT).show();
+                getContext().startActivity(new Intent(getContext(), ActSetting.class));
             }
         });
 
@@ -108,5 +109,9 @@ public class FragmentMy extends FragmentBase {
         }
     }
 
-
+    @Override
+    public void onResume() {
+        super.onResume();
+        initView();
+    }
 }

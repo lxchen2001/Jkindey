@@ -79,10 +79,7 @@ public class ActLogin extends ActBase {
 
     }
 
-    @Override
-    public void setData(Bundle savedInstanceState) {
 
-    }
 
 
     private void doSubmit() {

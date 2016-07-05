@@ -120,8 +120,5 @@ public class ActInfoShowDetail extends ActBase {
     }
 
 
-    @Override
-    public void setData(Bundle savedInstanceState) {
 
-    }
 }

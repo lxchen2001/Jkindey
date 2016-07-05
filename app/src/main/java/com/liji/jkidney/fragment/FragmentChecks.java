@@ -1,6 +1,7 @@
 package com.liji.jkidney.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -9,7 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
+import com.liji.jkidney.activity.check.Niaodanbai.ActCheckNiaodanbai;
 import com.liji.jkidney.adapter.ChecksAda;
 import com.liji.jkidney.model.info.M_ChcekInfo;
 import com.liji.jkidney.widget.CustomeHeadView;
@@ -81,8 +84,38 @@ public class FragmentChecks extends FragmentBase {
 
         checksAda = new ChecksAda(m_chcekInfos);
         recyclerView.setAdapter(checksAda);
+        checksAda.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onItemClick(View view, int i) {
+                gotoChecks(i);
+
+            }
+
+
+        });
 
         return view;
+    }
+
+    private void gotoChecks(int i) {
+
+        Intent intent = new Intent();
+        switch (i) {
+
+
+            case 0:
+
+                break;
+            case 1:
+                break;
+            case 2://尿蛋白
+                intent.setClass(getContext(), ActCheckNiaodanbai.class);
+                intent.putExtra("name", mChecksNames[i]);
+                intent.putExtra("info", mCheckContents[i]);
+                getContext().startActivity(intent);
+                break;
+        }
+
     }
 
 }

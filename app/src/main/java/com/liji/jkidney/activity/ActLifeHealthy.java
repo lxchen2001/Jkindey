@@ -77,10 +77,12 @@ public class ActLifeHealthy extends ActBase implements SwipeRefreshLayout.OnRefr
                 reLoadData();
             }
         });
+
+        setData(savedInstanceState);
     }
 
-    @Override
-    public void setData(Bundle savedInstanceState) {
+
+    private void setData(Bundle savedInstanceState) {
         final LinearLayoutManager layoutManager = new LinearLayoutManager(ActLifeHealthy.this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);

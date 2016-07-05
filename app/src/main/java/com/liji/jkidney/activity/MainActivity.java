@@ -53,10 +53,5 @@ public class MainActivity extends ActBase {
         });
     }
 
-    @Override
-    public void setData(Bundle savedInstanceState) {
-
-    }
-
 
 }

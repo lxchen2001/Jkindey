@@ -21,6 +21,7 @@ public class CustomeHeadView extends RelativeLayout {
 
     private ImageView item_head_img_back;
     private ImageView item_head_right_img_action;
+    private ImageView item_head_right_img_action2;
     private TextView item_head_tv_title;
     private TextView item_head_tv_action;
     private RelativeLayout item_head_rl_bg;
@@ -48,6 +49,7 @@ public class CustomeHeadView extends RelativeLayout {
         View view = mLayoutInflater.inflate(R.layout.item_headview, this);
         item_head_img_back = (ImageView) view.findViewById(R.id.item_head_img_back);
         item_head_right_img_action = (ImageView) view.findViewById(R.id.item_head_right_img_action);
+        item_head_right_img_action2 = (ImageView) view.findViewById(R.id.item_head_right_img_action2);
         item_head_rl_bg = (RelativeLayout) view.findViewById(R.id.item_head_rl_bg);
         item_head_tv_title = (TextView) view.findViewById(R.id.item_head_tv_title);
         item_head_tv_action = (TextView) view.findViewById(R.id.item_head_tv_action);
@@ -84,6 +86,10 @@ public class CustomeHeadView extends RelativeLayout {
 
     public void setRightImgAction(int resourceId, XCallbackListener listener) {
         click(1, resourceId, null, listener);
+    }
+
+    public void setRightImgAction2(int resourceId, XCallbackListener listener) {
+        click(2, resourceId, null, listener);
     }
 
     private void click(Integer type, Integer resourceId, String message, final XCallbackListener listener) {
@@ -124,6 +130,20 @@ public class CustomeHeadView extends RelativeLayout {
                     });
                 }
                 break;
+            case 2:
+                if (resourceId != null) {
+                    item_head_right_img_action2.setVisibility(View.VISIBLE);
+                    item_head_tv_action.setVisibility(View.GONE);
+                    item_head_right_img_action2.setBackgroundResource(resourceId);
+                    item_head_right_img_action2.setOnClickListener(new OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            listener.call();
+                        }
+                    });
+                }
+                break;
+
         }
 
     }

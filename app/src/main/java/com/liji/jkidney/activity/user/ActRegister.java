@@ -80,11 +80,7 @@ public class ActRegister extends ActBase {
 
     }
 
-    @Override
-    public void setData(Bundle savedInstanceState) {
 
-
-    }
 
 
     private void doSubmit() {

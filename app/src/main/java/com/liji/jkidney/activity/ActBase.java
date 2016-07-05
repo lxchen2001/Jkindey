@@ -16,12 +16,10 @@ public abstract class ActBase extends FragmentActivity {
         super.onCreate(savedInstanceState);
         x.view().inject(this);
         initView(savedInstanceState);
-        setData(savedInstanceState);
     }
 
 
     protected abstract void initView(Bundle savedInstanceState);
 
-    protected abstract void setData(Bundle savedInstanceState);
 
 }

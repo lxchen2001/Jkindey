@@ -97,8 +97,5 @@ public class ActHealthyKnowledge extends ActBase {
                 });
     }
 
-    @Override
-    public void setData(Bundle savedInstanceState) {
 
-    }
 }
