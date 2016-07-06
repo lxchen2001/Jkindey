@@ -19,6 +19,7 @@
         <activity
             android:name=".activity.ActLaunch"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,18 +27,45 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity" />
-        <activity android:name=".activity.ActLifeHealthy" />
-        <activity android:name=".activity.ActWebShow" />
-        <activity android:name=".activity.ActHealthyInfo" />
-        <activity android:name=".activity.ActInfoShowDetail" />
-        <activity android:name=".activity.ActHealthyKnowledge" />
-        <activity android:name=".activity.check.Niaodanbai.ActCheckNiaodanbai" />
-        <activity android:name=".activity.user.ActLogin" />
-        <activity android:name=".activity.user.ActRegister" />
-        <activity android:name=".activity.check.Niaodanbai.ActCheckNiaodanbaiAdd" />
-        <activity android:name=".activity.check.Niaodanbai.ActCheckNiaodanbaiUpdate" />
-        <activity android:name=".activity.ActSetting"></activity>
+        <activity
+            android:name=".activity.MainActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.info.ActLifeHealthy"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.info.ActWebShow"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.info.ActHealthyInfo"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.info.ActInfoShowDetail"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.info.ActHealthyKnowledge"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.check.Niaodanbai.ActCheckNiaodanbai"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.user.ActLogin"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.user.ActRegister"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.check.Niaodanbai.ActCheckNiaodanbaiAdd"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.check.Niaodanbai.ActCheckNiaodanbaiUpdate"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ActSetting"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.check.Niaodanbai.ActCheckStatistics"
+            android:screenOrientation="landscape"></activity>
     </application>
 
 </manifest>

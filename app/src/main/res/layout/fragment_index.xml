@@ -24,7 +24,7 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="170dp"
                 android:background="@drawable/ic_info_bg" />
 
             <android.support.v7.widget.RecyclerView

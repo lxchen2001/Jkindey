@@ -19,8 +19,26 @@ public class M_Check_niaodanbai extends BmobObject {
     //000402（24小时尿蛋白定量）
 
     private String time;//检查时间
+    private String type1;//24小时尿量
+    private String type2;//24小时尿蛋白定量
     private Double valueNiaoliang;//000401
     private Double valueDanbai;//000402
+
+    public String getType1() {
+        return type1 == null ? "24小时尿量" : type1;
+    }
+
+    public void setType1(String type1) {
+        this.type1 = type1;
+    }
+
+    public String getType2() {
+        return type2 == null ? "24小时尿蛋白定量" : type2;
+    }
+
+    public void setType2(String type2) {
+        this.type2 = type2;
+    }
 
     private MyUser author;
 

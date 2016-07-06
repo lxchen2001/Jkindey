@@ -7,7 +7,7 @@
     <color name="material_red_500">#e51c23</color>
     <color name="material_red_700">#d01716</color>
     <color name="white">#ffffff</color>
-    <color name="background">#EEEEEE</color>
+    <color name="background">#f8f8f8</color>
     <color name="c_f8f8f8">#f8f8f8</color>
     <color name="item_background_selected">#f1f1f1</color>
     <color name="item_background_normal">#FAFAFA</color>

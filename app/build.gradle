@@ -52,4 +52,5 @@ dependencies {
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.jakewharton:butterknife:latest.integration'
     compile 'com.github.rey5137:material:1.2.4'
+    compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
 }

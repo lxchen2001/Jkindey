@@ -1,8 +1,9 @@
-package com.liji.jkidney.activity;
+package com.liji.jkidney.activity.info;
 
 import android.os.Bundle;
 
 import com.liji.jkidney.R;
+import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
 import com.liji.jkidney.widget.SuperWebView;

@@ -2,21 +2,198 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/c_background"
+    android:background="@color/background"
     android:orientation="vertical"
     tools:context="com.liji.jkidney.fragment.FragmentChecks">
 
     <com.liji.jkidney.widget.CustomeHeadView
         android:id="@+id/headview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"></com.liji.jkidney.widget.CustomeHeadView>
 
-    </com.liji.jkidney.widget.CustomeHeadView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout style="@style/ll_check_top">
+
+                <LinearLayout
+                    android:id="@+id/ll_type_1"
+                    style="@style/ll_check_top_left">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_1" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="肝功能" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_type_2"
+                    style="@style/ll_check_top_right">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_2" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="肾功能" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/ll_check_top">
+
+                <LinearLayout
+                    android:id="@+id/ll_type_3"
+                    style="@style/ll_check_top_left">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_3" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="尿蛋白" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_type_4"
+                    style="@style/ll_check_top_right">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_4" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="尿常规" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/ll_check_top">
+
+                <LinearLayout
+                    android:id="@+id/ll_type_5"
+                    style="@style/ll_check_top_left">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_5" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="体重" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_type_6"
+                    style="@style/ll_check_top_right">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_6" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="血糖" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout style="@style/ll_check_top">
+
+                <LinearLayout
+                    android:id="@+id/ll_type_7"
+                    style="@style/ll_check_top_left">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_7" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="血压" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_type_8"
+                    style="@style/ll_check_top_right">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_8" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="肌酐清除率" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                style="@style/ll_check_top"
+                android:layout_marginBottom="15dp">
+
+                <LinearLayout
+                    android:id="@+id/ll_type_9"
+                    style="@style/ll_check_top_left">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_9" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="记事本" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_type_10"
+                    style="@style/ll_check_top_right"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        style="@style/img_check_top"
+                        android:background="@drawable/ic_type_4" />
+
+                    <TextView
+                        style="@style/tv_check_top"
+                        android:text="尿常规" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/rlv_content"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
 
 </LinearLayout>

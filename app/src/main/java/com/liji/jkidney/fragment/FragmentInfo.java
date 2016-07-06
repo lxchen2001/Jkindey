@@ -12,9 +12,9 @@ import android.view.ViewGroup;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
-import com.liji.jkidney.activity.ActHealthyInfo;
-import com.liji.jkidney.activity.ActHealthyKnowledge;
-import com.liji.jkidney.activity.ActLifeHealthy;
+import com.liji.jkidney.activity.info.ActHealthyInfo;
+import com.liji.jkidney.activity.info.ActHealthyKnowledge;
+import com.liji.jkidney.activity.info.ActLifeHealthy;
 import com.liji.jkidney.adapter.InfoAda;
 import com.liji.jkidney.model.info.M_Info;
 import com.liji.jkidney.widget.CustomeHeadView;

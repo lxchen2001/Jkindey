@@ -1,4 +1,4 @@
-package com.liji.jkidney.activity;
+package com.liji.jkidney.activity.info;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.baidu.apistore.sdk.network.Parameters;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
+import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.adapter.LifeHealthyInfoAda;
 import com.liji.jkidney.model.info.M_Life_Healthy;
 import com.liji.jkidney.model.info.URL;

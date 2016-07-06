@@ -11,6 +11,8 @@ import android.widget.Toast;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.model.User;
+import com.liji.jkidney.model.check.MCheckTypeNiaodanbai;
+import com.liji.jkidney.model.check.MCheckTypeNiaodanbaiDetail;
 import com.liji.jkidney.model.check.M_Check_niaodanbai;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JTimeUtils;
@@ -27,6 +29,8 @@ import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 import cn.bmob.v3.listener.SaveListener;
 
@@ -150,12 +154,29 @@ public class ActCheckNiaodanbaiAdd extends ActBase {
             return;
         }
 
-        M_Check_niaodanbai niaodanbai = new M_Check_niaodanbai();
-        niaodanbai.setTime(time);
-        niaodanbai.setAuthor(user);
-        niaodanbai.setValueDanbai(Double.valueOf(danbai));
-        niaodanbai.setValueNiaoliang(Double.valueOf(niaoliang));
-        niaodanbai.save(ActCheckNiaodanbaiAdd.this, new SaveListener() {
+        MCheckTypeNiaodanbai checkTypeNiaodanbai = new MCheckTypeNiaodanbai();
+
+        List<MCheckTypeNiaodanbaiDetail> mCheckTypeNiaodanbaiDetailList = new ArrayList<>();
+
+        //24小时总尿量
+        MCheckTypeNiaodanbaiDetail niaoliangC = new MCheckTypeNiaodanbaiDetail();
+        niaoliangC.setTime(time);
+        niaoliangC.setType("24小时总尿量");
+        niaoliangC.setValue(Double.valueOf(niaoliang));
+        mCheckTypeNiaodanbaiDetailList.add(niaoliangC);
+
+        //24小时尿蛋白总量
+        MCheckTypeNiaodanbaiDetail danbaiC = new MCheckTypeNiaodanbaiDetail();
+        danbaiC.setTime(time);
+        danbaiC.setType("24小时尿蛋白总量");
+        danbaiC.setValue(Double.valueOf(danbai));
+        mCheckTypeNiaodanbaiDetailList.add(danbaiC);
+
+        checkTypeNiaodanbai.setAuthor(user);
+        checkTypeNiaodanbai.setList(mCheckTypeNiaodanbaiDetailList);
+
+
+        checkTypeNiaodanbai.save(ActCheckNiaodanbaiAdd.this, new SaveListener() {
             @Override
             public void onSuccess() {
                 JToastUtils.showToast(ActCheckNiaodanbaiAdd.this, "导入成功！");

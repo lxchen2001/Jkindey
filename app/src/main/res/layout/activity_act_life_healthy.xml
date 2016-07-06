@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.liji.jkidney.activity.ActLifeHealthy">
+    tools:context=".activity.info.ActLifeHealthy">
 
     <com.liji.jkidney.widget.CustomeHeadView
         android:id="@+id/headview"

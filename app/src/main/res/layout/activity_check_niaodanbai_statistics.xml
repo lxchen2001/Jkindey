@@ -3,7 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.info.ActInfoShowDetail">
+    android:background="@color/background"
+    tools:context="com.liji.jkidney.activity.check.Niaodanbai.ActCheckNiaodanbaiStatistics">
 
     <com.liji.jkidney.widget.CustomeHeadView
         android:id="@+id/headview"
@@ -12,10 +13,11 @@
 
     </com.liji.jkidney.widget.CustomeHeadView>
 
-    <com.liji.jkidney.widget.SuperWebView
-        android:id="@+id/webview"
+    <lecho.lib.hellocharts.view.ColumnChartView
+        android:id="@+id/chart_bottom"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/headview"></com.liji.jkidney.widget.SuperWebView>
+        android:layout_below="@+id/headview">
 
+    </lecho.lib.hellocharts.view.ColumnChartView>
 </RelativeLayout>

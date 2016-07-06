@@ -2,21 +2,18 @@ package com.liji.jkidney.activity.check.Niaodanbai;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.activity.user.ActLogin;
-import com.liji.jkidney.adapter.LifeHealthyInfoAda;
 import com.liji.jkidney.model.User;
-import com.liji.jkidney.model.check.M_Check_niaodanbai;
+import com.liji.jkidney.model.check.MCheckTypeNiaodanbai;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JViewsUtils;
 import com.liji.jkidney.utils.XCallbackListener;
@@ -52,11 +49,13 @@ public class ActCheckNiaodanbai extends ActBase implements SwipeRefreshLayout.On
     boolean isRefresh = true;
 
     NiaodanbaiAda niaodanbaiAda;
-    List<M_Check_niaodanbai> m_check_niaodanbais = new ArrayList<>();
+    List<MCheckTypeNiaodanbai> m_check_niaodanbais = new ArrayList<>();
 
     String name;
     String checkInfo;
     MyUser user;
+
+    private int i = 0;
 
     @Override
     public void initView(Bundle savedInstanceState) {
@@ -69,6 +68,24 @@ public class ActCheckNiaodanbai extends ActBase implements SwipeRefreshLayout.On
             @Override
             protected void callback(Object... obj) {
                 finish();
+            }
+        });
+
+        //柱状统计图
+        headView.setRightImgAction(R.drawable.ic_tongji, new XCallbackListener() {
+            @Override
+            protected void callback(Object... obj) {
+                if (user != null) {
+                    Intent intent = new Intent(ActCheckNiaodanbai.this, ActCheckStatistics.class);
+                    intent.putExtra("user", (Serializable) user);
+                    intent.putExtra("name", name);
+                    intent.putExtra("data", (Serializable) niaodanbaiAda.getData());
+                    startActivity(intent);
+                } else {
+                    Intent intent = new Intent(ActCheckNiaodanbai.this, ActLogin.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -124,11 +141,23 @@ public class ActCheckNiaodanbai extends ActBase implements SwipeRefreshLayout.On
     protected void onResume() {
         super.onResume();
         user = User.getCurrentUser(this);
-        loadData();
+
+        //避免加载两次
+        if (i != 0) {
+            loadData();
+        } else {
+            i++;
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        i = 0;
     }
 
     private void updatedata(int i) {
-        M_Check_niaodanbai check_niaodanbai = (M_Check_niaodanbai) niaodanbaiAda.getData().get(i);
+        MCheckTypeNiaodanbai check_niaodanbai = (MCheckTypeNiaodanbai) niaodanbaiAda.getData().get(i);
         Intent intent = new Intent(ActCheckNiaodanbai.this, ActCheckNiaodanbaiUpdate.class);
         intent.putExtra("check", (Serializable) check_niaodanbai);
         intent.putExtra("user", (Serializable) user);
@@ -142,12 +171,12 @@ public class ActCheckNiaodanbai extends ActBase implements SwipeRefreshLayout.On
         isRefresh = true;
 
         if (user != null) {
-            BmobQuery<M_Check_niaodanbai> query = new BmobQuery<>();
+            BmobQuery<MCheckTypeNiaodanbai> query = new BmobQuery<>();
             query.addWhereEqualTo("author", user);
             query.setLimit(1000);
-            query.findObjects(ActCheckNiaodanbai.this, new FindListener<M_Check_niaodanbai>() {
+            query.findObjects(ActCheckNiaodanbai.this, new FindListener<MCheckTypeNiaodanbai>() {
                 @Override
-                public void onSuccess(List<M_Check_niaodanbai> list) {
+                public void onSuccess(List<MCheckTypeNiaodanbai> list) {
                     swipeRefreshLayout.setRefreshing(false);
                     if (list.isEmpty() || (list != null && list.size() == 0)) {
                         niaodanbaiAda.setEmptyView(JViewsUtils.getEmptyView(ActCheckNiaodanbai.this, recyclerview));

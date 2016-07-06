@@ -31,4 +31,16 @@ public class JTimeUtils {
         return d;
     }
 
+
+    /**
+     * 将2016-07-09转化为07/09
+     *
+     * @param date
+     * @return
+     */
+    public static String getDate(String date) {
+        String[] data = date.split("-");
+        return data[1] + "/" + data[2];
+    }
+
 }

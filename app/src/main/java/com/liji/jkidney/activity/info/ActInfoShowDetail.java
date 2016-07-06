@@ -1,45 +1,36 @@
-package com.liji.jkidney.activity;
+package com.liji.jkidney.activity.info;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
-import android.util.TypedValue;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.baidu.apistore.sdk.ApiCallBack;
 import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.baidu.apistore.sdk.network.Parameters;
 import com.liji.jkidney.R;
-import com.liji.jkidney.adapter.HealthyInfoViewPagerAdapter;
-import com.liji.jkidney.model.info.M_HealthyInfoClassify;
+import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.model.info.URL;
 import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JSONHandleUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
+import com.liji.jkidney.widget.SuperWebView;
 
 import org.json.JSONException;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
-import java.util.ArrayList;
-import java.util.List;
+@ContentView(R.layout.activity_act_info_show_detail)
+public class ActInfoShowDetail extends ActBase {
 
-@ContentView(R.layout.activity_healthy_info)
-public class ActHealthyInfo extends ActBase {
-
-    @ViewInject(R.id.tabs)
-    private PagerSlidingTabStrip tabs;
+    @ViewInject(R.id.webview)
+    SuperWebView webView;
 
     @ViewInject(R.id.headview)
     CustomeHeadView headView;
 
-    @ViewInject(R.id.pager)
-    private ViewPager pager;
-    HealthyInfoViewPagerAdapter classicfyAda;
-    List<M_HealthyInfoClassify> mHealthyInfoClassifyList = new ArrayList<>();
-
-
-    String title;
+    private String title;
+    private String id;
+    private int type;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +40,12 @@ public class ActHealthyInfo extends ActBase {
     @Override
     public  void initView(Bundle savedInstanceState) {
         title = this.getIntent().getStringExtra("title");
+        id = this.getIntent().getStringExtra("id");
+        type = this.getIntent().getIntExtra("type", 1);
+
+        //根据总类或者相应的URL
+        url = getUrl(type);
+
         headView.setTitle("" + title);
         headView.setBack(new XCallbackListener() {
             @Override
@@ -56,32 +53,60 @@ public class ActHealthyInfo extends ActBase {
                 finish();
             }
         });
-        dataLoad();
+
+        requestData(id);
+
     }
 
     /**
-     * 加载健康资讯顶部tab分类
+     * 根据总类或者相应的URL
+     *
+     * @param type
+     * @return
      */
-    private void dataLoad() {
+    private String getUrl(int type) {
+        String urlDeafult = null;
+        switch (type) {
+            case 1://健康知识
+                urlDeafult = URL.url_knowledge_show;
+                break;
+
+            case 2://健康信息
+                urlDeafult = URL.url_news_show;
+                break;
+        }
+        return urlDeafult;
+    }
+
+    /**
+     * 请求数据
+     */
+    private void requestData(String id) {
         Parameters para = new Parameters();
-        ApiStoreSDK.execute(URL.url_news_classify,
+        para.put("id", id);
+        ApiStoreSDK.execute(url,
                 ApiStoreSDK.GET,
                 para,
                 new ApiCallBack() {
+
                     @Override
                     public void onSuccess(int status, String responseString) {
                         JLogUtils.Json(responseString);
                         try {
-                            mHealthyInfoClassifyList = JSONHandleUtils.parseResponseArray(responseString, M_HealthyInfoClassify.class, 1);
-                            classicfyAda = new HealthyInfoViewPagerAdapter(getSupportFragmentManager(), mHealthyInfoClassifyList);
-                            pager.setAdapter(classicfyAda);
-                            final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources()
-                                    .getDisplayMetrics());
-                            pager.setPageMargin(pageMargin);
-                            tabs.setViewPager(pager);
+                            String urlDetail = null;
+                            if (type == 1) {//健康知识
+                                urlDetail = JSONHandleUtils.getKnowledgeDetailUrl(responseString);
+                            } else if (type == 2) {//健康信息
+                                urlDetail = JSONHandleUtils.getInfoDetailUrl(responseString);
+                            }
+                            webView.loadUrl(urlDetail);
                         } catch (JSONException e) {
                             e.printStackTrace();
+                        } catch (Exception e) {
+                            JLogUtils.E(e);
                         }
+
+
                     }
 
                     @Override
@@ -94,6 +119,7 @@ public class ActHealthyInfo extends ActBase {
                     }
                 });
     }
+
 
 
 }

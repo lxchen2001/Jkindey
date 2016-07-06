@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.liji.jkidney.activity.ActWebShow">
+    tools:context=".activity.info.ActWebShow">
 
     <com.liji.jkidney.widget.CustomeHeadView
         android:id="@id/headview"

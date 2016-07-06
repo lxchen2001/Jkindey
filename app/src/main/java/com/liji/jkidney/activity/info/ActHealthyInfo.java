@@ -1,7 +1,7 @@
-package com.liji.jkidney.activity;
+package com.liji.jkidney.activity.info;
 
-import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.support.v4.view.ViewPager;
 import android.util.TypedValue;
 
 import com.astuetz.PagerSlidingTabStrip;
@@ -9,8 +9,9 @@ import com.baidu.apistore.sdk.ApiCallBack;
 import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.baidu.apistore.sdk.network.Parameters;
 import com.liji.jkidney.R;
-import com.liji.jkidney.adapter.HealthyKnowledgeViewPagerAdapter;
-import com.liji.jkidney.model.info.M_HealthyKnowledgeClassicfy;
+import com.liji.jkidney.activity.ActBase;
+import com.liji.jkidney.adapter.HealthyInfoViewPagerAdapter;
+import com.liji.jkidney.model.info.M_HealthyInfoClassify;
 import com.liji.jkidney.model.info.URL;
 import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JSONHandleUtils;
@@ -24,9 +25,8 @@ import org.xutils.view.annotation.ViewInject;
 import java.util.ArrayList;
 import java.util.List;
 
-@ContentView(R.layout.activity_act_healthy_knowledge)
-public class ActHealthyKnowledge extends ActBase {
-
+@ContentView(R.layout.activity_healthy_info)
+public class ActHealthyInfo extends ActBase {
 
     @ViewInject(R.id.tabs)
     private PagerSlidingTabStrip tabs;
@@ -36,10 +36,8 @@ public class ActHealthyKnowledge extends ActBase {
 
     @ViewInject(R.id.pager)
     private ViewPager pager;
-
-
-    HealthyKnowledgeViewPagerAdapter classicfyAda;
-    List<M_HealthyKnowledgeClassicfy> healthyKnowledgeClassicfies = new ArrayList<>();
+    HealthyInfoViewPagerAdapter classicfyAda;
+    List<M_HealthyInfoClassify> mHealthyInfoClassifyList = new ArrayList<>();
 
 
     String title;
@@ -50,7 +48,7 @@ public class ActHealthyKnowledge extends ActBase {
     }
 
     @Override
-    public void initView(Bundle savedInstanceState) {
+    public  void initView(Bundle savedInstanceState) {
         title = this.getIntent().getStringExtra("title");
         headView.setTitle("" + title);
         headView.setBack(new XCallbackListener() {
@@ -61,12 +59,13 @@ public class ActHealthyKnowledge extends ActBase {
         });
         dataLoad();
     }
+
     /**
      * 加载健康资讯顶部tab分类
      */
     private void dataLoad() {
         Parameters para = new Parameters();
-        ApiStoreSDK.execute(URL.url_knowledge_classify,
+        ApiStoreSDK.execute(URL.url_news_classify,
                 ApiStoreSDK.GET,
                 para,
                 new ApiCallBack() {
@@ -74,8 +73,8 @@ public class ActHealthyKnowledge extends ActBase {
                     public void onSuccess(int status, String responseString) {
                         JLogUtils.Json(responseString);
                         try {
-                            healthyKnowledgeClassicfies = JSONHandleUtils.parseResponseArray(responseString, M_HealthyKnowledgeClassicfy.class, 2);
-                            classicfyAda = new HealthyKnowledgeViewPagerAdapter(getSupportFragmentManager(), healthyKnowledgeClassicfies);
+                            mHealthyInfoClassifyList = JSONHandleUtils.parseResponseArray(responseString, M_HealthyInfoClassify.class, 1);
+                            classicfyAda = new HealthyInfoViewPagerAdapter(getSupportFragmentManager(), mHealthyInfoClassifyList);
                             pager.setAdapter(classicfyAda);
                             final int pageMargin = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 4, getResources()
                                     .getDisplayMetrics());
