@@ -11,9 +11,19 @@ import cn.bmob.v3.BmobObject;
  * 作者：liji on 2016/7/6 13:33
  * 邮箱：lijiwork@sina.com
  */
-public class MCheckTypeNiaodanbai extends BmobObject {
+public class MCheckType extends BmobObject {
 
     private MyUser author;
+
+    private Integer type;
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
 
     public MyUser getAuthor() {
         return author;
@@ -23,13 +33,13 @@ public class MCheckTypeNiaodanbai extends BmobObject {
         this.author = author;
     }
 
-    private List<MCheckTypeNiaodanbaiDetail> list;
+    private List<MCheckTypeDetail> list;
 
-    public List<MCheckTypeNiaodanbaiDetail> getList() {
+    public List<MCheckTypeDetail> getList() {
         return list;
     }
 
-    public void setList(List<MCheckTypeNiaodanbaiDetail> list) {
+    public void setList(List<MCheckTypeDetail> list) {
         this.list = list;
     }
 }

@@ -7,7 +7,7 @@ import cn.bmob.v3.BmobObject;
  * 作者：liji on 2016/7/6 13:33
  * 邮箱：lijiwork@sina.com
  */
-public class MCheckTypeNiaodanbaiDetail extends BmobObject {
+public class MCheckTypeDetail extends BmobObject {
 
     private String time;
     private String type;

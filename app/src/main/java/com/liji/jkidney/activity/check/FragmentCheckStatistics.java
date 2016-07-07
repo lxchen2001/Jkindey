@@ -1,24 +1,17 @@
-package com.liji.jkidney.activity.check.Niaodanbai;
+package com.liji.jkidney.activity.check;
 
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.liji.jkidney.R;
 import com.liji.jkidney.fragment.FragmentBase;
-import com.liji.jkidney.model.check.MCheckTypeNiaodanbai;
+import com.liji.jkidney.model.CheckTypeId;
+import com.liji.jkidney.model.check.MCheckType;
 import com.liji.jkidney.utils.JTimeUtils;
-import com.liji.jkidney.utils.JToastUtils;
-import com.liji.jkidney.utils.XCallbackListener;
-import com.liji.jkidney.widget.CustomeHeadView;
-import com.rey.material.app.Dialog;
-import com.rey.material.app.DialogFragment;
-import com.rey.material.app.SimpleDialog;
-import com.rey.material.app.ThemeManager;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -28,7 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import lecho.lib.hellocharts.gesture.ZoomType;
-import lecho.lib.hellocharts.listener.ColumnChartOnValueSelectListener;
 import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Column;
@@ -43,9 +35,11 @@ public class FragmentCheckStatistics extends FragmentBase {
 
     private static String POS = "position";
     private static String DATA = "data";
+    private static String TYPE = "type";
 
-    List<MCheckTypeNiaodanbai> checkTypeNiaodanbais = new ArrayList<>();
+    List<MCheckType> checkTypeNiaodanbais = new ArrayList<>();
     int position = 0;
+    int type = CheckTypeId.Gangongneng;
 
     @ViewInject(R.id.chart_bottom)
     ColumnChartView chartBottom;
@@ -55,10 +49,11 @@ public class FragmentCheckStatistics extends FragmentBase {
     }
 
 
-    public static FragmentCheckStatistics newInstance(List<MCheckTypeNiaodanbai> checkTypeNiaodanbais, int position) {
+    public static FragmentCheckStatistics newInstance(List<MCheckType> checkTypeNiaodanbais, int position, int type) {
         FragmentCheckStatistics f = new FragmentCheckStatistics();
         Bundle b = new Bundle();
         b.putInt(POS, position);
+        b.putInt(TYPE, type);
         b.putSerializable(DATA, (Serializable) checkTypeNiaodanbais);
         f.setArguments(b);
         return f;
@@ -68,7 +63,8 @@ public class FragmentCheckStatistics extends FragmentBase {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         position = this.getArguments().getInt(POS);
-        checkTypeNiaodanbais = (List<MCheckTypeNiaodanbai>) this.getArguments().getSerializable(DATA);
+        type = this.getArguments().getInt(TYPE);
+        checkTypeNiaodanbais = (List<MCheckType>) this.getArguments().getSerializable(DATA);
     }
 
 
@@ -82,7 +78,7 @@ public class FragmentCheckStatistics extends FragmentBase {
         return view;
     }
 
-    public void setData(List<MCheckTypeNiaodanbai> data) {
+    public void setData(List<MCheckType> data) {
         //每个x坐标显示的柱状图个数
         int numSubcolumns = 1;
 
