@@ -69,7 +69,8 @@
             android:screenOrientation="landscape" />
         <activity android:name=".activity.check.Gangongneng.ActCheckGangongneng" />
         <activity android:name=".activity.check.Gangongneng.ActCheckGangongnengAdd" />
-        <activity android:name=".activity.check.Gangongneng.ActCheckGangongnengUpdate"></activity>
+        <activity android:name=".activity.check.Gangongneng.ActCheckGangongnengUpdate" />
+        <activity android:name=".activity.check.ActNote"></activity>
     </application>
 
 </manifest>

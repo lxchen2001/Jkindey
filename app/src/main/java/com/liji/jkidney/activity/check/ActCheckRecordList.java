@@ -38,7 +38,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 
 /**
- * 尿蛋白检测
+ * 检测
  */
 @ContentView(R.layout.activity_check_niaodanbai)
 public class ActCheckRecordList extends ActBase implements SwipeRefreshLayout.OnRefreshListener {

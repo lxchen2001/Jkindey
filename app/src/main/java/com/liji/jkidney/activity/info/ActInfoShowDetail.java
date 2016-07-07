@@ -27,6 +27,9 @@ public class ActInfoShowDetail extends ActBase {
     @ViewInject(R.id.headview)
     CustomeHeadView headView;
 
+
+
+
     private String title;
     private String id;
     private int type;
