@@ -55,7 +55,7 @@ Jkidney的色系采用蓝色，简洁明了，看起来也比较舒服，让人�
 
 
 ### 效果实现图
-![查看健康资讯分类信息](http://note.youdao.com/yws/res/37/WEBRESOURCE483d7d9612cc9c57ae49c0cc4374f0bf)
+![查看健康资讯分类信息](http://images.cnblogs.com/cnblogs_com/liji275137657/850756/o_1.png)
 
 （图1，查看健康资讯分类信息）
 
