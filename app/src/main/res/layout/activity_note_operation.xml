@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.liji.jkidney.activity.check.ActNoteOperation">
+
+    <com.liji.jkidney.widget.CustomeHeadView
+        android:id="@+id/headview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.liji.jkidney.widget.CustomeHeadView>
+
+    <EditText
+        android:id="@+id/item_title"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_below="@+id/headview"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:button="@null"
+        android:gravity="center"
+        android:hint="请输入标题"
+        android:textColor="@color/c_999999"
+        android:textSize="16sp" />
+
+
+    <LinearLayout
+        android:id="@+id/ll_time"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/item_title"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingRight="10dp">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|right"
+            android:text="2014-03-14 13:22:22"
+            android:textColor="@color/c_999999"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/view_1"
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:layout_below="@+id/ll_time"
+        android:background="@color/c_999999" />
+
+
+    <EditText
+        android:id="@+id/item_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/view_1"
+        android:background="@color/white"
+        android:button="@null"
+        android:gravity="top|left"
+        android:hint="输入内容"
+        android:padding="10dp"
+        android:textColor="@color/c_999999"
+        android:textSize="16sp" />
+
+</RelativeLayout>

@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    android:orientation="vertical"
+    tools:context="com.liji.jkidney.activity.ActAbout">
+
+    <com.liji.jkidney.widget.CustomeHeadView
+        android:id="@+id/headview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.liji.jkidney.widget.CustomeHeadView>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none">
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="40dp"
+                android:background="@mipmap/ic_launcher" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:paddingLeft="10dp"
+                android:text="肾管家"
+                android:textColor="@color/c_666666"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/c_999999" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_need_wihte"
+                    android:drawablePadding="2dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="我的QQ"
+                    android:textColor="@color/c_333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="275137657"
+                    android:textColor="@color/c_999999"
+                    android:textSize="16sp" />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/c_999999" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_need_wihte"
+                    android:drawablePadding="2dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="我的邮箱"
+                    android:textColor="@color/c_333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="lijiwork@sina.com"
+                    android:textColor="@color/material_blue_personal_center_bg"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/c_999999" />
+
+            <LinearLayout
+                android:id="@+id/ll_blog"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_need_wihte"
+                    android:drawablePadding="2dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="我的博客"
+                    android:textColor="@color/c_333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="http://crazyandcoder.github.io/"
+                    android:textColor="@color/material_blue_personal_center_bg"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/c_999999" />
+
+            <LinearLayout
+                android:id="@+id/ll_github"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_need_wihte"
+                    android:drawablePadding="2dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="10dp"
+                    android:text="我的github"
+                    android:textColor="@color/c_333333"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:gravity="center_vertical"
+                    android:text="https://github.com/crazyandcoder"
+                    android:textColor="@color/material_blue_personal_center_bg"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/c_999999" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

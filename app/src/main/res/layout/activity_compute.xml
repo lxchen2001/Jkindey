@@ -3,9 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background"
     android:orientation="vertical"
-    tools:context="com.liji.jkidney.activity.ActSetting">
+    tools:context="com.liji.jkidney.activity.compute.ActCompute">
 
     <com.liji.jkidney.widget.CustomeHeadView
         android:id="@+id/headview"
@@ -17,11 +16,10 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0.3dp"
-        android:layout_marginTop="20dp"
         android:background="@color/c_999999" />
 
     <LinearLayout
-        android:id="@+id/ll_about"
+        android:id="@+id/ll_jigan"
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:background="@color/white"
@@ -33,10 +31,10 @@
             android:layout_weight="1"
             android:drawableLeft="@drawable/ic_need_wihte"
             android:drawablePadding="2dp"
-            android:gravity="center_vertical"
+            android:gravity="center"
             android:paddingLeft="10dp"
-            android:text="关于开发者"
-            android:textColor="@color/c_999999"
+            android:text="肌酐清除率计算"
+            android:textColor="@color/c_333333"
             android:textSize="16sp" />
 
         <ImageView
@@ -54,28 +52,37 @@
         android:layout_height="0.3dp"
         android:background="@color/c_999999" />
 
-
-    <TextView
-        android:id="@+id/tv_version"
+    <LinearLayout
+        android:id="@+id/ll_shenxiaoqiu"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:paddingLeft="10dp"
-        android:text="当前版本号: 1.0"
-        android:textColor="@color/c_999999"
-        android:textSize="14sp" />
+        android:layout_height="55dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableLeft="@drawable/ic_need_wihte"
+            android:drawablePadding="2dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="肾小球过滤率计算"
+            android:textColor="@color/c_333333"
+            android:textSize="16sp" />
 
-    <Button
-        android:id="@+id/btn_loginout"
-        android:layout_width="fill_parent"
-        android:layout_height="45dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginTop="30dp"
-        android:background="@drawable/btn_login"
-        android:text="退出"
-        android:textColor="@color/btn_login_text_selector"
-        android:textSize="18sp" />
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/ic_arrow_right"
+            android:visibility="visible" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/c_999999" />
 </LinearLayout>

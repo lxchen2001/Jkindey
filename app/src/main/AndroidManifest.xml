@@ -70,7 +70,12 @@
         <activity android:name=".activity.check.Gangongneng.ActCheckGangongneng" />
         <activity android:name=".activity.check.Gangongneng.ActCheckGangongnengAdd" />
         <activity android:name=".activity.check.Gangongneng.ActCheckGangongnengUpdate" />
-        <activity android:name=".activity.check.ActNote"></activity>
+        <activity android:name=".activity.check.ActNoteList" />
+        <activity android:name=".activity.check.ActNoteOperation" />
+        <activity android:name=".activity.compute.ActCompute" />
+        <activity android:name=".activity.compute.ActComputeJigan" />
+        <activity android:name=".activity.compute.ActComputeShenxiaoqiu" />
+        <activity android:name=".activity.ActAbout"></activity>
     </application>
 
 </manifest>

@@ -11,6 +11,8 @@ import android.widget.LinearLayout;
 
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.check.ActCheckRecordList;
+import com.liji.jkidney.activity.check.ActNoteList;
+import com.liji.jkidney.activity.compute.ActCompute;
 import com.liji.jkidney.model.CheckTypeId;
 import com.liji.jkidney.widget.CustomeHeadView;
 
@@ -42,7 +44,7 @@ public class FragmentChecks extends FragmentBase implements View.OnClickListener
     LinearLayout llType8;
     @ViewInject(R.id.ll_type_9)
     LinearLayout llType9;
-    private String[] mChecksNames = {"肝功能", "肾功能", "尿蛋白", "血压", "体重", "血糖", "记事本","肌酐清除率"};
+    private String[] mChecksNames = {"肝功能", "肾功能", "尿蛋白", "血压", "体重", "血糖", "记事本", "计算器"};
 
     public FragmentChecks() {
 
@@ -74,8 +76,17 @@ public class FragmentChecks extends FragmentBase implements View.OnClickListener
     public void onClick(View v) {
 
         if (v.getId() == R.id.ll_type_7) {//笔记本
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ActNoteList.class);
+            intent.putExtra(ActNoteList.INTENT_TITLE, mChecksNames[6]);
+            startActivity(intent);
+
 
         } else if (v.getId() == R.id.ll_type_8) {//肌酐清除率
+            Intent intent = new Intent();
+            intent.setClass(getContext(), ActCompute.class);
+            intent.putExtra(ActCompute.INTENT_TITLE, mChecksNames[7]);
+            startActivity(intent);
 
         } else {
             String name = "";

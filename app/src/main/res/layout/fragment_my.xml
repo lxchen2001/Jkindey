@@ -35,7 +35,8 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/ic_infor_male" />
+                android:background="@drawable/ic_infor_male"
+                android:visibility="gone" />
 
 
             <LinearLayout
@@ -75,7 +76,8 @@
         android:layout_width="match_parent"
         android:layout_height="55dp"
         android:layout_below="@+id/item_head_bg"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:visibility="gone">
 
         <LinearLayout
             android:id="@+id/item_ll_fav"
@@ -135,9 +137,8 @@
     <LinearLayout
         android:id="@+id/item_ll_login"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="140dp"
         android:layout_below="@+id/ll_function"
-        android:layout_marginLeft="10dp"
         android:gravity="center_vertical"
         android:orientation="vertical"
         android:visibility="visible">
@@ -148,6 +149,16 @@
             android:layout_gravity="center_horizontal"
             android:text="登录/注册"
             android:textSize="18sp" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:text="登录后可备份和查看化验记录"
+            android:textColor="@color/colorControlActivated"
+            android:textSize="14sp" />
 
     </LinearLayout>
 

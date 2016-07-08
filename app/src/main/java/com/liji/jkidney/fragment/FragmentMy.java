@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActSetting;
 import com.liji.jkidney.activity.user.ActLogin;
+import com.liji.jkidney.model.User;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
@@ -52,8 +53,9 @@ public class FragmentMy extends FragmentBase {
     LinearLayout itemLlLogin;
 
 
-    public FragmentMy() {
+    MyUser user = new MyUser();
 
+    public FragmentMy() {
     }
 
     @Override
@@ -63,13 +65,12 @@ public class FragmentMy extends FragmentBase {
         x.view().inject(this, view);
 
         headView.setTitle("我的");
-        headView.setRightImgAction(R.drawable.my_edit_selector, new XCallbackListener() {
+        headView.setRightImgAction(R.drawable.my_setting_selector, new XCallbackListener() {
             @Override
             protected void callback(Object... obj) {
-                Toast.makeText(getContext(), "editting", Toast.LENGTH_SHORT).show();
+                getContext().startActivity(new Intent(getContext(), ActSetting.class));
             }
         });
-
         initView();
 
         item_ll_fav.setOnClickListener(new View.OnClickListener() {
@@ -106,6 +107,7 @@ public class FragmentMy extends FragmentBase {
             itemLlLogin.setVisibility(View.GONE);
             itemTvNickname.setText(user.getUsername());
             itemTvSign.setText(user.getInfo());
+
         }
     }
 

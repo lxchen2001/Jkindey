@@ -13,8 +13,8 @@ import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.activity.check.adapter.NoteAda;
 import com.liji.jkidney.activity.user.ActLogin;
+import com.liji.jkidney.model.Type;
 import com.liji.jkidney.model.User;
-import com.liji.jkidney.model.check.MCheckType;
 import com.liji.jkidney.model.check.MNote;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JViewsUtils;
@@ -24,6 +24,7 @@ import com.liji.jkidney.widget.CustomeHeadView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +35,7 @@ import cn.bmob.v3.listener.FindListener;
  * 记事本
  */
 @ContentView(R.layout.activity_note)
-public class ActNote extends ActBase implements SwipeRefreshLayout.OnRefreshListener {
+public class ActNoteList extends ActBase implements SwipeRefreshLayout.OnRefreshListener {
     @ViewInject(R.id.headview)
     CustomeHeadView headView;
 
@@ -48,14 +49,19 @@ public class ActNote extends ActBase implements SwipeRefreshLayout.OnRefreshList
     SwipeRefreshLayout swipeRefreshLayout;
     boolean isRefresh = true;
     MyUser user;
-    int i = 0;
+    private static int i = 0;
     NoteAda noteAda;
     List<MNote> mNotesList = new ArrayList<>();
 
+    private String title = "";
+    public static String INTENT_TITLE = "title";
+
     @Override
     protected void initView(Bundle savedInstanceState) {
+
+        title = this.getIntent().getStringExtra(INTENT_TITLE);
         user = User.getCurrentUser(this);
-        headView.setTitle("记事本");
+        headView.setTitle("" + title);
         headView.setBack(new XCallbackListener() {
             @Override
             protected void callback(Object... obj) {
@@ -68,16 +74,18 @@ public class ActNote extends ActBase implements SwipeRefreshLayout.OnRefreshList
             @Override
             public void onClick(View v) {
                 if (user != null) {
-                    Intent intent = new Intent(ActNote.this, ActCheckRecordOperation.class);
+                    Intent intent = new Intent(ActNoteList.this, ActNoteOperation.class);
+                    intent.putExtra(ActNoteOperation.INTENT_TYPE, Type.Note_Add);
+                    intent.putExtra(ActNoteOperation.INTENT_Data, (Serializable) new MNote());
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(ActNote.this, ActLogin.class);
+                    Intent intent = new Intent(ActNoteList.this, ActLogin.class);
                     startActivity(intent);
                 }
             }
         });
 
-        final LinearLayoutManager layoutManager = new LinearLayoutManager(ActNote.this);
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(ActNoteList.this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerview.setLayoutManager(layoutManager);
 
@@ -98,6 +106,10 @@ public class ActNote extends ActBase implements SwipeRefreshLayout.OnRefreshList
         noteAda.setOnRecyclerViewItemClickListener(new BaseQuickAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onItemClick(View view, int i) {
+                Intent intent = new Intent(ActNoteList.this, ActNoteOperation.class);
+                intent.putExtra(ActNoteOperation.INTENT_TYPE, Type.Note_Edit);
+                intent.putExtra(ActNoteOperation.INTENT_Data, (Serializable) noteAda.getData().get(i));
+                startActivity(intent);
 
 
             }
@@ -115,12 +127,12 @@ public class ActNote extends ActBase implements SwipeRefreshLayout.OnRefreshList
             BmobQuery<MNote> query = new BmobQuery<>();
             query.addWhereEqualTo("author", user);
             query.setLimit(1000);
-            query.findObjects(ActNote.this, new FindListener<MNote>() {
+            query.findObjects(ActNoteList.this, new FindListener<MNote>() {
                 @Override
                 public void onSuccess(List<MNote> list) {
                     swipeRefreshLayout.setRefreshing(false);
                     if (list.isEmpty() || (list != null && list.size() == 0)) {
-                        noteAda.setEmptyView(JViewsUtils.getEmptyView(ActNote.this, recyclerview));
+                        noteAda.setEmptyView(JViewsUtils.getEmptyView(ActNoteList.this, recyclerview));
                     } else {
                         if (isRefresh) {
                             noteAda.setNewData(list);
@@ -135,7 +147,7 @@ public class ActNote extends ActBase implements SwipeRefreshLayout.OnRefreshList
             });
         } else {
             swipeRefreshLayout.setRefreshing(false);
-            noteAda.setEmptyView(JViewsUtils.getEmptyView(ActNote.this, recyclerview));
+            noteAda.setEmptyView(JViewsUtils.getEmptyView(ActNoteList.this, recyclerview));
         }
     }
 
@@ -145,6 +157,7 @@ public class ActNote extends ActBase implements SwipeRefreshLayout.OnRefreshList
         super.onResume();
         //避免加载两次
         if (i != 0) {
+            user = User.getCurrentUser(this);
             loadData();
         } else {
             i++;
@@ -153,6 +166,6 @@ public class ActNote extends ActBase implements SwipeRefreshLayout.OnRefreshList
 
     @Override
     public void onRefresh() {
-
+        loadData();
     }
 }
