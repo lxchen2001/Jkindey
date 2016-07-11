@@ -17,8 +17,6 @@ import com.liji.jkidney.widget.CustomeHeadView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.bmob.v3.BmobUser;
 
 @ContentView(R.layout.activity_setting)
@@ -27,6 +25,7 @@ public class ActSetting extends ActBase {
 
     @ViewInject(R.id.headview)
     CustomeHeadView headview;
+
     @ViewInject(R.id.btn_loginout)
     Button btnLoginout;
 
