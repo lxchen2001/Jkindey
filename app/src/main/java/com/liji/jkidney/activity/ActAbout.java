@@ -13,9 +13,6 @@ import com.liji.jkidney.widget.CustomeHeadView;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
-
 @ContentView(R.layout.activity_about)
 public class ActAbout extends ActBase {
 

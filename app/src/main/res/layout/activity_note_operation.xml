@@ -51,7 +51,7 @@
         android:layout_width="match_parent"
         android:layout_height="0.3dp"
         android:layout_below="@+id/ll_time"
-        android:background="@color/c_999999" />
+        android:background="@color/c_dddddd" />
 
 
     <EditText

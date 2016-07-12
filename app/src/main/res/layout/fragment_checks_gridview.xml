@@ -9,7 +9,9 @@
     <com.liji.jkidney.widget.CustomeHeadView
         android:id="@+id/headview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></com.liji.jkidney.widget.CustomeHeadView>
+        android:layout_height="wrap_content">
+
+    </com.liji.jkidney.widget.CustomeHeadView>
 
     <ScrollView
         android:layout_width="match_parent"

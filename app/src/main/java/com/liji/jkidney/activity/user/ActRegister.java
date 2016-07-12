@@ -25,40 +25,22 @@ import cn.bmob.v3.listener.SaveListener;
 @ContentView(R.layout.activity_register)
 public class ActRegister extends ActBase {
 
-
     @ViewInject(R.id.headview)
     CustomeHeadView headview;
     @ViewInject(R.id.et_username)
     EditText etUsername;
     @ViewInject(R.id.et_password)
     EditText etPassword;
-    @ViewInject(R.id.et_nickname)
-    EditText etNickname;
-    @ViewInject(R.id.tv_age)
-    TextView tvAge;
-    @ViewInject(R.id.ll_age)
-    LinearLayout llAge;
-    @ViewInject(R.id.et_career)
-    EditText etCareer;
-    @ViewInject(R.id.et_mail)
-    EditText etMail;
-    @ViewInject(R.id.tv_address)
-    TextView tvAddress;
-    @ViewInject(R.id.ll_address)
-    LinearLayout llAddress;
-    @ViewInject(R.id.ll_detail)
-    LinearLayout llDetail;
+    @ViewInject(R.id.et_password_confirm)
+    EditText etPasswordConfirm;
+
     @ViewInject(R.id.btn_register)
     Button btnRegister;
 
     String username;
     String password;
-    String nickname;
-    String sex;
-    String career;
-    String mail;
-    String address;
-    String info;
+    String passwordConfirm;
+
 
     @Override
     public void initView(Bundle savedInstanceState) {
@@ -81,8 +63,6 @@ public class ActRegister extends ActBase {
     }
 
 
-
-
     private void doSubmit() {
         username = etUsername.getText().toString().trim();
         if (TextUtils.isEmpty(username)) {
@@ -96,26 +76,24 @@ public class ActRegister extends ActBase {
             return;
         }
 
-        nickname = etNickname.getText().toString().trim();
-        sex = "男";
-        career = etCareer.getText().toString().trim();
-        mail = etMail.getText().toString().trim();
-        address = "北京";
-        info = "自由自在的飞翔...";
+        passwordConfirm = etPasswordConfirm.getText().toString().trim();
+        if (TextUtils.isEmpty(passwordConfirm)) {
+            JToastUtils.showToast(ActRegister.this, "确认密码不能为空");
+            return;
+        }
+
+        if (!password.equals(passwordConfirm)) {
+            JToastUtils.showToast(ActRegister.this, "两次密码不一致");
+            return;
+        }
 
         MyUser userRegister = new MyUser();
         userRegister.setUsername(username);
         userRegister.setPassword(password);
-        userRegister.setNickname(nickname);
-        userRegister.setSex(sex);
-        userRegister.setCareer(career);
-        userRegister.setEmail(mail);
-        userRegister.setAddress(address);
-        userRegister.setInfo(info);
+        userRegister.setComfirmPwd(passwordConfirm);
         userRegister.signUp(ActRegister.this, new SaveListener() {
             @Override
             public void onSuccess() {
-
                 JToastUtils.showToast(ActRegister.this, "注册成功");
                 gotoActMainAct();
 

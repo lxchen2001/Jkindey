@@ -43,7 +43,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
                     android:layout_marginTop="20dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:id="@+id/ll_gangongneng_time"
@@ -88,7 +88,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -152,7 +152,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -216,7 +216,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -280,7 +280,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -344,7 +344,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -408,7 +408,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -472,7 +472,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -536,7 +536,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -600,7 +600,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -664,7 +664,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -728,7 +728,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -792,7 +792,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -857,7 +857,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -921,7 +921,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -985,7 +985,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
             </LinearLayout>
 
             <!--肾功能-->
@@ -1009,7 +1009,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
                     android:layout_marginTop="20dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:id="@+id/ll_shengongneng_time"
@@ -1054,7 +1054,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1118,7 +1118,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1182,7 +1182,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1246,7 +1246,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1310,7 +1310,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1374,7 +1374,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1438,7 +1438,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1502,7 +1502,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1566,7 +1566,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1630,7 +1630,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
             </LinearLayout>
 
             <!--尿蛋白-->
@@ -1654,7 +1654,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
                     android:layout_marginTop="20dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:id="@+id/ll_niaodanbai_time"
@@ -1699,7 +1699,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1763,7 +1763,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1827,7 +1827,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
             </LinearLayout>
 
@@ -1852,7 +1852,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
                     android:layout_marginTop="20dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:id="@+id/ll_tizhong_time"
@@ -1897,7 +1897,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -1961,7 +1961,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
             </LinearLayout>
 
@@ -1986,7 +1986,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
                     android:layout_marginTop="20dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:id="@+id/ll_xuetang_time"
@@ -2031,7 +2031,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -2095,7 +2095,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
             </LinearLayout>
 
             <!--血压-->
@@ -2119,7 +2119,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
                     android:layout_marginTop="20dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:id="@+id/ll_xueya_time"
@@ -2164,7 +2164,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -2228,7 +2228,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -2292,7 +2292,7 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="0.3dp"
-                    android:background="@color/c_999999" />
+                    android:background="@color/c_dddddd" />
 
             </LinearLayout>
 

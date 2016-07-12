@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.liji.jkidney.R;
 import com.liji.jkidney.model.User;
+import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
@@ -53,7 +54,7 @@ public class ActSetting extends ActBase {
             btnLoginout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    BmobUser.logOut(ActSetting.this);
+                    MyUser.logOut(ActSetting.this);
                     JToastUtils.showToast(ActSetting.this, "成功退出");
                     finish();
                 }

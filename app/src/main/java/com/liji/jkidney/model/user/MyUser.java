@@ -11,14 +11,40 @@ import cn.bmob.v3.BmobUser;
  */
 public class MyUser extends BmobUser {
     String nickname;
+    Integer age;
     String sex;
     String career;
     String address;
     String info;
+    String headimg;
+    String comfirmPwd;
 
+    public String getComfirmPwd() {
+        return comfirmPwd;
+    }
+
+    public void setComfirmPwd(String comfirmPwd) {
+        this.comfirmPwd = comfirmPwd;
+    }
+
+    public Integer getAge() {
+        return age == null ? new Integer(0) : age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public String getHeadimg() {
+        return headimg == null ? "" : headimg;
+    }
+
+    public void setHeadimg(String headimg) {
+        this.headimg = headimg;
+    }
 
     public String getNickname() {
-        return nickname;
+        return nickname == null ? "无名" : nickname;
     }
 
     public void setNickname(String nickname) {
@@ -26,7 +52,7 @@ public class MyUser extends BmobUser {
     }
 
     public String getSex() {
-        return sex;
+        return sex == null ? "男" : sex;
     }
 
     public void setSex(String sex) {
@@ -34,7 +60,7 @@ public class MyUser extends BmobUser {
     }
 
     public String getCareer() {
-        return career;
+        return career == null ? "未知" : career;
     }
 
     public void setCareer(String career) {
@@ -43,7 +69,7 @@ public class MyUser extends BmobUser {
 
 
     public String getAddress() {
-        return address;
+        return address == null ? "中国" : address;
     }
 
     public void setAddress(String address) {
@@ -51,7 +77,7 @@ public class MyUser extends BmobUser {
     }
 
     public String getInfo() {
-        return info;
+        return (info == "" || info == null) ? "这个人很懒，什么也没有留下..." : info;
     }
 
     public void setInfo(String info) {

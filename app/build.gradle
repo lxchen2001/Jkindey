@@ -54,4 +54,5 @@ dependencies {
     compile 'com.github.rey5137:material:1.2.4'
     compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
     compile 'com.jakewharton:butterknife:latest.integration'
+    compile 'liji.library.dev:app:0.1.0'
 }

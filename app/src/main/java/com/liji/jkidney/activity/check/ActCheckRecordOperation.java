@@ -31,7 +31,6 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 
-import butterknife.ButterKnife;
 import cn.bmob.v3.listener.DeleteListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
