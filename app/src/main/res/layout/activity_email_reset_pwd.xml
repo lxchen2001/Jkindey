@@ -50,7 +50,7 @@
             android:background="@drawable/common_btn_blue_background_selector"
             android:paddingLeft="20dp"
             android:paddingRight="20dp"
-            android:text="立刻验证"
+            android:text="重置密码"
             android:textColor="@color/btn_login_text_selector"
             android:textSize="18sp" />
 

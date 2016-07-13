@@ -13,7 +13,7 @@ public class M_Info implements Parcelable {
     private String mNewsTypeContent;
 
     public String getmNewsType() {
-        return mNewsType;
+        return mNewsType == null ? "" : mNewsType;
     }
 
     public void setmNewsType(String mNewsType) {

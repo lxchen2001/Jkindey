@@ -27,24 +27,46 @@
                 android:id="@+id/item_head_bg"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-
                 android:background="@drawable/ic_my_bg">
 
+                <RelativeLayout
+                    android:id="@+id/item_rl_logined"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
+                    android:visibility="gone">
 
-            </RelativeLayout>
+                    <com.liji.jkidney.widget.RoundImageView
+                        android:id="@+id/item_head_ico"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_centerHorizontal="true"
+                        android:background="@drawable/ic_infor_male"
+                        android:visibility="visible" />
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="0.3dp"
-                android:layout_marginTop="10dp"
-                android:background="@color/c_dddddd" />
+                    <TextView
+                        android:id="@+id/item_tv_nickname"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/item_head_ico"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="15dp"
+                        android:text="lucky_boy"
+                        android:textColor="@color/c_blue"
+                        android:textSize="18sp" />
 
-            <RelativeLayout
-                android:id="@+id/ll_info"
-                android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:background="@drawable/common_linearlayout_background_selector"
-                android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/item_tv_sign"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/item_tv_nickname"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="10dp"
+                        android:text="不以物喜，不以己悲"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/item_ll_logout"
@@ -53,7 +75,7 @@
                     android:layout_centerInParent="true"
                     android:gravity="center_vertical"
                     android:orientation="vertical"
-                    android:visibility="gone">
+                    android:visibility="visible">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -72,61 +94,103 @@
                         android:textSize="14sp" />
                 </LinearLayout>
 
-                <RelativeLayout
-                    android:id="@+id/item_rl_logined"
-                    android:layout_width="wrap_content"
-                    android:layout_height="80dp"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="15dp"
-                    android:orientation="vertical"
-                    android:visibility="visible">
-
-                    <com.liji.jkidney.widget.RoundImageView
-                        android:id="@+id/item_head_ico"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_centerVertical="true"
-                        android:background="@drawable/ic_infor_male"
-                        android:visibility="visible" />
-
-                    <TextView
-                        android:id="@+id/item_tv_nickname"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="15dp"
-                        android:layout_toRightOf="@+id/item_head_ico"
-                        android:text="lucky_boy"
-                        android:textColor="@color/material_blue_personal_center_bg"
-                        android:textSize="18sp" />
-
-                    <TextView
-                        android:id="@+id/item_tv_sign"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/item_tv_nickname"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_toRightOf="@+id/item_head_ico"
-                        android:text="不以物喜，不以己悲"
-                        android:textSize="14sp" />
-
-                </RelativeLayout>
-
-                <ImageView
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="10dp"
-                    android:background="@drawable/ic_arrow_right"
-                    android:visibility="visible" />
             </RelativeLayout>
 
-            <View
+            <LinearLayout
+                android:id="@+id/ll_account"
                 android:layout_width="match_parent"
-                android:layout_height="0.3dp"
-                android:background="@color/c_dddddd" />
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:background="@color/c_dddddd" />
+
+                <LinearLayout
+                    android:id="@+id/item_ll_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/common_linearlayout_background_selector"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:background="@drawable/ic_account" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:text="账户"
+                        android:textColor="@color/c_333333"
+                        android:textSize="16sp" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_arrow_right"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:layout_marginLeft="15dp"
+                    android:background="@color/c_dddddd" />
+
+                <LinearLayout
+                    android:id="@+id/item_ll_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:background="@drawable/common_linearlayout_background_selector"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="15dp"
+                        android:background="@drawable/ic_password" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:text="安全"
+                        android:textColor="@color/c_333333"
+                        android:textSize="16sp" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_arrow_right"
+                        android:visibility="visible" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:background="@color/c_dddddd" />
+
+            </LinearLayout>
+
 
             <View
                 android:layout_width="match_parent"
@@ -137,7 +201,7 @@
             <LinearLayout
                 android:id="@+id/item_ll_setting"
                 android:layout_width="match_parent"
-                android:layout_height="55dp"
+                android:layout_height="40dp"
                 android:background="@drawable/common_linearlayout_background_selector"
                 android:orientation="horizontal">
 

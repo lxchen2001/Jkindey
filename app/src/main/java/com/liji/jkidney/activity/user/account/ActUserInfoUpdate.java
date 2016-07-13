@@ -1,4 +1,4 @@
-package com.liji.jkidney.activity.user;
+package com.liji.jkidney.activity.user.account;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.liji.dev.androidutils.utils.citypickerWheelView.widget.CityPickerView;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
+import com.liji.jkidney.activity.user.ActLogin;
 import com.liji.jkidney.model.User;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JToastUtils;
@@ -46,8 +47,7 @@ public class ActUserInfoUpdate extends ActBase {
     LinearLayout llSex;
     @ViewInject(R.id.et_career)
     EditText etCareer;
-    @ViewInject(R.id.tv_mail)
-    TextView tvMail;
+
     @ViewInject(R.id.tv_address)
     TextView tvAddress;
     @ViewInject(R.id.tv_detail)
@@ -57,13 +57,8 @@ public class ActUserInfoUpdate extends ActBase {
     @ViewInject(R.id.ll_detail)
     LinearLayout llDetail;
 
-    @ViewInject(R.id.ll_email)
-    LinearLayout llEmail;
 
-    @ViewInject(R.id.img_go)
-    ImageView imgGo;
-    @ViewInject(R.id.img_email)
-    ImageView imgEmail;
+
 
 
     MyUser userLocal;
@@ -73,13 +68,7 @@ public class ActUserInfoUpdate extends ActBase {
     String career;
     String address;
     String info;
-    String mail;
 
-    //邮箱可编辑
-    private static final int EIDT_YES = 0;
-
-    //邮箱不可编辑
-    private static final int EIDT_NO = 1;
 
 
     @Override
@@ -120,7 +109,6 @@ public class ActUserInfoUpdate extends ActBase {
         nickname = userLocal.getNickname();
         age = userLocal.getAge();
         sex = userLocal.getSex();
-        mail = userLocal.getEmail();
         address = userLocal.getAddress();
         info = userLocal.getInfo();
         career = userLocal.getCareer();
@@ -130,55 +118,11 @@ public class ActUserInfoUpdate extends ActBase {
         tvAddress.setText("" + address);
         tvDetail.setText("" + info);
         etCareer.setText("" + career);
-        tvMail.setText("" + mail);
-        if (TextUtils.isEmpty(mail)) {//为空或者没有验证，则跳转页面进行输入邮箱验证
-            imgGo.setVisibility(View.VISIBLE);
-            imgEmail.setBackgroundResource(R.drawable.ic_verify_no);
-            llEmail.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    gotoEmail(mail, EIDT_YES);
-                }
-            });
-        } else {
-            if (userLocal.getEmailVerified() != null && (!userLocal.getEmailVerified())) {//没有验证
-                imgGo.setVisibility(View.VISIBLE);
-                imgEmail.setBackgroundResource(R.drawable.ic_verify_no);
-                llEmail.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        gotoEmail(mail, EIDT_NO);
-                    }
-                });
 
-            } else {
-                imgEmail.setBackgroundResource(R.drawable.ic_verify);
-                imgGo.setVisibility(View.INVISIBLE);
-            }
-        }
 
     }
 
-    /**
-     * 邮箱验证操作
-     */
-    private void gotoEmail(String email, int type) {
-        Intent intent = new Intent(ActUserInfoUpdate.this, ActEmailVerfy.class);
-        intent.putExtra(ActEmailVerfy.EMAI_LVERIFY, email);
-        intent.putExtra(ActEmailVerfy.EMAI_TYPE, type);
-        startActivityForResult(intent, 0);
 
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 0) {
-            if (resultCode == RESULT_OK) {
-                tvMail.setText("" + data.getStringExtra(ActEmailVerfy.EMAI_LVERIFY));
-            }
-        }
-    }
 
     private void doSubmit() {
 
@@ -226,23 +170,12 @@ public class ActUserInfoUpdate extends ActBase {
         info = tvDetail.getText().toString().trim();
         user.setInfo("" + info);
 
-        mail = tvMail.getText().toString().trim();
-        if (TextUtils.isEmpty(mail) || mail.equals("null")) {
-            JToastUtils.showToast(ActUserInfoUpdate.this, "邮箱不能为空");
-            return;
-        } else if (!JValidator.isEmail(mail)) {
-            JToastUtils.showToast(ActUserInfoUpdate.this, "邮箱格式不正确");
-            return;
-        } else {
-            user.setEmail(mail);
-        }
 
         user.update(ActUserInfoUpdate.this, userLocal.getObjectId(), new UpdateListener() {
             @Override
             public void onSuccess() {
-                JToastUtils.showToast(ActUserInfoUpdate.this, "更新成功，需要重新登录");
-                MyUser.logOut(ActUserInfoUpdate.this);
-                startActivity(new Intent(ActUserInfoUpdate.this, ActLogin.class));
+                JToastUtils.showToast(ActUserInfoUpdate.this, "更新成功");
+
                 finish();
             }
 

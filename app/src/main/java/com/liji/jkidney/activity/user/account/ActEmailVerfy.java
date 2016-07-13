@@ -1,8 +1,7 @@
-package com.liji.jkidney.activity.user;
+package com.liji.jkidney.activity.user.account;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.KeyEvent;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.liji.dev.androidutils.utils.citypickerWheelView.widget.CityPickerView;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.model.User;

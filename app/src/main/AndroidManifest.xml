@@ -78,9 +78,12 @@
         <activity android:name=".activity.compute.ActComputeJigan" />
         <activity android:name=".activity.compute.ActComputeShenxiaoqiu" />
         <activity android:name=".activity.ActAbout" />
-        <activity android:name=".activity.user.ActUserInfoUpdate" />
+        <activity android:name=".activity.user.account.ActUserInfoUpdate" />
         <activity android:name=".activity.user.ActRegisterEMail" />
-        <activity android:name=".activity.user.ActEmailVerfy"></activity>
+        <activity android:name=".activity.user.account.ActEmailVerfy" />
+        <activity android:name=".activity.user.account.ActEmailResetPwd" />
+        <activity android:name=".activity.user.account.ActPasswordRest" />
+        <activity android:name=".activity.user.account.ActPasswordModify"></activity>
     </application>
 
 </manifest>

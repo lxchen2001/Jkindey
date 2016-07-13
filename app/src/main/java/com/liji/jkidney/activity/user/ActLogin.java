@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
+import com.liji.jkidney.activity.user.account.ActEmailResetPwd;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
@@ -59,10 +60,17 @@ public class ActLogin extends ActBase {
             }
         });
 
+        headView.setRightAction("注册", new XCallbackListener() {
+            @Override
+            protected void callback(Object... obj) {
+                startActivity(new Intent(ActLogin.this, ActRegister.class));
+            }
+        });
+
         tv_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ActLogin.this, ActRegister.class));
+                startActivity(new Intent(ActLogin.this, ActEmailResetPwd.class));
             }
         });
 

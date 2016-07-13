@@ -9,25 +9,22 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.liji.dev.androidutils.utils.PictureSelectDialog.PictureSelectPop;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActSetting;
 import com.liji.jkidney.activity.user.ActLogin;
-import com.liji.jkidney.activity.user.ActUserInfoUpdate;
-import com.liji.jkidney.model.User;
+import com.liji.jkidney.activity.user.account.ActPasswordRest;
+import com.liji.jkidney.activity.user.account.ActUserInfoUpdate;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.HttpCallback;
 import com.liji.jkidney.utils.JHttpUtils;
 import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JToastUtils;
-import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
 import com.liji.jkidney.widget.RoundImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-import org.apache.http.protocol.HTTP;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -58,12 +55,23 @@ public class FragmentMy extends FragmentBase {
     LinearLayout loginoutView;
 
 
+    @ViewInject(R.id.ll_account)
+    LinearLayout ll_account;
+
+    @ViewInject(R.id.item_ll_account)
+    LinearLayout item_ll_account;
+
+
+    @ViewInject(R.id.item_ll_password)
+    LinearLayout item_ll_password;
+
+
     @ViewInject(R.id.item_head_bg)
     RelativeLayout itemHeadBg;
 
     //登录成功后整体item
-    @ViewInject(R.id.ll_info)
-    RelativeLayout ll_info;
+    @ViewInject(R.id.item_ll_logout)
+    LinearLayout ll_info;
 
     MyUser userLocal = new MyUser();
 
@@ -123,6 +131,7 @@ public class FragmentMy extends FragmentBase {
     private void initView() {
         userLocal = BmobUser.getCurrentUser(getContext(), MyUser.class);
         if (userLocal == null) {
+            ll_account.setVisibility(View.GONE);
             loginedView.setVisibility(View.GONE);
             loginoutView.setVisibility(View.VISIBLE);
             //跳转登录
@@ -134,6 +143,7 @@ public class FragmentMy extends FragmentBase {
             });
 
         } else {
+            ll_account.setVisibility(View.VISIBLE);
             loginedView.setVisibility(View.VISIBLE);
             loginoutView.setVisibility(View.GONE);
             JLogUtils.D("headImg: " + userLocal.getHeadimg());
@@ -142,13 +152,24 @@ public class FragmentMy extends FragmentBase {
             }
             itemTvNickname.setText(userLocal.getNickname());
             itemTvSign.setText(userLocal.getInfo());
+
+            //密码相关
+            item_ll_password.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getContext().startActivity(new Intent(getContext(), ActPasswordRest.class));
+                }
+            });
+
             //跳转修改个人信息
-            ll_info.setOnClickListener(new View.OnClickListener() {
+            item_ll_account.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     getContext().startActivity(new Intent(getContext(), ActUserInfoUpdate.class));
                 }
             });
+
+
         }
     }
 
