@@ -136,7 +136,7 @@ public class FragmentMy extends FragmentBase {
         } else {
             loginedView.setVisibility(View.VISIBLE);
             loginoutView.setVisibility(View.GONE);
-
+            JLogUtils.D("headImg: " + userLocal.getHeadimg());
             if (!TextUtils.isEmpty(userLocal.getHeadimg())) {
                 ImageLoader.getInstance().displayImage(userLocal.getHeadimg(), roundImageView);
             }

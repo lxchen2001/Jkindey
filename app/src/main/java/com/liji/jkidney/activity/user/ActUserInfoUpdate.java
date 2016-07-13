@@ -1,9 +1,11 @@
 package com.liji.jkidney.activity.user;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,11 +15,14 @@ import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.model.User;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JToastUtils;
+import com.liji.jkidney.utils.JValidator;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
+
+import java.util.regex.Pattern;
 
 import cn.bmob.v3.listener.UpdateListener;
 
@@ -35,12 +40,14 @@ public class ActUserInfoUpdate extends ActBase {
     EditText etAge;
     @ViewInject(R.id.tv_sex)
     TextView tvSex;
+    @ViewInject(R.id.tv_usename)
+    TextView tvUsename;
     @ViewInject(R.id.ll_sex)
     LinearLayout llSex;
     @ViewInject(R.id.et_career)
     EditText etCareer;
-    @ViewInject(R.id.et_mail)
-    EditText etMail;
+    @ViewInject(R.id.tv_mail)
+    TextView tvMail;
     @ViewInject(R.id.tv_address)
     TextView tvAddress;
     @ViewInject(R.id.tv_detail)
@@ -49,6 +56,16 @@ public class ActUserInfoUpdate extends ActBase {
     LinearLayout llAddress;
     @ViewInject(R.id.ll_detail)
     LinearLayout llDetail;
+
+    @ViewInject(R.id.ll_email)
+    LinearLayout llEmail;
+
+    @ViewInject(R.id.img_go)
+    ImageView imgGo;
+    @ViewInject(R.id.img_email)
+    ImageView imgEmail;
+
+
     MyUser userLocal;
     String nickname;
     Integer age;
@@ -57,6 +74,13 @@ public class ActUserInfoUpdate extends ActBase {
     String address;
     String info;
     String mail;
+
+    //邮箱可编辑
+    private static final int EIDT_YES = 0;
+
+    //邮箱不可编辑
+    private static final int EIDT_NO = 1;
+
 
     @Override
     protected void initView(Bundle savedInstanceState) {
@@ -92,6 +116,7 @@ public class ActUserInfoUpdate extends ActBase {
 
     private void setDefaultInfo() {
         userLocal = User.getCurrentUser(ActUserInfoUpdate.this);
+        tvUsename.setText("" + userLocal.getUsername());
         nickname = userLocal.getNickname();
         age = userLocal.getAge();
         sex = userLocal.getSex();
@@ -102,19 +127,65 @@ public class ActUserInfoUpdate extends ActBase {
         etNickname.setText("" + nickname);
         etAge.setText("" + age);
         tvSex.setText("" + sex);
-        etMail.setText("" + mail);
         tvAddress.setText("" + address);
         tvDetail.setText("" + info);
         etCareer.setText("" + career);
+        tvMail.setText("" + mail);
+        if (TextUtils.isEmpty(mail)) {//为空或者没有验证，则跳转页面进行输入邮箱验证
+            imgGo.setVisibility(View.VISIBLE);
+            imgEmail.setBackgroundResource(R.drawable.ic_verify_no);
+            llEmail.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    gotoEmail(mail, EIDT_YES);
+                }
+            });
+        } else {
+            if (userLocal.getEmailVerified() != null && (!userLocal.getEmailVerified())) {//没有验证
+                imgGo.setVisibility(View.VISIBLE);
+                imgEmail.setBackgroundResource(R.drawable.ic_verify_no);
+                llEmail.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        gotoEmail(mail, EIDT_NO);
+                    }
+                });
+
+            } else {
+                imgEmail.setBackgroundResource(R.drawable.ic_verify);
+                imgGo.setVisibility(View.INVISIBLE);
+            }
+        }
+
     }
 
+    /**
+     * 邮箱验证操作
+     */
+    private void gotoEmail(String email, int type) {
+        Intent intent = new Intent(ActUserInfoUpdate.this, ActEmailVerfy.class);
+        intent.putExtra(ActEmailVerfy.EMAI_LVERIFY, email);
+        intent.putExtra(ActEmailVerfy.EMAI_TYPE, type);
+        startActivityForResult(intent, 0);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                tvMail.setText("" + data.getStringExtra(ActEmailVerfy.EMAI_LVERIFY));
+            }
+        }
+    }
 
     private void doSubmit() {
 
         MyUser user = new MyUser();
         nickname = etNickname.getText().toString().trim();
-        if (TextUtils.isEmpty(nickname)) {
-            JToastUtils.showToast(ActUserInfoUpdate.this, "昵称不能为空");
+        if (!Pattern.matches("^[0-9a-zA-Z_\\u4e00-\\u9fa5\\*]{1,20}$", nickname)) {
+            JToastUtils.showToast(ActUserInfoUpdate.this, "昵称由大小写英文字母、中文、下划线、数字组成，且不超过20个字符");
             return;
         } else {
             user.setNickname(nickname);
@@ -155,9 +226,12 @@ public class ActUserInfoUpdate extends ActBase {
         info = tvDetail.getText().toString().trim();
         user.setInfo("" + info);
 
-        mail = etMail.getText().toString().trim();
+        mail = tvMail.getText().toString().trim();
         if (TextUtils.isEmpty(mail) || mail.equals("null")) {
             JToastUtils.showToast(ActUserInfoUpdate.this, "邮箱不能为空");
+            return;
+        } else if (!JValidator.isEmail(mail)) {
+            JToastUtils.showToast(ActUserInfoUpdate.this, "邮箱格式不正确");
             return;
         } else {
             user.setEmail(mail);
@@ -166,7 +240,9 @@ public class ActUserInfoUpdate extends ActBase {
         user.update(ActUserInfoUpdate.this, userLocal.getObjectId(), new UpdateListener() {
             @Override
             public void onSuccess() {
-                JToastUtils.showToast(ActUserInfoUpdate.this, "更新成功");
+                JToastUtils.showToast(ActUserInfoUpdate.this, "更新成功，需要重新登录");
+                MyUser.logOut(ActUserInfoUpdate.this);
+                startActivity(new Intent(ActUserInfoUpdate.this, ActLogin.class));
                 finish();
             }
 

@@ -53,6 +53,7 @@
             android:button="@null"
             android:maxLines="1"
             android:paddingLeft="15dp"
+            android:singleLine="true"
             android:textColor="@color/c_333333"
             android:textSize="16sp" />
 
@@ -91,6 +92,7 @@
             android:layout_weight="2"
             android:background="@null"
             android:button="@null"
+            android:singleLine="true"
             android:inputType="textPassword"
             android:paddingLeft="15dp"
             android:textColor="@color/c_333333"

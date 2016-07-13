@@ -78,7 +78,9 @@
         <activity android:name=".activity.compute.ActComputeJigan" />
         <activity android:name=".activity.compute.ActComputeShenxiaoqiu" />
         <activity android:name=".activity.ActAbout" />
-        <activity android:name=".activity.user.ActUserInfoUpdate"></activity>
+        <activity android:name=".activity.user.ActUserInfoUpdate" />
+        <activity android:name=".activity.user.ActRegisterEMail" />
+        <activity android:name=".activity.user.ActEmailVerfy"></activity>
     </application>
 
 </manifest>
