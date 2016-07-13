@@ -91,11 +91,18 @@ public class ActRegister extends ActBase {
         userRegister.setUsername(username);
         userRegister.setPassword(password);
         userRegister.setComfirmPwd(passwordConfirm);
+        userRegister.setNickname("无名");
+        userRegister.setAge(0);
+        userRegister.setSex("男");
+        userRegister.setCareer("未知");
+        userRegister.setAddress("中国");
+        userRegister.setInfo("这个人很懒，什么都没有留下...");
         userRegister.signUp(ActRegister.this, new SaveListener() {
             @Override
             public void onSuccess() {
                 JToastUtils.showToast(ActRegister.this, "注册成功");
-                gotoActMainAct();
+                finish();
+//                gotoActMainAct();
 
             }
 
