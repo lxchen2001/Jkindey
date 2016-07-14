@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.liji.dev.androidutils.utils.SexSelectPop.SexSelectWheelView;
 import com.liji.dev.androidutils.utils.citypickerWheelView.widget.CityPickerView;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
@@ -58,17 +59,13 @@ public class ActUserInfoUpdate extends ActBase {
     LinearLayout llDetail;
 
 
-
-
-
     MyUser userLocal;
     String nickname;
     Integer age;
-    String sex;
+    String sexValue;
     String career;
     String address;
     String info;
-
 
 
     @Override
@@ -101,6 +98,21 @@ public class ActUserInfoUpdate extends ActBase {
                 });
             }
         });
+
+        llSex.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SexSelectWheelView sexSelectWheelView = new SexSelectWheelView(ActUserInfoUpdate.this);
+                sexSelectWheelView.setOnSexSelectListener(new SexSelectWheelView.OnSexSelectListener() {
+                    @Override
+                    public void onSelected(String sex) {
+                        sexValue = sex;
+                        tvSex.setText("" + sexValue);
+                    }
+                });
+                sexSelectWheelView.show();
+            }
+        });
     }
 
     private void setDefaultInfo() {
@@ -108,20 +120,19 @@ public class ActUserInfoUpdate extends ActBase {
         tvUsename.setText("" + userLocal.getUsername());
         nickname = userLocal.getNickname();
         age = userLocal.getAge();
-        sex = userLocal.getSex();
+        sexValue = userLocal.getSex();
         address = userLocal.getAddress();
         info = userLocal.getInfo();
         career = userLocal.getCareer();
         etNickname.setText("" + nickname);
         etAge.setText("" + age);
-        tvSex.setText("" + sex);
+        tvSex.setText("" + sexValue);
         tvAddress.setText("" + address);
         tvDetail.setText("" + info);
         etCareer.setText("" + career);
 
 
     }
-
 
 
     private void doSubmit() {
@@ -144,12 +155,12 @@ public class ActUserInfoUpdate extends ActBase {
             user.setAge(age);
         }
 
-        sex = tvSex.getText().toString().trim();
-        if (TextUtils.isEmpty(sex)) {
+        sexValue = tvSex.getText().toString().trim();
+        if (TextUtils.isEmpty(sexValue)) {
             JToastUtils.showToast(ActUserInfoUpdate.this, "性别不能为空");
             return;
         } else {
-            user.setSex(sex);
+            user.setSex(sexValue);
         }
 
         career = etCareer.getText().toString().trim();

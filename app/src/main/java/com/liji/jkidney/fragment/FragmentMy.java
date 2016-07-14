@@ -169,6 +169,14 @@ public class FragmentMy extends FragmentBase {
                 }
             });
 
+            //跳转修改个人信息
+            loginedView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    getContext().startActivity(new Intent(getContext(), ActUserInfoUpdate.class));
+                }
+            });
+
 
         }
     }

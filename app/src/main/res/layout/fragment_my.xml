@@ -35,7 +35,8 @@
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
                     android:layout_marginTop="30dp"
-                    android:visibility="gone">
+                    android:padding="10dp"
+                    android:visibility="visible">
 
                     <com.liji.jkidney.widget.RoundImageView
                         android:id="@+id/item_head_ico"
@@ -66,6 +67,15 @@
                         android:text="不以物喜，不以己悲"
                         android:textSize="14sp" />
 
+                    <ImageView
+                        android:layout_width="40dp"
+                        android:layout_height="20dp"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_alignBottom="@+id/item_tv_sign"
+                        android:layout_toRightOf="@+id/item_tv_sign"
+                        android:background="@drawable/ic_edit" />
+
                 </RelativeLayout>
 
                 <LinearLayout
@@ -75,7 +85,7 @@
                     android:layout_centerInParent="true"
                     android:gravity="center_vertical"
                     android:orientation="vertical"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <TextView
                         android:layout_width="wrap_content"

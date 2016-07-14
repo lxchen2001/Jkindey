@@ -11,14 +11,14 @@ import android.widget.TextView;
 import com.liji.jkidney.R;
 import com.liji.jkidney.model.User;
 import com.liji.jkidney.model.user.MyUser;
+import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
+import com.qihoo.updatesdk.lib.UpdateHelper;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
-
-import cn.bmob.v3.BmobUser;
 
 @ContentView(R.layout.activity_setting)
 public class ActSetting extends ActBase {
@@ -35,6 +35,9 @@ public class ActSetting extends ActBase {
 
     @ViewInject(R.id.ll_about)
     LinearLayout llAbout;
+
+    @ViewInject(R.id.ll_version)
+    LinearLayout llVersion;
 
 
     @Override
@@ -63,7 +66,6 @@ public class ActSetting extends ActBase {
             btnLoginout.setVisibility(View.GONE);
         }
 
-
         try {
             tvVersion.setText("当前版本号：" + this.getPackageManager().getPackageInfo(this.getPackageName(), 0).versionName);
         } catch (PackageManager.NameNotFoundException e) {
@@ -74,6 +76,14 @@ public class ActSetting extends ActBase {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(ActSetting.this, ActAbout.class));
+            }
+        });
+
+        llVersion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                JLogUtils.D("packagename: " + ActSetting.this.getPackageName());
+                UpdateHelper.getInstance().manualUpdate(ActSetting.this.getPackageName());
             }
         });
 
