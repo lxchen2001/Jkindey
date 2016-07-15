@@ -12,4 +12,8 @@ public class Config {
     public static final String APPID = "a6602b47d442e334677ea662a65293c6";
     public static final String ApiStoreSDKID = "0653adb7be267455fc21a3954d632105";
 
+    public static final String URL_BLOG="http://crazyandcoder.github.io/";
+    public static final String URL_GITHUB="https://github.com/crazyandcoder";
+
+
 }

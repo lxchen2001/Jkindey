@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.liji.jkidney.R;
+import com.liji.jkidney.model.Config;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
 
@@ -36,14 +37,14 @@ public class ActAbout extends ActBase {
         llBlog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoURL("http://crazyandcoder.github.io/");
+                gotoURL(Config.URL_BLOG);
             }
         });
 
         llGithub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                gotoURL("https://github.com/crazyandcoder");
+                gotoURL(Config.URL_GITHUB);
             }
         });
 

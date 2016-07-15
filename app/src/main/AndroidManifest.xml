@@ -61,17 +61,11 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize|stateUnspecified" />
         <activity
-            android:name=".activity.check.Niaodanbai.ActCheckUpdate"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".activity.ActSetting"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.check.ActCheckStatistics"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.check.Gangongneng.ActCheckGangongneng" />
-        <activity android:name=".activity.check.Gangongneng.ActCheckGangongnengAdd" />
-        <activity android:name=".activity.check.Gangongneng.ActCheckGangongnengUpdate" />
         <activity android:name=".activity.check.ActNoteList" />
         <activity android:name=".activity.check.ActNoteOperation" />
         <activity android:name=".activity.compute.ActCompute" />
