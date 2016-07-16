@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,11 +12,9 @@ import com.liji.dev.androidutils.utils.SexSelectPop.SexSelectWheelView;
 import com.liji.dev.androidutils.utils.citypickerWheelView.widget.CityPickerView;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
-import com.liji.jkidney.activity.user.ActLogin;
 import com.liji.jkidney.model.User;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JToastUtils;
-import com.liji.jkidney.utils.JValidator;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
 
@@ -113,6 +110,26 @@ public class ActUserInfoUpdate extends ActBase {
                 sexSelectWheelView.show();
             }
         });
+
+        llDetail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActUserInfoUpdate.this, ActPersonalNote.class);
+                intent.putExtra(ActPersonalNote.NOTE, info);
+                startActivityForResult(intent, 0);
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 0) {
+            if (resultCode == RESULT_OK) {
+                info = data.getStringExtra(ActPersonalNote.NOTE);
+                tvDetail.setText("" + info);
+            }
+        }
     }
 
     private void setDefaultInfo() {
@@ -186,7 +203,6 @@ public class ActUserInfoUpdate extends ActBase {
             @Override
             public void onSuccess() {
                 JToastUtils.showToast(ActUserInfoUpdate.this, "更新成功");
-
                 finish();
             }
 
