@@ -70,6 +70,7 @@ public class ActPostAdd extends ActBase {
 
         user = User.getCurrentUser(ActPostAdd.this);
         headView.setTitle("发表主题");
+        headView.setBackgroundColor(getResources().getColor(R.color.color_tab_post));
         headView.setBack(new XCallbackListener() {
             @Override
             protected void callback(Object... obj) {

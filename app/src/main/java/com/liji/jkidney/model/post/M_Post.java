@@ -18,6 +18,18 @@ public class M_Post extends BmobObject {
     private String time;
     private String address;
     private MyUser author;
+
+    //浏览次数
+    private Integer seeNum;
+
+    public Integer getSeeNum() {
+        return seeNum == null ? new Integer(0) : seeNum;
+    }
+
+    public void setSeeNum(Integer seeNum) {
+        this.seeNum = seeNum;
+    }
+
     private List<String> postImg = new ArrayList<>();
 
     public String getTitle() {

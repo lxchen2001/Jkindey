@@ -34,7 +34,7 @@ public class PostAda extends BaseQuickAdapter<M_Post> {
         baseViewHolder.setText(R.id.item_tv_title, "" + m_post.getTitle());
         baseViewHolder.setText(R.id.item_tv_content, "" + m_post.getContent());
         baseViewHolder.setText(R.id.item_tv_time, "" + m_post.getTime());
-        baseViewHolder.setText(R.id.item_tv_see, "20");
+        baseViewHolder.setText(R.id.item_tv_see, "" + m_post.getSeeNum());
         baseViewHolder.setText(R.id.item_tv_comment, "15");
 
         RoundImageView imageView = baseViewHolder.getView(R.id.item_head_ico);

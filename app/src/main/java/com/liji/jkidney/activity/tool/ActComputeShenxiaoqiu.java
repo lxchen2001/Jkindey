@@ -71,6 +71,7 @@ public class ActComputeShenxiaoqiu extends ActBase {
                 finish();
             }
         });
+        headview.setBackgroundColor(getResources().getColor(R.color.color_tab_tool));
         //sex
         switchSex.setOnCheckedChangeListener(new Switch.OnCheckedChangeListener() {
             @Override

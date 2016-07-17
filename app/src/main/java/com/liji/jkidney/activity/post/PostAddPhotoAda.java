@@ -2,7 +2,6 @@ package com.liji.jkidney.activity.post;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.RecyclerView;
@@ -11,11 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.liji.dev.androidutils.utils.PictureSelectDialog.photo.PreviewPhotoActivity;
 import com.liji.jkidney.R;
 import com.liji.jkidney.utils.XCallbackListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.finalteam.galleryfinal.GalleryFinal;
@@ -97,15 +94,15 @@ public class PostAddPhotoAda extends RecyclerView.Adapter<RecyclerView.ViewHolde
             ((ContentViewHolder) holder).mIvDelete.setOnClickListener(new OnDeletePhotoClickListener(position, mXCallbackListener));
 
             //查看预览图
-            ((ContentViewHolder) holder).mIvPhoto.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, PreviewPhotoActivity.class);
-                    intent.putExtra(PreviewPhotoActivity.PHOTO_LIST, (ArrayList) getDatas());
-                    intent.putExtra(PreviewPhotoActivity.PHOTO_INDEX, position);
-                    mContext.startActivity(intent);
-                }
-            });
+//            ((ContentViewHolder) holder).mIvPhoto.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Intent intent = new Intent(mContext, PreviewPhotoActivity.class);
+//                    intent.putExtra(PreviewPhotoActivity.PHOTO_LIST, (ArrayList) getDatas());
+//                    intent.putExtra(PreviewPhotoActivity.PHOTO_INDEX, position);
+//                    mContext.startActivity(intent);
+//                }
+//            });
 
         } else if (holder instanceof FootViewHolder) {//显示添加按钮
             if (position == getDatas().size() && position == NUM_ITEM) {
