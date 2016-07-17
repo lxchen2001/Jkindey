@@ -66,7 +66,7 @@ public class FragmentPost extends FragmentBase implements SwipeRefreshLayout.OnR
     public View getOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_post, container, false);
         x.view().inject(this, view);
-        user = User.getCurrentUser(getContext());
+
         headView.setTitle(getResources().getString(R.string.fragment_info));
         headView.setBackgroundColor(getResources().getColor(R.color.color_tab_post));
 
@@ -122,10 +122,16 @@ public class FragmentPost extends FragmentBase implements SwipeRefreshLayout.OnR
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        user = User.getCurrentUser(getContext());
+    }
+
     private void loadData() {
         isRefresh = true;
         BmobQuery<M_Post> query = new BmobQuery<>();
-        query.order("-updatedAt");
+        query.order("-createdAt");
         query.include("author");
         query.findObjects(getContext(), new FindListener<M_Post>() {
             @Override
