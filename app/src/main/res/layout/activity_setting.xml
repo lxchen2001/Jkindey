@@ -125,6 +125,6 @@
         android:layout_marginTop="30dp"
         android:background="@drawable/btn_login"
         android:text="退出"
-        android:textColor="@color/btn_login_text_selector"
+        android:textColor="@drawable/common_btn_blue_background_selector"
         android:textSize="18sp" />
 </LinearLayout>

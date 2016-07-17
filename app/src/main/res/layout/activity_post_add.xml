@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.check.ActCheckRecordList">
+
+    <com.liji.jkidney.widget.CustomeHeadView
+        android:id="@+id/headview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </com.liji.jkidney.widget.CustomeHeadView>
+
+    <EditText
+        android:id="@+id/et_title"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@null"
+        android:button="@null"
+        android:ellipsize="end"
+        android:hint="标题（可选）"
+        android:paddingLeft="10dp"
+        android:singleLine="true"
+        android:textColor="@color/c_999999"
+        android:textSize="16sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/c_dddddd" />
+
+    <EditText
+        android:id="@+id/et_content"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:background="@null"
+        android:button="@null"
+        android:ellipsize="end"
+        android:gravity="left|top"
+        android:hint=""
+        android:maxLines="6"
+        android:padding="10dp"
+        android:textColor="@color/c_999999"
+        android:textSize="16sp" />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="2dp"
+        android:paddingLeft="10dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.3dp"
+        android:background="@color/c_dddddd" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="5dp"
+        android:scrollbars="horizontal" />
+
+</LinearLayout>

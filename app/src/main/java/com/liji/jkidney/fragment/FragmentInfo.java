@@ -65,8 +65,8 @@ public class FragmentInfo extends FragmentBase {
     public View getOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_index, container, false);
         x.view().inject(this, view);
-        headView.setTitle("资讯");
-
+        headView.setTitle(getResources().getString(R.string.fragment_info));
+        headView.setBackgroundColor(getResources().getColor(R.color.color_tab_post));
         final LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(layoutManager);

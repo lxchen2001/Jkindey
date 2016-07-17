@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/background"
     android:orientation="vertical"
-    tools:context="com.liji.jkidney.fragment.FragmentChecks">
+    tools:context=".activity.check.FragmentChecks">
 
     <com.liji.jkidney.widget.CustomeHeadView
         android:id="@+id/headview"
@@ -129,38 +129,6 @@
                     <TextView
                         style="@style/tv_check_top"
                         android:text="血糖" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout style="@style/ll_check_top">
-
-                <LinearLayout
-                    android:id="@+id/ll_type_7"
-                    style="@style/ll_check_top_left">
-
-                    <ImageView
-                        style="@style/img_check_top"
-                        android:background="@drawable/ic_type_9" />
-
-                    <TextView
-                        style="@style/tv_check_top"
-                        android:text="记事本" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_type_8"
-                    style="@style/ll_check_top_right">
-
-                    <ImageView
-                        style="@style/img_check_top"
-                        android:background="@drawable/ic_type_8" />
-
-                    <TextView
-                        style="@style/tv_check_top"
-                        android:text="肌酐清除率" />
 
                 </LinearLayout>
 

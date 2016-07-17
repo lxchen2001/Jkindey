@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.liji.jkidney.activity.compute.ActComputeJigan">
+    tools:context=".activity.tool.ActComputeJigan">
 
     <com.liji.jkidney.widget.CustomeHeadView
         android:id="@+id/headview"
@@ -402,7 +402,7 @@
                         android:layout_marginTop="20dp"
                         android:background="@drawable/btn_login"
                         android:text="开始计算"
-                        android:textColor="@color/btn_login_text_selector"
+                        android:textColor="@drawable/common_btn_blue_background_selector"
                         android:textSize="18sp" />
 
                 </LinearLayout>
@@ -421,7 +421,7 @@
                         android:layout_marginLeft="10dp"
                         android:layout_marginTop="10dp"
                         android:text="*计算结果"
-                        android:textColor="@color/material_blue_personal_center_bg"
+                        android:textColor="@drawable/common_btn_blue_background_selector"
                         android:textSize="20sp"
                         android:textStyle="bold" />
 

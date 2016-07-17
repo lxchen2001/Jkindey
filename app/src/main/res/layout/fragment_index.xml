@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:background="@color/c_background"
     android:orientation="vertical"
-    tools:context="com.liji.jkidney.fragment.FragmentChecks">
+    tools:context=".activity.check.FragmentChecks">
 
     <com.liji.jkidney.widget.CustomeHeadView
         android:id="@+id/headview"

@@ -1,4 +1,4 @@
-package com.liji.jkidney.activity.check;
+package com.liji.jkidney.activity.tool;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import com.liji.jkidney.activity.check.adapter.NoteAda;
 import com.liji.jkidney.activity.user.ActLogin;
 import com.liji.jkidney.model.Type;
 import com.liji.jkidney.model.User;
-import com.liji.jkidney.model.check.MNote;
+import com.liji.jkidney.model.tool.MNote;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JViewsUtils;
 import com.liji.jkidney.utils.XCallbackListener;

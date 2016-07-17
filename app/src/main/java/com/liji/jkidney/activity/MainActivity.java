@@ -1,5 +1,6 @@
 package com.liji.jkidney.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
@@ -32,15 +33,22 @@ public class MainActivity extends ActBase {
 
     @Override
     public void initView(Bundle savedInstanceState) {
-        AHBottomNavigationItem infoItem = new AHBottomNavigationItem(getResources().getString(R.string.fragment_info), R.drawable.ic_menu_jingxuan_sel);
-        AHBottomNavigationItem checkItem = new AHBottomNavigationItem(getResources().getString(R.string.fragment_checks), R.drawable.ic_menu_jiancha_sel);
-        AHBottomNavigationItem myItem = new AHBottomNavigationItem(getResources().getString(R.string.fragment_my), R.drawable.ic_menu_my_sel);
+        AHBottomNavigationItem infoItem = new AHBottomNavigationItem((R.string.fragment_info), R.drawable.ic_menu_post, R.color.color_tab_post);
+        AHBottomNavigationItem toolItem = new AHBottomNavigationItem((R.string.fragment_tool), R.drawable.ic_menu_tool, R.color.color_tab_tool);
+        AHBottomNavigationItem checkItem = new AHBottomNavigationItem((R.string.fragment_checks), R.drawable.ic_menu_check, R.color.color_tab_check);
+        AHBottomNavigationItem myItem = new AHBottomNavigationItem((R.string.fragment_my), R.drawable.ic_menu_my, R.color.color_tab_my);
 
         bottomNavigationItems.add(infoItem);
         bottomNavigationItems.add(checkItem);
+        bottomNavigationItems.add(toolItem);
         bottomNavigationItems.add(myItem);
 
         bottomNavigation.addItems(bottomNavigationItems);
+        bottomNavigation.setAccentColor(Color.parseColor("#F63D2B"));
+        bottomNavigation.setInactiveColor(Color.parseColor("#747474"));
+        bottomNavigation.setColored(true);
+
+
         adapter = new BottomTabViewPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(adapter);
 

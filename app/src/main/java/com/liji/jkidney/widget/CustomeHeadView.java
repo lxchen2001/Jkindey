@@ -1,7 +1,6 @@
 package com.liji.jkidney.widget;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.a.a.V;
 import com.liji.jkidney.R;
 import com.liji.jkidney.utils.XCallbackListener;
 
@@ -55,6 +53,10 @@ public class CustomeHeadView extends RelativeLayout {
         item_head_tv_action = (TextView) view.findViewById(R.id.item_head_tv_action);
     }
 
+    public void setBackgroundColor(int color) {
+        item_head_rl_bg.setBackgroundColor(color);
+
+    }
 
     /**
      * 设置标题

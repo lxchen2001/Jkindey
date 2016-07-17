@@ -1,4 +1,4 @@
-package com.liji.jkidney.activity.check;
+package com.liji.jkidney.activity.tool;
 
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -11,7 +11,7 @@ import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.model.Type;
 import com.liji.jkidney.model.User;
-import com.liji.jkidney.model.check.MNote;
+import com.liji.jkidney.model.tool.MNote;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JTimeUtils;
 import com.liji.jkidney.utils.JToastUtils;
@@ -28,8 +28,6 @@ import org.xutils.view.annotation.ViewInject;
 
 import java.text.SimpleDateFormat;
 
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import cn.bmob.v3.listener.DeleteListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;

@@ -5,7 +5,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="fragment_info">精选</string>
-    <string name="fragment_checks">检查</string>
+    <string name="fragment_checks">化验</string>
+    <string name="fragment_tool">工具</string>
     <string name="fragment_my">我的</string>
     <string name="check_gangongneng">肝功能</string>
     <string name="check_shengongneng">肾功能</string>

@@ -3,7 +3,7 @@ package com.liji.jkidney.activity.check.adapter;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.liji.jkidney.R;
-import com.liji.jkidney.model.check.MNote;
+import com.liji.jkidney.model.tool.MNote;
 
 import java.util.List;
 

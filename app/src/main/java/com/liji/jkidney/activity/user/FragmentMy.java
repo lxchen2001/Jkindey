@@ -1,4 +1,4 @@
-package com.liji.jkidney.fragment;
+package com.liji.jkidney.activity.user;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,9 +13,9 @@ import android.widget.TextView;
 import com.liji.dev.androidutils.utils.PictureSelectDialog.PictureSelectPop;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActSetting;
-import com.liji.jkidney.activity.user.ActLogin;
 import com.liji.jkidney.activity.user.account.ActPasswordRest;
 import com.liji.jkidney.activity.user.account.ActUserInfoUpdate;
+import com.liji.jkidney.fragment.FragmentBase;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.HttpCallback;
 import com.liji.jkidney.utils.JHttpUtils;
@@ -85,7 +85,8 @@ public class FragmentMy extends FragmentBase {
         View view = inflater.inflate(R.layout.fragment_my, container, false);
         x.view().inject(this, view);
 
-        headView.setTitle("我的");
+        headView.setTitle(getResources().getString(R.string.fragment_my));
+        headView.setBackgroundColor(getResources().getColor(R.color.color_tab_my));
         initView();
 
 

@@ -43,7 +43,6 @@ public class ActSetting extends ActBase {
     @Override
     protected void initView(Bundle savedInstanceState) {
 
-
         headview.setTitle("设置");
         headview.setBack(new XCallbackListener() {
             @Override

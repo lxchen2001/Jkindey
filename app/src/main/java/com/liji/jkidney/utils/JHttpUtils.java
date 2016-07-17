@@ -29,7 +29,7 @@ public class JHttpUtils {
                 .setLabel("正在上传图片")
                 .setCancellable(true)
                 .setAnimationSpeed(2)
-                .setDimAmount(0f)
+                .setDimAmount(0.7f)
                 .show();
         final BmobFile bmobFile = new BmobFile(new File(file));
         bmobFile.upload(context, new UploadFileListener() {

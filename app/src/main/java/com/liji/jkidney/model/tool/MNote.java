@@ -1,4 +1,4 @@
-package com.liji.jkidney.model.check;
+package com.liji.jkidney.model.tool;
 
 import com.liji.jkidney.model.user.MyUser;
 

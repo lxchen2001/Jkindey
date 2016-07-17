@@ -1,4 +1,4 @@
-package com.liji.jkidney.activity.compute;
+package com.liji.jkidney.activity.tool;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +12,6 @@ import com.liji.jkidney.widget.CustomeHeadView;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
 
 /**
  * 计算肌酐清除率和肾小球过滤率
@@ -42,7 +39,7 @@ public class ActCompute extends ActBase implements View.OnClickListener {
                 finish();
             }
         });
-
+        headview.setBackgroundColor(getResources().getColor(R.color.color_tab_tool));
         //肌酐清除率
         llJigan.setOnClickListener(this);
 

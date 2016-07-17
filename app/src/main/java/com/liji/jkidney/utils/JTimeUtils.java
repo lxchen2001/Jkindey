@@ -20,13 +20,25 @@ public class JTimeUtils {
     }
 
     /**
-     * 获取当前时间
+     * 获取当前时间年月日
      *
      * @return
      */
     public static String getCurrentTime() {
         Date date = new Date();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String d = format.format(date.getTime());
+        return d;
+    }
+
+    /**
+     * 获取当前时间年月日
+     *
+     * @return
+     */
+    public static String getCurrentTime(int type) {
+        Date date = new Date();
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String d = format.format(date.getTime());
         return d;
     }

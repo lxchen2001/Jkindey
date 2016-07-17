@@ -4,9 +4,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.liji.jkidney.fragment.FragmentChecks;
-import com.liji.jkidney.fragment.FragmentInfo;
-import com.liji.jkidney.fragment.FragmentMy;
+import com.liji.jkidney.activity.check.FragmentChecks;
+import com.liji.jkidney.activity.post.FragmentPost;
+import com.liji.jkidney.activity.tool.FragmentTool;
+import com.liji.jkidney.activity.user.FragmentMy;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,8 +23,9 @@ public class BottomTabViewPagerAdapter extends FragmentPagerAdapter {
     public BottomTabViewPagerAdapter(FragmentManager fm) {
         super(fm);
         fragments.clear();
-        fragments.add(new FragmentInfo());
+        fragments.add(new FragmentPost());
         fragments.add(new FragmentChecks());
+        fragments.add(new FragmentTool());
         fragments.add(new FragmentMy());
     }
 

@@ -66,11 +66,11 @@
         <activity
             android:name=".activity.check.ActCheckStatistics"
             android:screenOrientation="landscape" />
-        <activity android:name=".activity.check.ActNoteList" />
-        <activity android:name=".activity.check.ActNoteOperation" />
-        <activity android:name=".activity.compute.ActCompute" />
-        <activity android:name=".activity.compute.ActComputeJigan" />
-        <activity android:name=".activity.compute.ActComputeShenxiaoqiu" />
+        <activity android:name=".activity.tool.ActNoteList" />
+        <activity android:name=".activity.tool.ActNoteOperation" />
+        <activity android:name=".activity.tool.ActCompute" />
+        <activity android:name=".activity.tool.ActComputeJigan" />
+        <activity android:name=".activity.tool.ActComputeShenxiaoqiu" />
         <activity android:name=".activity.ActAbout" />
         <activity android:name=".activity.user.account.ActUserInfoUpdate" />
         <activity android:name=".activity.user.ActRegisterEMail" />
@@ -91,7 +91,9 @@
             android:name="com.qihoo.appstore.updatelib.CheckUpdateService"
             android:exported="false" />
 
-        <activity android:name=".activity.user.account.ActPersonalNote"></activity>
+        <activity android:name=".activity.user.account.ActPersonalNote" />
+        <activity android:name=".activity.post.ActPostAdd" />
+        <activity android:name=".activity.post.ActPostDetail"></activity>
     </application>
 
 </manifest>
