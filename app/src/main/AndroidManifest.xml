@@ -93,7 +93,8 @@
 
         <activity android:name=".activity.user.account.ActPersonalNote" />
         <activity android:name=".activity.post.ActPostAdd" />
-        <activity android:name=".activity.post.ActPostDetail"></activity>
+        <activity android:name=".activity.post.ActPostDetail" />
+        <activity android:name=".activity.post.ActAuthorDetail"></activity>
     </application>
 
 </manifest>

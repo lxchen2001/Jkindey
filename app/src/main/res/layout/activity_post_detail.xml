@@ -14,9 +14,10 @@
 
     </com.liji.jkidney.widget.CustomeHeadView>
 
-    <ScrollView
+    <com.liji.jkidney.widget.Recyclerview.MyNestedScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fillViewport="true"
         android:scrollbars="none">
 
         <LinearLayout
@@ -94,7 +95,7 @@
                 android:layout_marginTop="10dp"
                 android:visibility="visible" />
         </LinearLayout>
-    </ScrollView>
+    </com.liji.jkidney.widget.Recyclerview.MyNestedScrollView>
 
 
 </LinearLayout>

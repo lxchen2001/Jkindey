@@ -30,7 +30,7 @@ public class M_Post extends BmobObject {
         this.seeNum = seeNum;
     }
 
-    private List<String> postImg = new ArrayList<>();
+    private List<String> postImg;
 
     public String getTitle() {
         return title;

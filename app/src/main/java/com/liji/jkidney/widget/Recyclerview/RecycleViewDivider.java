@@ -1,4 +1,4 @@
-package com.liji.jkidney.widget;
+package com.liji.jkidney.widget.Recyclerview;
 
 import android.content.Context;
 import android.content.res.TypedArray;

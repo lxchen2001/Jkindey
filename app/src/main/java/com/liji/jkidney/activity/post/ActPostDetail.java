@@ -1,5 +1,6 @@
 package com.liji.jkidney.activity.post;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +10,7 @@ import android.widget.TextView;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.model.post.M_Post;
+import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
 import com.liji.jkidney.widget.RoundImageView;
@@ -17,6 +19,8 @@ import com.nostra13.universalimageloader.core.assist.ImageSize;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
+
+import cn.bmob.v3.listener.UpdateListener;
 
 /**
  * 帖子详情
@@ -61,6 +65,15 @@ public class ActPostDetail extends ActBase {
             }
         });
 
+        itemHeadIco.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActPostDetail.this, ActAuthorDetail.class);
+                intent.putExtra(ActAuthorDetail.AUTHOR, post.getAuthor());
+                startActivity(intent);
+            }
+        });
+
     }
 
 
@@ -76,24 +89,25 @@ public class ActPostDetail extends ActBase {
             recyclerview.setVisibility(View.VISIBLE);
             recyclerview.setLayoutManager(new GridLayoutManager(ActPostDetail.this, 1));
             ada = new PostDetailPhotoAda(defaultData.getPostImg());
+            recyclerview.setNestedScrollingEnabled(false);
             recyclerview.setAdapter(ada);
         } else {
             recyclerview.setVisibility(View.GONE);
         }
 
-//        M_Post setSeeNum = new M_Post();
-//        setSeeNum.setSeeNum(defaultData.getSeeNum() + 1);
-//        setSeeNum.update(ActPostDetail.this, defaultData.getObjectId(), new UpdateListener() {
-//            @Override
-//            public void onSuccess() {
-//
-//            }
-//
-//            @Override
-//            public void onFailure(int i, String s) {
-//                JToastUtils.showToast(ActPostDetail.this, "" + s);
-//            }
-//        });
+        M_Post setSeeNum = new M_Post();
+        setSeeNum.setSeeNum(defaultData.getSeeNum() + 1);
+        setSeeNum.update(ActPostDetail.this, defaultData.getObjectId(), new UpdateListener() {
+            @Override
+            public void onSuccess() {
+
+            }
+
+            @Override
+            public void onFailure(int i, String s) {
+                JToastUtils.showToast(ActPostDetail.this, "" + s);
+            }
+        });
 
 
     }

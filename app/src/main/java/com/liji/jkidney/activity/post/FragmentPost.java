@@ -22,7 +22,7 @@ import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.JViewsUtils;
 import com.liji.jkidney.widget.CustomeHeadView;
-import com.liji.jkidney.widget.RecycleViewDivider;
+import com.liji.jkidney.widget.Recyclerview.RecycleViewDivider;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -126,6 +126,11 @@ public class FragmentPost extends FragmentBase implements SwipeRefreshLayout.OnR
     public void onResume() {
         super.onResume();
         user = User.getCurrentUser(getContext());
+        if (i != 0) {
+            loadData();
+        } else {
+            i++;
+        }
     }
 
     private void loadData() {

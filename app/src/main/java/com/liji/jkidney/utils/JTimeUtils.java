@@ -55,4 +55,55 @@ public class JTimeUtils {
         return data[1] + "/" + data[2];
     }
 
+    /**
+     * 将数字月份转为大写的月份
+     *
+     * @param month
+     * @return
+     */
+    public static String getMonth(String month) {
+        String result = "";
+        switch (month) {
+            case "01":
+                result = "一月";
+                break;
+            case "02":
+                result = "二月";
+                break;
+            case "03":
+                result = "三月";
+                break;
+            case "04":
+                result = "四月";
+                break;
+            case "05":
+                result = "五月";
+                break;
+            case "06":
+                result = "六月";
+                break;
+            case "07":
+                result = "七月";
+                break;
+            case "08":
+                result = "八月";
+                break;
+            case "09":
+                result = "九月";
+                break;
+            case "10":
+                result = "十月";
+                break;
+            case "11":
+                result = "十一月";
+                break;
+            case "12":
+                result = "十二月";
+                break;
+
+        }
+        return result;
+
+    }
+
 }
