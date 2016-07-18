@@ -2,7 +2,6 @@ package com.liji.jkidney.model.post;
 
 import com.liji.jkidney.model.user.MyUser;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobObject;
@@ -21,6 +20,16 @@ public class M_Post extends BmobObject {
 
     //浏览次数
     private Integer seeNum;
+    //评论次数
+    private Integer commentNum;
+
+    public Integer getCommentNum() {
+        return commentNum == null ? new Integer(0) : commentNum;
+    }
+
+    public void setCommentNum(Integer commentNum) {
+        this.commentNum = commentNum;
+    }
 
     public Integer getSeeNum() {
         return seeNum == null ? new Integer(0) : seeNum;

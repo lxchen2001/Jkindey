@@ -16,6 +16,7 @@
     <com.liji.jkidney.widget.Recyclerview.MyNestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/ll_comment"
         android:layout_below="@+id/headview"
         android:fillViewport="true"
         android:scrollbars="none">
@@ -94,46 +95,66 @@
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="10dp"
                 android:visibility="visible" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/c_dddddd">
+
+            </View>
         </LinearLayout>
+
+
     </com.liji.jkidney.widget.Recyclerview.MyNestedScrollView>
 
     <RelativeLayout
-        android:id="@+id/ll_bottom"
+        android:id="@+id/ll_comment"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_gravity="bottom"
-        android:background="@color/white"
+        android:background="@color/bg"
         android:gravity="center_vertical"
-        android:minHeight="44dp"
         android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/edt_message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
+        <TextView
+            android:id="@+id/tv_comment"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="5dp"
-            android:layout_toLeftOf="@+id/btn_send"
-            android:background="@drawable/bg_input_normal"
-            android:hint="输入内容"
-            android:maxLines="6"
-            android:minHeight="27dp"
-            android:padding="5dp"
-            android:textColor="@color/c_333333"
+            android:background="@drawable/bg_comment_selector"
+            android:gravity="center_vertical"
+            android:paddingLeft="15dp"
+            android:text="写评论..."
+            android:textColor="@color/c_999999"
             android:textSize="16sp" />
 
-        <Button
-            android:id="@+id/btn_send"
-            android:layout_width="50dp"
-            android:layout_height="27dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/common_btn_tab_tool_background_selector"
-            android:text="发送"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_toRightOf="@+id/tv_comment">
+
+            <ImageView
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:background="@drawable/ic_post_comment" />
+
+            <TextView
+                android:id="@+id/tv_comment_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:background="@color/material_red_500"
+                android:gravity="center_vertical"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="2000"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+        </FrameLayout>
+
     </RelativeLayout>
 </RelativeLayout>

@@ -5,11 +5,16 @@ import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
+import com.liji.jkidney.model.User;
+import com.liji.jkidney.model.post.MComment;
 import com.liji.jkidney.model.post.M_Post;
+import com.liji.jkidney.model.user.MyUser;
+import com.liji.jkidney.pop.PopPostComment;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
@@ -40,8 +45,12 @@ public class ActPostDetail extends ActBase {
     TextView tvTitle;
     @ViewInject(R.id.item_tv_content)
     TextView itemTvContent;
+    @ViewInject(R.id.tv_comment_num)
+    TextView tv_comment_num;
     @ViewInject(R.id.recyclerview)
     RecyclerView recyclerview;
+    @ViewInject(R.id.ll_comment)
+    RelativeLayout llComment;
 
     PostDetailPhotoAda ada;
     M_Post post;
@@ -74,6 +83,29 @@ public class ActPostDetail extends ActBase {
             }
         });
 
+        llComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PopPostComment comment = new PopPostComment(ActPostDetail.this, new com.liji.jkidney.utils.XCallbackListener() {
+                    @Override
+                    protected void callback(Object... obj) {
+                        String commnetStr = (String) obj[0];
+                        JToastUtils.showToast(ActPostDetail.this, "" + commnetStr);
+                    }
+                });
+                comment.show();
+
+            }
+        });
+    }
+
+    private void doComment(String comemnt) {
+        MyUser user = User.getCurrentUser(ActPostDetail.this);
+        M_Post postComment = new M_Post();
+        postComment.setObjectId(post.getObjectId());
+        MComment mComment = new MComment();
+
+
     }
 
 
@@ -84,6 +116,7 @@ public class ActPostDetail extends ActBase {
         itemTvTime.setText("" + defaultData.getTime());
         itemTvNickname.setText("" + defaultData.getAuthor().getNickname());
         itemTvContent.setText("" + defaultData.getContent());
+        tv_comment_num.setText("" + defaultData.getCommentNum());
         imageLoader.displayImage(defaultData.getAuthor().getHeadimg(), itemHeadIco, new ImageSize(80, 80));
         if (defaultData.getPostImg() != null && defaultData.getPostImg().size() > 0) {
             recyclerview.setVisibility(View.VISIBLE);
