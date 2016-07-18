@@ -79,6 +79,7 @@ public class ActAuthorDetail extends ActBase implements SwipeRefreshLayout.OnRef
 
 
         recyclerview.setLayoutManager(new MyLinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
+        recyclerview.setNestedScrollingEnabled(false);
         //设置item的分割线
         recyclerview.addItemDecoration(new RecycleViewDivider(ActAuthorDetail.this, LinearLayoutManager.HORIZONTAL));
 
