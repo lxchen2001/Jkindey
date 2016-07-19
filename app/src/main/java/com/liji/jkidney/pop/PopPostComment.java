@@ -39,7 +39,6 @@ public class PopPostComment implements CanShow {
         popwindow = new PopupWindow(contentview, LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT, true);
         popwindow.setBackgroundDrawable(new ColorDrawable(0xB0000000));
-        popwindow.setInputMethodMode(PopupWindow.INPUT_METHOD_NEEDED);
         popwindow.setAnimationStyle(R.style.AnimBottom);
         popwindow.setTouchable(true);
         popwindow.setOutsideTouchable(true);

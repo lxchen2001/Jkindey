@@ -3,21 +3,27 @@ package com.liji.jkidney.activity.post;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
+import com.liji.jkidney.activity.post.comment.PostCpmmentAda;
 import com.liji.jkidney.model.User;
+import com.liji.jkidney.model.check.MCheckType;
 import com.liji.jkidney.model.post.MComment;
 import com.liji.jkidney.model.post.M_Post;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.pop.PopPostComment;
+import com.liji.jkidney.utils.JTimeUtils;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
+import com.liji.jkidney.widget.Recyclerview.RecycleViewDivider;
 import com.liji.jkidney.widget.RoundImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
@@ -25,6 +31,14 @@ import com.nostra13.universalimageloader.core.assist.ImageSize;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobPointer;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 /**
@@ -49,11 +63,14 @@ public class ActPostDetail extends ActBase {
     TextView tv_comment_num;
     @ViewInject(R.id.recyclerview)
     RecyclerView recyclerview;
+    @ViewInject(R.id.recyclerviewComment)
+    RecyclerView recyclerviewCommnet;
     @ViewInject(R.id.ll_comment)
     RelativeLayout llComment;
-
+    PostCpmmentAda postCpmmentAda;
     PostDetailPhotoAda ada;
     M_Post post;
+    List<MComment> commentList = new ArrayList<>();
 
     public static String POST_DETAIL = "post";
     ImageLoader imageLoader = ImageLoader.getInstance();
@@ -90,13 +107,53 @@ public class ActPostDetail extends ActBase {
                     @Override
                     protected void callback(Object... obj) {
                         String commnetStr = (String) obj[0];
-                        JToastUtils.showToast(ActPostDetail.this, "" + commnetStr);
+                        doComment(commnetStr);
                     }
                 });
                 comment.show();
 
             }
         });
+
+        final LinearLayoutManager layoutManager = new LinearLayoutManager(ActPostDetail.this);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recyclerviewCommnet.setLayoutManager(layoutManager);
+        //设置item的分割线
+        recyclerviewCommnet.addItemDecoration(new RecycleViewDivider(ActPostDetail.this, LinearLayoutManager.HORIZONTAL));
+        postCpmmentAda = new PostCpmmentAda(ActPostDetail.this, commentList);
+        postCpmmentAda.openLoadAnimation();
+        recyclerviewCommnet.setAdapter(postCpmmentAda);
+
+
+        //查询帖子评论
+        loadCommentData();
+
+
+    }
+
+    /**
+     * 查询帖子评论
+     */
+    private void loadCommentData() {
+        BmobQuery<MComment> query = new BmobQuery<>();
+        M_Post postComment = new M_Post();
+        postComment.setObjectId(post.getObjectId());
+        query.addWhereEqualTo("post", postComment);
+        query.order("-createdAt");
+        query.findObjects(ActPostDetail.this, new FindListener<MComment>() {
+            @Override
+            public void onSuccess(List<MComment> list) {
+                postCpmmentAda.setNewData(list);
+            }
+
+            @Override
+            public void onError(int i, String s) {
+                JToastUtils.showToast(ActPostDetail.this, "" + s);
+
+            }
+        });
+
+
     }
 
     private void doComment(String comemnt) {
@@ -104,7 +161,22 @@ public class ActPostDetail extends ActBase {
         M_Post postComment = new M_Post();
         postComment.setObjectId(post.getObjectId());
         MComment mComment = new MComment();
+        mComment.setAuthor(user);
+        mComment.setContent(comemnt);
+        mComment.setPost(postComment);
+        mComment.setTime(JTimeUtils.getCurrentTime(0));
+        mComment.save(ActPostDetail.this, new SaveListener() {
+            @Override
+            public void onSuccess() {
+                JToastUtils.showToast(ActPostDetail.this, "评论成功！");
+                loadCommentData();
+            }
 
+            @Override
+            public void onFailure(int i, String s) {
+                JToastUtils.showToast(ActPostDetail.this, "评论失败：" + s);
+            }
+        });
 
     }
 
