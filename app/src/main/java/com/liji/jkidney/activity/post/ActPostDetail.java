@@ -193,7 +193,7 @@ public class ActPostDetail extends ActBase {
         if (defaultData.getPostImg() != null && defaultData.getPostImg().size() > 0) {
             recyclerview.setVisibility(View.VISIBLE);
             recyclerview.setLayoutManager(new GridLayoutManager(ActPostDetail.this, 1));
-            ada = new PostDetailPhotoAda(defaultData.getPostImg());
+            ada = new PostDetailPhotoAda(ActPostDetail.this,defaultData.getPostImg());
             recyclerview.setNestedScrollingEnabled(false);
             recyclerview.setAdapter(ada);
         } else {

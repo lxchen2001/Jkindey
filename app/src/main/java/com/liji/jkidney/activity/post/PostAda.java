@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.liji.imagezoom.util.ImageZoom;
 import com.liji.jkidney.R;
 import com.liji.jkidney.model.post.M_Post;
 import com.liji.jkidney.widget.RoundImageView;
@@ -54,7 +55,7 @@ public class PostAda extends BaseQuickAdapter<M_Post> {
         if (m_post.getPostImg() != null && m_post.getPostImg().size() > 0) {
             recyclerView.setVisibility(View.VISIBLE);
             recyclerView.setLayoutManager(new GridLayoutManager(context, 3));
-            ada = new PostListPhotoAda(m_post.getPostImg());
+            ada = new PostListPhotoAda(context, m_post.getPostImg());
             recyclerView.setAdapter(ada);
         } else {
             recyclerView.setVisibility(View.GONE);
