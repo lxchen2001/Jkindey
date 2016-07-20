@@ -110,6 +110,7 @@ public class ActAuthorDetail extends ActBase implements SwipeRefreshLayout.OnRef
         BmobQuery<M_Post> query = new BmobQuery<>();
         query.order("createdAt");
         query.addWhereEqualTo("author", author);
+        query.include("author");
         query.findObjects(ActAuthorDetail.this, new FindListener<M_Post>() {
             @Override
             public void onSuccess(List<M_Post> list) {

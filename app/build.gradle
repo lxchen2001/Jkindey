@@ -32,8 +32,11 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
     //百度apiStore
-//    compile files('libs/ApiStoreSDK1.0.0.jar')
+
+    //    compile files('libs/ApiStoreSDK1.0.0.jar')
+
     //https://github.com/astuetz/PagerSlidingTabStrip
+
     //    compile files('libs/360update-5.0.4.jar')
     compile 'com.jakewharton:butterknife:latest.integration'
     compile 'com.jakewharton:butterknife:latest.integration'
@@ -57,5 +60,5 @@ dependencies {
     compile 'liji.library.dev:imagezoom:1.1.1'
     compile 'cn.finalteam:galleryfinal:1.4.8.7'
     compile 'com.baoyz.actionsheet:library:1.1.5'
-
+    compile project(':lib_bd_autoupdate')
 }

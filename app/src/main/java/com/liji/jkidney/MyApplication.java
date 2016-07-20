@@ -1,7 +1,6 @@
 package com.liji.jkidney;
 
 import android.app.Application;
-import android.graphics.Color;
 
 import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.liji.dev.androidutils.utils.PictureSelectDialog.photo.GlideImageLoader;
@@ -9,7 +8,6 @@ import com.liji.jkidney.model.Config;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
-import com.qihoo.updatesdk.lib.UpdateHelper;
 
 
 import org.xutils.x;
@@ -42,11 +40,6 @@ public class MyApplication extends Application {
         initGalleryFinal();
         //设置图片加载方式
         initImageLoader();
-
-
-        //360自动更新
-        UpdateHelper.getInstance().init(this, Color.parseColor("#0A93DB"));
-
 
     }
 

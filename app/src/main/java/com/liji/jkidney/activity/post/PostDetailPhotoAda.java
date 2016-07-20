@@ -8,7 +8,6 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.liji.imagezoom.util.ImageZoom;
 import com.liji.jkidney.R;
-import com.liji.jkidney.utils.JLogUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;

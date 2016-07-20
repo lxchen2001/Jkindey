@@ -37,10 +37,8 @@
         android:layout_height="300dp"
         android:background="@null"
         android:button="@null"
-        android:ellipsize="end"
         android:gravity="left|top"
         android:hint=""
-        android:maxLines="6"
         android:padding="10dp"
         android:textColor="@color/c_999999"
         android:textSize="16sp" />

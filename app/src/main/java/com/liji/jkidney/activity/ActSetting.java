@@ -15,7 +15,6 @@ import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
-import com.qihoo.updatesdk.lib.UpdateHelper;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -82,7 +81,6 @@ public class ActSetting extends ActBase {
             @Override
             public void onClick(View v) {
                 JLogUtils.D("packagename: " + ActSetting.this.getPackageName());
-                UpdateHelper.getInstance().manualUpdate(ActSetting.this.getPackageName());
             }
         });
 

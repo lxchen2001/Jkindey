@@ -12,7 +12,9 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
+import com.liji.jkidney.activity.check.ActCheckStatistics;
 import com.liji.jkidney.activity.post.comment.PostCpmmentAda;
+import com.liji.jkidney.activity.user.ActLogin;
 import com.liji.jkidney.model.User;
 import com.liji.jkidney.model.check.MCheckType;
 import com.liji.jkidney.model.post.MComment;
@@ -53,6 +55,8 @@ public class ActPostDetail extends ActBase {
     RoundImageView itemHeadIco;
     @ViewInject(R.id.item_tv_nickname)
     TextView itemTvNickname;
+    @ViewInject(R.id.tv_no_comment)
+    TextView tv_no_comment;
     @ViewInject(R.id.item_tv_time)
     TextView itemTvTime;
     @ViewInject(R.id.tv_title)
@@ -103,33 +107,45 @@ public class ActPostDetail extends ActBase {
         llComment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PopPostComment comment = new PopPostComment(ActPostDetail.this, new com.liji.jkidney.utils.XCallbackListener() {
-                    @Override
-                    protected void callback(Object... obj) {
-                        String commnetStr = (String) obj[0];
-                        doComment(commnetStr);
-                    }
-                });
-                comment.show();
-
+                popComment();
             }
+
         });
 
         final LinearLayoutManager layoutManager = new LinearLayoutManager(ActPostDetail.this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerviewCommnet.setLayoutManager(layoutManager);
-        //设置item的分割线
-        recyclerviewCommnet.addItemDecoration(new RecycleViewDivider(ActPostDetail.this, LinearLayoutManager.HORIZONTAL));
+//        //设置item的分割线
+//        recyclerviewCommnet.addItemDecoration(new RecycleViewDivider(ActPostDetail.this, LinearLayoutManager.HORIZONTAL));
         postCpmmentAda = new PostCpmmentAda(ActPostDetail.this, commentList);
         postCpmmentAda.openLoadAnimation();
         recyclerviewCommnet.setAdapter(postCpmmentAda);
-
 
         //查询帖子评论
         loadCommentData();
 
 
     }
+
+    /**
+     * 添加评论
+     */
+    private void popComment() {
+        if (User.getCurrentUser(ActPostDetail.this) != null) {
+            PopPostComment comment = new PopPostComment(ActPostDetail.this, new com.liji.jkidney.utils.XCallbackListener() {
+                @Override
+                protected void callback(Object... obj) {
+                    String commnetStr = (String) obj[0];
+                    doComment(commnetStr);
+                }
+            });
+            comment.show();
+        } else {
+            Intent intent = new Intent(ActPostDetail.this, ActLogin.class);
+            startActivity(intent);
+        }
+    }
+
 
     /**
      * 查询帖子评论
@@ -139,11 +155,17 @@ public class ActPostDetail extends ActBase {
         M_Post postComment = new M_Post();
         postComment.setObjectId(post.getObjectId());
         query.addWhereEqualTo("post", postComment);
+        query.include("author");
         query.order("-createdAt");
         query.findObjects(ActPostDetail.this, new FindListener<MComment>() {
             @Override
             public void onSuccess(List<MComment> list) {
-                postCpmmentAda.setNewData(list);
+                if (list != null && list.size() > 0) {
+                    postCpmmentAda.setNewData(list);
+                    tv_no_comment.setVisibility(View.GONE);
+                } else {
+                    tv_no_comment.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
@@ -156,6 +178,11 @@ public class ActPostDetail extends ActBase {
 
     }
 
+    /**
+     * 发表评论
+     *
+     * @param comemnt
+     */
     private void doComment(String comemnt) {
         MyUser user = User.getCurrentUser(ActPostDetail.this);
         M_Post postComment = new M_Post();
@@ -169,8 +196,10 @@ public class ActPostDetail extends ActBase {
             @Override
             public void onSuccess() {
                 JToastUtils.showToast(ActPostDetail.this, "评论成功！");
+                updateCommentNum();
                 loadCommentData();
             }
+
 
             @Override
             public void onFailure(int i, String s) {
@@ -180,7 +209,32 @@ public class ActPostDetail extends ActBase {
 
     }
 
+    /**
+     * 更新评论数量
+     */
+    private void updateCommentNum() {
+        M_Post commentNum = new M_Post();
+        commentNum.setCommentNum(post.getCommentNum() + 1);
+        commentNum.update(ActPostDetail.this, post.getObjectId(), new UpdateListener() {
+            @Override
+            public void onSuccess() {
 
+            }
+
+            @Override
+            public void onFailure(int i, String s) {
+                JToastUtils.showToast(ActPostDetail.this, "" + s);
+            }
+        });
+
+    }
+
+
+    /**
+     * 加载默认数据
+     *
+     * @param defaultData
+     */
     public void setDefaultData(M_Post defaultData) {
         if (defaultData == null)
             return;
@@ -193,7 +247,7 @@ public class ActPostDetail extends ActBase {
         if (defaultData.getPostImg() != null && defaultData.getPostImg().size() > 0) {
             recyclerview.setVisibility(View.VISIBLE);
             recyclerview.setLayoutManager(new GridLayoutManager(ActPostDetail.this, 1));
-            ada = new PostDetailPhotoAda(ActPostDetail.this,defaultData.getPostImg());
+            ada = new PostDetailPhotoAda(ActPostDetail.this, defaultData.getPostImg());
             recyclerview.setNestedScrollingEnabled(false);
             recyclerview.setAdapter(ada);
         } else {

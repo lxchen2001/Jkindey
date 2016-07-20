@@ -3,7 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/ic_bg_3"
+    android:background="@drawable/ic_bg_1"
     tools:context=".activity.info.ActWebShow">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="关爱肾脏，呵护它"
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
 </RelativeLayout>

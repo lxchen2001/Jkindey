@@ -21,6 +21,7 @@
     <color name="c_666666">#666666</color>
     <color name="c_333333">#333333</color>
     <color name="c_blue">#26A5FF</color>
+    <color name="c_fafafa">#FAFAFA</color>
 
     <color name="material_blue_500">#03a9f4</color>
     <color name="material_blue_700">#0288d1</color>

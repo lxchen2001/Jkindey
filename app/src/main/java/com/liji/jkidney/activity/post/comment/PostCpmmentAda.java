@@ -32,7 +32,6 @@ public class PostCpmmentAda extends BaseQuickAdapter<MComment> {
         baseViewHolder.setText(R.id.item_tv_nickname, "" + m_post.getAuthor().getNickname());
         baseViewHolder.setText(R.id.item_tv_content, "" + m_post.getContent());
         baseViewHolder.setText(R.id.item_tv_time, "" + m_post.getTime());
-
         RoundImageView imageView = baseViewHolder.getView(R.id.item_head_ico);
         imageLoader.displayImage(m_post.getAuthor().getHeadimg(), imageView, new ImageSize(80, 80));
         imageView.setOnClickListener(new View.OnClickListener() {

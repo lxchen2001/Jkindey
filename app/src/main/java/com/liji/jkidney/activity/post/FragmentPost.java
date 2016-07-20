@@ -126,11 +126,6 @@ public class FragmentPost extends FragmentBase implements SwipeRefreshLayout.OnR
     public void onResume() {
         super.onResume();
         user = User.getCurrentUser(getContext());
-        if (i != 0) {
-            loadData();
-        } else {
-            i++;
-        }
     }
 
     private void loadData() {

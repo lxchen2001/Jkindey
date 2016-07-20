@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -38,6 +39,7 @@ public class PopPostComment implements CanShow {
         et_comment = (EditText) contentview.findViewById(R.id.et_comment);
         popwindow = new PopupWindow(contentview, LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT, true);
+        popwindow.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
         popwindow.setBackgroundDrawable(new ColorDrawable(0xB0000000));
         popwindow.setAnimationStyle(R.style.AnimBottom);
         popwindow.setTouchable(true);
