@@ -15,6 +15,7 @@ import com.liji.jkidney.utils.JLogUtils;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
+import com.liji.jkidney.Manager;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -56,6 +57,7 @@ public class ActSetting extends ActBase {
                 @Override
                 public void onClick(View v) {
                     MyUser.logOut(ActSetting.this);
+                    Manager.stopJpush(ActSetting.this);
                     JToastUtils.showToast(ActSetting.this, "成功退出");
                     finish();
                 }

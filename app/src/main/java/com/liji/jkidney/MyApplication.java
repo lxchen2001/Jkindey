@@ -17,6 +17,7 @@ import cn.finalteam.galleryfinal.CoreConfig;
 import cn.finalteam.galleryfinal.FunctionConfig;
 import cn.finalteam.galleryfinal.GalleryFinal;
 import cn.finalteam.galleryfinal.ThemeConfig;
+import cn.jpush.android.api.JPushInterface;
 
 /**
  * 作者：liji on 2016/6/24 14:56
@@ -40,6 +41,9 @@ public class MyApplication extends Application {
         initGalleryFinal();
         //设置图片加载方式
         initImageLoader();
+
+        //Jpush推送
+        JPushInterface.init(this);
 
     }
 

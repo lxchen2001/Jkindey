@@ -15,6 +15,7 @@ import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
+import com.liji.jkidney.Manager;
 
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
@@ -88,8 +89,6 @@ public class ActLogin extends ActBase {
     }
 
 
-
-
     private void doSubmit() {
         username = et_phone.getText().toString().trim();
         if (TextUtils.isEmpty(username)) {
@@ -107,6 +106,8 @@ public class ActLogin extends ActBase {
             @Override
             public void done(MyUser myUser, BmobException e) {
                 if (myUser != null) {
+                    Manager.USERID = myUser.getObjectId();
+                    Manager.startJpush(ActLogin.this);
                     JToastUtils.showToast(ActLogin.this, "登录成功");
                     finish();
                 } else {
