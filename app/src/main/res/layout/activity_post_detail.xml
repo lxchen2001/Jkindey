@@ -74,7 +74,7 @@
                 android:layout_marginTop="10dp"
                 android:text="肾病综合征"
                 android:textColor="@color/c_333333"
-                android:textSize="16sp" />
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/item_tv_content"
@@ -85,7 +85,7 @@
                 android:layout_marginTop="10dp"
                 android:text="肾病综合征（NS）可由多种病因引起，以肾小球基膜通透性增加，表现为大量蛋白尿、低蛋白血症、高度水肿、高脂血症的一组临床症候群。"
                 android:textColor="@color/c_666666"
-                android:textSize="14sp" />
+                android:textSize="16sp" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerview"

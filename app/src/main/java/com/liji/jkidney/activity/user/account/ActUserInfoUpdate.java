@@ -55,6 +55,9 @@ public class ActUserInfoUpdate extends ActBase {
     @ViewInject(R.id.ll_detail)
     LinearLayout llDetail;
 
+    @ViewInject(R.id.item_ll_password)
+    LinearLayout item_ll_password;
+
 
     MyUser userLocal;
     String nickname;
@@ -117,6 +120,15 @@ public class ActUserInfoUpdate extends ActBase {
                 Intent intent = new Intent(ActUserInfoUpdate.this, ActPersonalNote.class);
                 intent.putExtra(ActPersonalNote.NOTE, info);
                 startActivityForResult(intent, 0);
+            }
+        });
+
+
+        //密码相关
+        item_ll_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(ActUserInfoUpdate.this, ActPasswordRest.class));
             }
         });
     }

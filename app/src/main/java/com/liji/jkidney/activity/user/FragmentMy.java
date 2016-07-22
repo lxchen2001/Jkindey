@@ -13,8 +13,10 @@ import android.widget.TextView;
 import com.liji.dev.androidutils.utils.PictureSelectDialog.PictureSelectPop;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActSetting;
+import com.liji.jkidney.activity.message.ActMessage;
 import com.liji.jkidney.activity.user.account.ActPasswordRest;
 import com.liji.jkidney.activity.user.account.ActUserInfoUpdate;
+import com.liji.jkidney.activity.user.post.ActMyPost;
 import com.liji.jkidney.fragment.FragmentBase;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.HttpCallback;
@@ -61,9 +63,11 @@ public class FragmentMy extends FragmentBase {
     @ViewInject(R.id.item_ll_account)
     LinearLayout item_ll_account;
 
+    @ViewInject(R.id.item_ll_post)
+    LinearLayout item_ll_post;
 
-    @ViewInject(R.id.item_ll_password)
-    LinearLayout item_ll_password;
+    @ViewInject(R.id.item_ll_message)
+    LinearLayout item_ll_message;
 
 
     @ViewInject(R.id.item_head_bg)
@@ -89,11 +93,24 @@ public class FragmentMy extends FragmentBase {
         headView.setBackgroundColor(getResources().getColor(R.color.color_tab_my));
         initView();
 
-
         item_ll_setting.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 getContext().startActivity(new Intent(getContext(), ActSetting.class));
+            }
+        });
+
+        item_ll_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getContext().startActivity(new Intent(getContext(), ActMyPost.class));
+            }
+        });
+
+        item_ll_message.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getContext().startActivity(new Intent(getContext(), ActMessage.class));
             }
         });
 
@@ -154,13 +171,6 @@ public class FragmentMy extends FragmentBase {
             itemTvNickname.setText(userLocal.getNickname());
             itemTvSign.setText(userLocal.getInfo());
 
-            //密码相关
-            item_ll_password.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    getContext().startActivity(new Intent(getContext(), ActPasswordRest.class));
-                }
-            });
 
             //跳转修改个人信息
             item_ll_account.setOnClickListener(new View.OnClickListener() {

@@ -79,6 +79,7 @@ public class ActMessage extends ActBase implements SwipeRefreshLayout.OnRefreshL
         swipeRefreshLayout.setOnRefreshListener(this);
 
         messageAda = new MessageAda(messageList);
+        messageAda.openLoadAnimation();
         recyclerview.setAdapter(messageAda);
 
     }
