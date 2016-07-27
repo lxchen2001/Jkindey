@@ -9,14 +9,11 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
-import com.liji.jkidney.activity.check.ActCheckStatistics;
 import com.liji.jkidney.activity.post.comment.PostCpmmentAda;
 import com.liji.jkidney.activity.user.ActLogin;
 import com.liji.jkidney.model.User;
-import com.liji.jkidney.model.check.MCheckType;
 import com.liji.jkidney.model.post.MComment;
 import com.liji.jkidney.model.post.M_Post;
 import com.liji.jkidney.model.user.MyUser;
@@ -25,7 +22,6 @@ import com.liji.jkidney.utils.JTimeUtils;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
-import com.liji.jkidney.widget.Recyclerview.RecycleViewDivider;
 import com.liji.jkidney.widget.RoundImageView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
@@ -33,12 +29,10 @@ import com.nostra13.universalimageloader.core.assist.ImageSize;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
@@ -65,6 +59,8 @@ public class ActPostDetail extends ActBase {
     TextView itemTvContent;
     @ViewInject(R.id.tv_comment_num)
     TextView tv_comment_num;
+    @ViewInject(R.id.tv_lcoation)
+    TextView tv_lcoation;
     @ViewInject(R.id.recyclerview)
     RecyclerView recyclerview;
     @ViewInject(R.id.recyclerviewComment)
@@ -238,6 +234,7 @@ public class ActPostDetail extends ActBase {
     public void setDefaultData(M_Post defaultData) {
         if (defaultData == null)
             return;
+        tv_lcoation.setText("" + defaultData.getAddress());
         tvTitle.setText("" + defaultData.getTitle());
         itemTvTime.setText("" + defaultData.getTime());
         itemTvNickname.setText("" + defaultData.getAuthor().getNickname());

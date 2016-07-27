@@ -90,7 +90,7 @@
             android:name=".activity.ActSetting"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.check.ActCheckStatistics"
+            android:name=".activity.check.line.ActCheckStatistics"
             android:screenOrientation="landscape" />
         <activity android:name=".activity.tool.ActNoteList" />
         <activity android:name=".activity.tool.ActNoteOperation" />
@@ -254,7 +254,25 @@
             android:value="826bebaaffc9de94941c0b50" />
         <!-- JPush推送 -->
         <activity android:name=".activity.message.ActMessage" />
-        <activity android:name=".activity.user.post.ActMyPost"></activity>
+        <activity android:name=".activity.user.post.ActMyPost" />
+
+        <!-- 高德地图定位SDK -->
+        <!-- 定位需要的服务 -->
+        <service android:name="com.amap.api.location.APSService" />
+
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="cad6046f73e846ce7526746d5d10040c" />
+
+        <activity android:name=".activity.tool.ActComputeJiganDetail" />
+        <activity android:name=".activity.tool.ActComputeShenxiaoqiuDetail" />
+
+        <!-- 腾讯webservice -->
+        <meta-data
+            android:name="TencentMapSDK"
+            android:value="ULZBZ-MQRR3-U5E3S-3RCSX-QNROK-X3F3E" />
+
+        <activity android:name=".activity.post.ActAddress" />
     </application>
 
 </manifest>

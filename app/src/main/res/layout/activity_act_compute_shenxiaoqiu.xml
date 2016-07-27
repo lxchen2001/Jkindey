@@ -25,645 +25,361 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="*基本概念"
-                    android:textColor="@color/material_blue_personal_center_bg"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-                <TextView
+                <View
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="5dp"
-                    android:padding="5dp"
-                    android:text="      肾小球滤过率(GFR，glomerular filtration rate)是指单位时间（通常为1min)内两肾生成滤液的量，正常成人为80-120ml/min左右（第八版生理学教科书修订为成人125ml/min左右）。肾小球滤过率与肾血浆流量的比值称为滤过分数。每分钟肾血浆流量约660ml，故滤过分数为125/660×100%≈19%。这一结果表明，流经肾的血浆约有1/5由肾小球滤入囊腔生成原尿。肾小球滤过率和滤过分数是衡量肾功能的指标。  " />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginTop="10dp"
-                    android:text="*开始计算"
-                    android:textColor="@color/material_blue_personal_center_bg"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:layout_height="0.3dp"
+                    android:background="@color/c_dddddd" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    android:visibility="visible">
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_need_wihte"
-                            android:drawablePadding="2dp"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
-                            android:text="性别"
-                            android:textColor="@color/c_333333"
-                            android:textSize="16sp" />
-
-
-                        <com.rey.material.widget.Switch
-                            android:id="@+id/switch_sex"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:checked="false"
-                            android:gravity="center"
-                            android:padding="16dp"
-                            app:v_styleId="@array/switches" />
-
-                        <TextView
-                            android:id="@+id/tv_sex"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:text="男"
-                            android:textColor="@color/material_red_500"
-                            android:textSize="16sp" />
-
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/ic_arrow_right"
-                            android:visibility="invisible" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:drawableLeft="@drawable/ic_need_wihte"
-                                android:drawablePadding="2dp"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="10dp"
-                                android:text="年龄"
-                                android:textColor="@color/c_333333"
-                                android:textSize="16sp" />
-
-                        </LinearLayout>
-
-
-                        <EditText
-                            android:id="@+id/et_nianling"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:button="@null"
-                            android:gravity="center_vertical"
-                            android:inputType="numberDecimal"
-                            android:textColor="@color/c_999999"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/ic_arrow_right"
-                            android:visibility="invisible" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:drawableLeft="@drawable/ic_need_wihte"
-                                android:drawablePadding="2dp"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="10dp"
-                                android:text="体重(kg)"
-                                android:textColor="@color/c_333333"
-                                android:textSize="16sp" />
-
-                        </LinearLayout>
-
-
-                        <EditText
-                            android:id="@+id/et_tizhong"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:button="@null"
-                            android:gravity="center_vertical"
-                            android:inputType="numberDecimal"
-                            android:textColor="@color/c_999999"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/ic_arrow_right"
-                            android:visibility="invisible" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:drawableLeft="@drawable/ic_need_wihte"
-                                android:drawablePadding="2dp"
-                                android:gravity="center_vertical"
-                                android:paddingLeft="10dp"
-                                android:text="身高(cm)"
-                                android:textColor="@color/c_333333"
-                                android:textSize="16sp" />
-
-                        </LinearLayout>
-
-
-                        <EditText
-                            android:id="@+id/et_shengao"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:button="@null"
-                            android:gravity="center_vertical"
-                            android:inputType="numberDecimal"
-                            android:textColor="@color/c_999999"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/ic_arrow_right"
-                            android:visibility="invisible" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_need_wihte"
-                            android:drawablePadding="2dp"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
-                            android:text="肌酐单位"
-                            android:textColor="@color/c_333333"
-                            android:textSize="16sp" />
-
-                        <TextView
-                            android:id="@+id/tv_mg"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:text="mg/dl"
-                            android:textColor="@color/material_red_500"
-                            android:textSize="16sp" />
-
-                        <com.rey.material.widget.Switch
-                            android:id="@+id/switch_danwei"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:checked="true"
-                            android:gravity="center"
-                            android:padding="16dp"
-                            app:v_styleId="@array/switches" />
-
-                        <TextView
-                            android:id="@+id/tv_umol"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="center_vertical"
-                            android:text="umol/L"
-                            android:textColor="@color/material_red_500"
-                            android:textSize="16sp" />
-
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/ic_arrow_right"
-                            android:visibility="invisible" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/tv_jigan_danwei"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_need_wihte"
-                            android:drawablePadding="2dp"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
-                            android:text="肌酐(umol/L)"
-                            android:textColor="@color/c_333333"
-                            android:textSize="16sp" />
-
-
-                        <EditText
-                            android:id="@+id/et_jigan"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:background="@null"
-                            android:button="@null"
-                            android:gravity="center_vertical"
-                            android:inputType="numberDecimal"
-                            android:textColor="@color/c_999999"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/ic_arrow_right"
-                            android:visibility="invisible" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-
-                    <Button
-                        android:id="@+id/btn_compute"
-                        android:layout_width="fill_parent"
-                        android:layout_height="45dp"
-                        android:layout_marginLeft="15dp"
-                        android:layout_marginRight="15dp"
-                        android:layout_marginTop="20dp"
-                        android:background="@drawable/common_btn_tab_tool_background_selector"
-                        android:text="开始计算"
-                        android:textColor="@color/white"
-                        android:textSize="18sp" />
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/ll_result"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
 
                     <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="*计算结果"
-                        android:textColor="@drawable/common_btn_blue_background_selector"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:drawableLeft="@drawable/ic_need_wihte"
-                            android:drawablePadding="2dp"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
-                            android:text="GFR (ml/min1.73m^2)："
-                            android:textColor="@color/c_333333"
-                            android:textSize="16sp" />
-
-
-                        <TextView
-                            android:id="@+id/tv_result"
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:gravity="center_vertical"
-                            android:textColor="@color/material_red_500"
-                            android:textSize="16sp" />
-
-                        <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginRight="10dp"
-                            android:background="@drawable/ic_arrow_right"
-                            android:visibility="invisible" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_advice"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginTop="10dp"
-                        android:text="*参考值"
-                        android:textColor="@color/material_blue_personal_center_bg"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_need_wihte"
-                            android:drawablePadding="2dp"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
-                            android:text="正常范围"
-                            android:textColor="@color/c_666666"
-                            android:textSize="16sp" />
-
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center_vertical"
-                            android:text=">=90 ml/min/1.73m^2"
-                            android:textColor="@color/c_999999"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="40dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_need_wihte"
-                            android:drawablePadding="2dp"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
-                            android:text="轻度肾损害"
-                            android:textColor="@color/c_333333"
-                            android:textSize="16sp" />
-
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center_vertical"
-                            android:text="60 — 89 ml/min/1.73m^2"
-                            android:textColor="@color/material_red_500"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_need_wihte"
-                            android:drawablePadding="2dp"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
-                            android:text="中度肾损伤"
-                            android:textColor="@color/c_333333"
-                            android:textSize="16sp" />
-
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center_vertical"
-                            android:text="30 — 59 ml/min/1.73m^2"
-                            android:textColor="@color/material_red_500"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_need_wihte"
-                            android:drawablePadding="2dp"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
-                            android:text="严重肾损伤"
-                            android:textColor="@color/c_333333"
-                            android:textSize="16sp" />
-
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center_vertical"
-                            android:text="15 — 29 ml/min/1.73m^2"
-                            android:textColor="@color/material_red_500"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="30dp"
-                        android:background="@color/white"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:drawableLeft="@drawable/ic_need_wihte"
-                            android:drawablePadding="2dp"
-                            android:gravity="center_vertical"
-                            android:paddingLeft="10dp"
-                            android:text="肾衰竭"
-                            android:textColor="@color/c_333333"
-                            android:textSize="16sp" />
-
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="2"
-                            android:gravity="center_vertical"
-                            android:text="小于15 ml/min/1.73m^2"
-                            android:textColor="@color/material_red_500"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="0.3dp"
-                        android:background="@color/c_dddddd" />
-
-                    <TextView
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:gravity="right"
-                        android:paddingRight="5dp"
-                        android:text="计算结果仅供参考，病情诊断请遵医嘱"
-                        android:textColor="@color/c_999999"
-                        android:textSize="12sp" />
+                        android:drawableLeft="@drawable/ic_need_wihte"
+                        android:drawablePadding="2dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="性别"
+                        android:textColor="@color/c_333333"
+                        android:textSize="16sp" />
+
+
+                    <com.rey.material.widget.Switch
+                        android:id="@+id/switch_sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:checked="false"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        app:v_styleId="@array/switches" />
+
+                    <TextView
+                        android:id="@+id/tv_sex"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="男"
+                        android:textColor="@color/material_red_500"
+                        android:textSize="16sp" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_arrow_right"
+                        android:visibility="invisible" />
+
                 </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:background="@color/c_dddddd" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_need_wihte"
+                            android:drawablePadding="2dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="年龄"
+                            android:textColor="@color/c_333333"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/et_nianling"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:button="@null"
+                        android:gravity="center_vertical"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/c_999999"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_arrow_right"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:background="@color/c_dddddd" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_need_wihte"
+                            android:drawablePadding="2dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="体重(kg)"
+                            android:textColor="@color/c_333333"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/et_tizhong"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:button="@null"
+                        android:gravity="center_vertical"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/c_999999"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_arrow_right"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:background="@color/c_dddddd" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:drawableLeft="@drawable/ic_need_wihte"
+                            android:drawablePadding="2dp"
+                            android:gravity="center_vertical"
+                            android:paddingLeft="10dp"
+                            android:text="身高(cm)"
+                            android:textColor="@color/c_333333"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+
+                    <EditText
+                        android:id="@+id/et_shengao"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:button="@null"
+                        android:gravity="center_vertical"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/c_999999"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_arrow_right"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:background="@color/c_dddddd" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_need_wihte"
+                        android:drawablePadding="2dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="肌酐单位"
+                        android:textColor="@color/c_333333"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:id="@+id/tv_mg"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="mg/dl"
+                        android:textColor="@color/material_red_500"
+                        android:textSize="16sp" />
+
+                    <com.rey.material.widget.Switch
+                        android:id="@+id/switch_danwei"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:padding="16dp"
+                        app:v_styleId="@array/switches" />
+
+                    <TextView
+                        android:id="@+id/tv_umol"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="umol/L"
+                        android:textColor="@color/material_red_500"
+                        android:textSize="16sp" />
+
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_arrow_right"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:background="@color/c_dddddd" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_jigan_danwei"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:drawableLeft="@drawable/ic_need_wihte"
+                        android:drawablePadding="2dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="10dp"
+                        android:text="肌酐(umol/L)"
+                        android:textColor="@color/c_333333"
+                        android:textSize="16sp" />
+
+
+                    <EditText
+                        android:id="@+id/et_jigan"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:button="@null"
+                        android:gravity="center_vertical"
+                        android:inputType="numberDecimal"
+                        android:textColor="@color/c_999999"
+                        android:textSize="16sp" />
+
+                    <ImageView
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/ic_arrow_right"
+                        android:visibility="invisible" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.3dp"
+                    android:background="@color/c_dddddd" />
+
+
+                <Button
+                    android:id="@+id/btn_compute"
+                    android:layout_width="fill_parent"
+                    android:layout_height="45dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/common_btn_tab_tool_background_selector"
+                    android:text="开始计算"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+
             </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.3dp"
+                android:background="@color/c_dddddd" />
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

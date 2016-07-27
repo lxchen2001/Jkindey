@@ -2,9 +2,14 @@ package com.liji.jkidney;
 
 import android.app.Application;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
 import com.baidu.apistore.sdk.ApiStoreSDK;
 import com.liji.dev.androidutils.utils.PictureSelectDialog.photo.GlideImageLoader;
 import com.liji.jkidney.model.Config;
+import com.liji.jkidney.utils.JLogUtils;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
@@ -24,7 +29,14 @@ import cn.jpush.android.api.JPushInterface;
  * 邮箱：lijiwork@sina.com
  */
 public class MyApplication extends Application {
+    //声明mLocationOption对象
+    public AMapLocationClientOption mLocationOption = null;
 
+    //声明AMapLocationClient类对象
+    public AMapLocationClient mLocationClient = null;
+
+    //声明定位回调监听器
+    public LAMapLocationListener mLocationListener = new LAMapLocationListener();
 
     @Override
     public void onCreate() {
@@ -44,6 +56,8 @@ public class MyApplication extends Application {
 
         //Jpush推送
         JPushInterface.init(this);
+
+        initLocation();
 
     }
 
@@ -81,5 +95,37 @@ public class MyApplication extends Application {
                 .writeDebugLogs()
                 .build();
         ImageLoader.getInstance().init(config);
+    }
+
+
+    /**
+     * 开启定位
+     */
+    private void initLocation() {
+        mLocationClient = new AMapLocationClient(getApplicationContext());
+        mLocationClient.setLocationListener(mLocationListener);
+        mLocationOption = new AMapLocationClientOption();
+        mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
+        mLocationOption.setNeedAddress(true);
+        mLocationOption.setWifiActiveScan(true);
+        mLocationOption.setMockEnable(false);
+        mLocationOption.setInterval(500);
+        mLocationOption.setOnceLocation(true);
+        mLocationClient.setLocationOption(mLocationOption);
+        mLocationClient.startLocation();
+    }
+
+    private class LAMapLocationListener implements AMapLocationListener {
+
+        @Override
+        public void onLocationChanged(AMapLocation aMapLocation) {
+            if (aMapLocation != null && aMapLocation.getErrorCode() == 0) {
+                Manager.location = aMapLocation;
+                JLogUtils.D("application定位成功," + aMapLocation.getAddress());
+            } else {
+                JLogUtils.D("application定位失败," + aMapLocation.getErrorInfo());
+            }
+
+        }
     }
 }

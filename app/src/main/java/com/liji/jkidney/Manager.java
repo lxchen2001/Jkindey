@@ -2,6 +2,8 @@ package com.liji.jkidney;
 
 import android.content.Context;
 
+import com.amap.api.location.AMapLocation;
+
 import java.util.Set;
 
 import cn.jpush.android.api.JPushInterface;
@@ -17,6 +19,12 @@ public class Manager {
      * 用户别名
      */
     public static String USERID = "";
+
+
+    /**
+     * 定位监听
+     */
+    public static AMapLocation location = null;
 
     /**
      * 开启推送

@@ -2,6 +2,7 @@ package com.liji.jkidney.model.check;
 
 import com.liji.jkidney.model.user.MyUser;
 
+import java.util.Collections;
 import java.util.List;
 
 import cn.bmob.v3.BmobObject;

@@ -30,19 +30,21 @@ public class CustomeHeadView extends RelativeLayout {
     private LayoutInflater mLayoutInflater;
 
     public CustomeHeadView(Context context) {
-        this(context, null);
+        super(context);
+        initView(context);
     }
 
     public CustomeHeadView(Context context, AttributeSet attrs) {
-        this(context, attrs, 0);
+        super(context, attrs);
+        initView(context);
     }
 
     public CustomeHeadView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        initView(context, attrs);
+        initView(context);
     }
 
-    private void initView(Context context, AttributeSet attrs) {
+    private void initView(Context context) {
         mLayoutInflater = LayoutInflater.from(getContext());
         View view = mLayoutInflater.inflate(R.layout.item_headview, this);
         item_head_img_back = (ImageView) view.findViewById(R.id.item_head_img_back);

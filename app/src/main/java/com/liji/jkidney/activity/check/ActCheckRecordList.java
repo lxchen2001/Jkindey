@@ -18,10 +18,12 @@ import com.liji.jkidney.activity.check.adapter.ShengongnengAda;
 import com.liji.jkidney.activity.check.adapter.TizhongAda;
 import com.liji.jkidney.activity.check.adapter.XuetangAda;
 import com.liji.jkidney.activity.check.adapter.XueyaAda;
+import com.liji.jkidney.activity.check.line.ActCheckStatistics;
 import com.liji.jkidney.activity.user.ActLogin;
 import com.liji.jkidney.model.CheckTypeId;
 import com.liji.jkidney.model.User;
 import com.liji.jkidney.model.check.MCheckType;
+import com.liji.jkidney.model.check.SortTime;
 import com.liji.jkidney.model.user.MyUser;
 import com.liji.jkidney.utils.JViewsUtils;
 import com.liji.jkidney.utils.XCallbackListener;
@@ -32,6 +34,7 @@ import org.xutils.view.annotation.ViewInject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
@@ -231,6 +234,7 @@ public class ActCheckRecordList extends ActBase implements SwipeRefreshLayout.On
                         setEmptyView(typeCheck);
                     } else {
                         if (isRefresh) {
+                            Collections.sort(list, new SortTime());
                             setData(typeCheck, list);
                         }
                     }

@@ -10,7 +10,19 @@
     <lecho.lib.hellocharts.view.ColumnChartView
         android:id="@+id/chart_bottom"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="5dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="5dp">
 
     </lecho.lib.hellocharts.view.ColumnChartView>
+
+    <lecho.lib.hellocharts.view.LineChartView
+        android:id="@+id/chart_top"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+    </lecho.lib.hellocharts.view.LineChartView>
 </RelativeLayout>

@@ -8,8 +8,8 @@ android {
         applicationId "com.liji.jkidney"
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 5
-        versionName "2.1"
+        versionCode 6
+        versionName "2.2"
     }
     buildTypes {
         release {
@@ -68,7 +68,7 @@ dependencies {
     compile 'cn.finalteam:galleryfinal:1.4.8.7'
     compile 'com.baoyz.actionsheet:library:1.1.5'
     compile project(':lib_bd_autoupdate')
-
     //Umeng
     compile 'com.umeng.analytics:analytics:latest.integration'
+    compile 'org.greenrobot:eventbus:3.0.0'
 }

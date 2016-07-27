@@ -1,18 +1,23 @@
 package com.liji.jkidney.activity.post;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.baoyz.actionsheet.ActionSheet;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
+import com.liji.jkidney.eventbus.check.EBPostRefresh;
+import com.liji.jkidney.eventbus.post.EBPostAddressAdd;
 import com.liji.jkidney.model.User;
 import com.liji.jkidney.model.post.M_Post;
 import com.liji.jkidney.model.user.MyUser;
@@ -22,6 +27,9 @@ import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.xutils.view.annotation.ContentView;
 import org.xutils.view.annotation.ViewInject;
 
@@ -47,14 +55,16 @@ public class ActPostAdd extends ActBase {
     EditText etTitle;
     @ViewInject(R.id.et_content)
     EditText etContent;
-    @ViewInject(R.id.tv_time)
-    TextView tvTime;
+    @ViewInject(R.id.tv_lcoation)
+    TextView tvLcoation;
     @ViewInject(R.id.recyclerview)
     RecyclerView recyclerview;
+    @ViewInject(R.id.rl_lcoation)
+    RelativeLayout rlLocation;
 
     private String title;
     private String content;
-    private String time;
+    private String address;
 
     private List<PhotoInfo> mPhotoList;
 
@@ -67,7 +77,7 @@ public class ActPostAdd extends ActBase {
 
     @Override
     protected void initView(Bundle savedInstanceState) {
-
+        EventBus.getDefault().register(this);
         user = User.getCurrentUser(ActPostAdd.this);
         headView.setTitle("发表主题");
         headView.setBackgroundColor(getResources().getColor(R.color.color_tab_post));
@@ -111,13 +121,35 @@ public class ActPostAdd extends ActBase {
         recyclerview.setLayoutManager(mLayoutManager);
         recyclerview.setAdapter(postAddPhotoAda);
 
-        time = JTimeUtils.getCurrentTime(0);
-        tvTime.setText("" + time);
+
+        rlLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ActPostAdd.this, ActAddress.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
+    /**
+     * 获取地址列表的选中地址
+     */
+    @Subscribe(threadMode = ThreadMode.POSTING)
+    public void PostRefresh(EBPostAddressAdd addressAdd) {
+        JLogUtils.D("PostRefresh()");
+        address = addressAdd.getAddress().getTitle();
+        if (TextUtils.isEmpty(address)) {
+            address = "中国";
+        }
+        tvLcoation.setText("" + address);
+    }
+
+
+    /**
+     * 提交
+     */
     private void doSubmit() {
-        time = tvTime.getText().toString().trim();
         title = etTitle.getText().toString().trim();
         content = etContent.getText().toString().trim();
         if (TextUtils.isEmpty(content)) {
@@ -155,14 +187,16 @@ public class ActPostAdd extends ActBase {
                         post.setTitle(title);
                         post.setContent(content);
                         post.setAuthor(user);
-                        post.setTime(time);
-                        post.setAddress("中国");
+                        post.setTime(JTimeUtils.getCurrentTime(0));
+                        post.setAddress(address);
                         post.setPostImg(list1);
                         post.save(ActPostAdd.this, new SaveListener() {
                             @Override
                             public void onSuccess() {
                                 kdPro.dismiss();
                                 JToastUtils.showToast(ActPostAdd.this, "发表成功！");
+                                //刷新列表
+                                EventBus.getDefault().post(new EBPostRefresh());
                                 finish();
                             }
 
@@ -193,13 +227,15 @@ public class ActPostAdd extends ActBase {
             post.setTitle(title);
             post.setContent(content);
             post.setAuthor(user);
-            post.setTime(time);
-            post.setAddress("中国");
+            post.setTime(JTimeUtils.getCurrentTime(0));
+            post.setAddress(address);
             post.save(ActPostAdd.this, new SaveListener() {
                 @Override
                 public void onSuccess() {
                     kdPro.dismiss();
                     JToastUtils.showToast(ActPostAdd.this, "发表成功！");
+                    //刷新列表
+                    EventBus.getDefault().post(new EBPostRefresh());
                     finish();
                 }
 
@@ -246,7 +282,6 @@ public class ActPostAdd extends ActBase {
                     }
                 })
                 .show();
-
     }
 
     private GalleryFinal.OnHanlderResultCallback mOnHanlderResultCallback = new GalleryFinal.OnHanlderResultCallback() {
@@ -266,5 +301,9 @@ public class ActPostAdd extends ActBase {
         }
     };
 
-
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        EventBus.getDefault().unregister(this);
+    }
 }

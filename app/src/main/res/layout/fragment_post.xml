@@ -7,7 +7,7 @@
     tools:context=".activity.check.ActCheckRecordList">
 
     <com.liji.jkidney.widget.CustomeHeadView
-        android:id="@+id/headview"
+        android:id="@+id/head"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -17,7 +17,7 @@
         android:id="@+id/swipeLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/headview"
+        android:layout_below="@+id/head"
         android:orientation="vertical">
 
         <android.support.v7.widget.RecyclerView

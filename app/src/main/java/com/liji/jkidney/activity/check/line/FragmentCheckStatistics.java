@@ -1,4 +1,4 @@
-package com.liji.jkidney.activity.check;
+package com.liji.jkidney.activity.check.line;
 
 
 import android.os.Bundle;
@@ -25,9 +25,14 @@ import lecho.lib.hellocharts.model.Axis;
 import lecho.lib.hellocharts.model.AxisValue;
 import lecho.lib.hellocharts.model.Column;
 import lecho.lib.hellocharts.model.ColumnChartData;
+import lecho.lib.hellocharts.model.Line;
+import lecho.lib.hellocharts.model.LineChartData;
+import lecho.lib.hellocharts.model.PointValue;
 import lecho.lib.hellocharts.model.SubcolumnValue;
+import lecho.lib.hellocharts.model.Viewport;
 import lecho.lib.hellocharts.util.ChartUtils;
 import lecho.lib.hellocharts.view.ColumnChartView;
+import lecho.lib.hellocharts.view.LineChartView;
 
 /**
  */
@@ -44,6 +49,12 @@ public class FragmentCheckStatistics extends FragmentBase {
     @ViewInject(R.id.chart_bottom)
     ColumnChartView chartBottom;
     private ColumnChartData columnData;
+
+//
+//    @ViewInject(R.id.chart_top)
+//    private LineChartView chartTop;
+//
+//    private LineChartData lineData;
 
     public FragmentCheckStatistics() {
     }
@@ -74,12 +85,15 @@ public class FragmentCheckStatistics extends FragmentBase {
         x.view().inject(this, view);
 
         setData(checkTypeNiaodanbais);
+//        setLineData(checkTypeNiaodanbais);
+
+
 //        chartBottom.setOnValueTouchListener(new ValueTouchListener());
         return view;
     }
 
     public void setData(List<MCheckType> data) {
-        //每个x坐标显示的柱状图个数
+//        每个x坐标显示的柱状图个数
         int numSubcolumns = 1;
 
         //每个检查项目中的检查次数
@@ -119,6 +133,51 @@ public class FragmentCheckStatistics extends FragmentBase {
         chartBottom.setZoomType(ZoomType.HORIZONTAL);
 
     }
+
+//    public void setLineData(List<MCheckType> data) {
+//
+//        //每个检查项目中的检查次数
+//        int numColumns = data.size();
+//
+//        //横坐标的数值
+//        List<AxisValue> axisValues = new ArrayList<AxisValue>();
+//
+//        //每个横坐标对应的数据
+//        List<PointValue> values = new ArrayList<PointValue>();
+//
+//        for (int i = 0; i < numColumns; i++) {
+//            //每个横坐标对应的值
+//            PointValue value = new PointValue(i, Float.valueOf(String.valueOf(data.get(i).getList().get(position).getValue())));
+//            values.add(value);
+//
+//            //日期
+//            axisValues.add(new AxisValue(i).setLabel(JTimeUtils.getDate(data.get(i).getList().get(position).getTime())));
+//        }
+//
+//        //每条线的设置
+//        Line line = new Line(values);
+//        line.setColor(ChartUtils.COLOR_BLUE).setCubic(true);
+//
+//        //总共一条线
+//        List<Line> lines = new ArrayList<>();
+//        lines.add(line);
+//
+//        lineData = new LineChartData(lines);
+//        lineData.setAxisXBottom(new Axis(axisValues).setHasLines(true));
+//        lineData.setAxisYLeft(new Axis().setHasLines(true).setMaxLabelChars(3));
+//        chartTop.setLineChartData(lineData);
+//
+//        // For build-up animation you have to disable viewport recalculation.
+//        chartTop.setViewportCalculationEnabled(false);
+//
+//        // And set initial max viewport and current viewport- remember to set viewports after data.
+//        Viewport v = new Viewport(0, 110, 6, 0);
+//        chartTop.setMaximumViewport(v);
+//        chartTop.setCurrentViewport(v);
+//
+//
+//        chartTop.setZoomType(ZoomType.HORIZONTAL);
+//    }
 
 //    private class ValueTouchListener implements ColumnChartOnValueSelectListener {
 //

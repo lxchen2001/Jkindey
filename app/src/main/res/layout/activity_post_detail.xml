@@ -94,10 +94,35 @@
                 android:layout_marginTop="10dp"
                 android:visibility="visible" />
 
+            <RelativeLayout
+                android:layout_marginTop="10dp"
+                android:id="@+id/rl_lcoation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="4dp">
+
+                <ImageView
+                    android:id="@+id/img_location"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/ic_location" />
+
+                <TextView
+                    android:id="@+id/tv_lcoation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/img_location"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="10dp"
+                    android:text="选择地点" />
+            </RelativeLayout>
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
-                android:layout_marginTop="10dp"
+
                 android:background="@color/c_dddddd">
 
             </View>

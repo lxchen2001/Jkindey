@@ -7,9 +7,13 @@ import com.liji.jkidney.model.info.M_Common;
 import com.liji.jkidney.model.info.M_HealthyInfoShow;
 import com.liji.jkidney.model.info.M_HealthyKnowledgeShow;
 import com.liji.jkidney.model.info.M_J_HealthInfoClassicfy;
+import com.liji.jkidney.model.post.MAddress;
 
+import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -64,7 +68,7 @@ public class JSONHandleUtils {
             if (classicfy.isStatus()) {
                 return getObjectList(classicfy.getTngou(), cls);
             }
-        }else if(type==3){
+        } else if (type == 3) {
 
         }
         return null;
@@ -105,6 +109,35 @@ public class JSONHandleUtils {
 
     public static <T> List<T> getObjectList(String jsonString, Class<T> cls) {
         return JSON.parseArray(jsonString, cls);
+    }
+
+
+    /**
+     * 解析附近的地址信息
+     *
+     * @param jsonString
+     * @return
+     */
+    public static List<MAddress> getAddressList(String jsonString) {
+        List<MAddress> addressList = new ArrayList<>();
+        try {
+            JSONObject object = new JSONObject(jsonString);
+            JSONArray array = new JSONArray(object.getString("data"));
+            for (int i = 0; i < array.length(); i++) {
+                JSONObject result = array.getJSONObject(i);
+                MAddress address = new MAddress();
+                address.setTitle(result.getString("title"));
+                address.setAddress(result.getString("address"));
+                address.setId(result.getString("id"));
+                address.set_distance(Double.parseDouble(result.getString("_distance")));
+                address.setCategory(result.getString("category"));
+                addressList.add(address);
+            }
+        } catch (JSONException e) {
+            JLogUtils.E(e);
+        }
+
+        return addressList;
     }
 
 }

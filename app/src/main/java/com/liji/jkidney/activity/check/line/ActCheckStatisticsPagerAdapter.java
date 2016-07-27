@@ -1,11 +1,9 @@
-package com.liji.jkidney.activity.check;
+package com.liji.jkidney.activity.check.line;
 
-import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.liji.jkidney.R;
 import com.liji.jkidney.model.CheckTypeId;
 import com.liji.jkidney.model.check.MCheckType;
 

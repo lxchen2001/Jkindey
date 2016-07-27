@@ -1,5 +1,6 @@
 package com.liji.jkidney.activity.tool;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.ActBase;
 import com.liji.jkidney.model.Type;
+import com.liji.jkidney.utils.JNumber;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.XCallbackListener;
 import com.liji.jkidney.widget.CustomeHeadView;
@@ -35,8 +37,6 @@ public class ActComputeJigan extends ActBase {
     TextView tvSex;
     @ViewInject(R.id.tv_jigan_danwei)
     TextView tv_jigan_danwei;
-    @ViewInject(R.id.tv_result)
-    TextView tvResult;
     @ViewInject(R.id.et_nianling)
     EditText etNianling;
     @ViewInject(R.id.et_tizhong)
@@ -45,10 +45,6 @@ public class ActComputeJigan extends ActBase {
     EditText etJigan;
     @ViewInject(R.id.btn_compute)
     Button btnCompute;
-    @ViewInject(R.id.ll_result)
-    LinearLayout llResult;
-    @ViewInject(R.id.ll_advice)
-    LinearLayout llAdvice;
 
 
     int sex = Type.Sex_M;//0
@@ -139,7 +135,10 @@ public class ActComputeJigan extends ActBase {
         if (sex == Type.Sex_W) {//女
             result = result * 0.85;
         }
-        tvResult.setText("" + result);
+
+        Intent intent = new Intent(ActComputeJigan.this, ActComputeJiganDetail.class);
+        intent.putExtra(ActComputeShenxiaoqiuDetail.RESULT, JNumber.get2(result));
+        startActivity(intent);
 
     }
 

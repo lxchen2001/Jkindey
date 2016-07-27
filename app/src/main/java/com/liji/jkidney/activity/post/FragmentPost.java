@@ -15,15 +15,21 @@ import android.view.ViewGroup;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.liji.jkidney.R;
 import com.liji.jkidney.activity.user.ActLogin;
+import com.liji.jkidney.eventbus.check.EBPostRefresh;
 import com.liji.jkidney.fragment.FragmentBase;
 import com.liji.jkidney.model.User;
 import com.liji.jkidney.model.post.M_Post;
 import com.liji.jkidney.model.user.MyUser;
+import com.liji.jkidney.utils.JLogUtils;
+import com.liji.jkidney.utils.JSystem;
 import com.liji.jkidney.utils.JToastUtils;
 import com.liji.jkidney.utils.JViewsUtils;
 import com.liji.jkidney.widget.CustomeHeadView;
 import com.liji.jkidney.widget.Recyclerview.RecycleViewDivider;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
@@ -40,7 +46,7 @@ import cn.bmob.v3.listener.FindListener;
 public class FragmentPost extends FragmentBase implements SwipeRefreshLayout.OnRefreshListener {
 
 
-    @ViewInject(R.id.headview)
+    @ViewInject(R.id.head)
     CustomeHeadView headView;
 
     @ViewInject(R.id.recyclerview)
@@ -67,6 +73,9 @@ public class FragmentPost extends FragmentBase implements SwipeRefreshLayout.OnR
     public View getOnCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_post, container, false);
         x.view().inject(this, view);
+
+        //注册EventBus
+        EventBus.getDefault().register(this);
 
         headView.setTitle(getResources().getString(R.string.fragment_info));
         headView.setBackgroundColor(getResources().getColor(R.color.color_tab_post));
@@ -160,5 +169,27 @@ public class FragmentPost extends FragmentBase implements SwipeRefreshLayout.OnR
     @Override
     public void onRefresh() {
         loadData();
+        JLogUtils.D("SHA1: " + JSystem.sHA1(getContext()));
     }
+
+
+    /**
+     * 发帖成功，及时刷新列表
+     *
+     * @param ebPostRefresh
+     */
+    @Subscribe(threadMode = ThreadMode.POSTING)
+    public void PostRefresh(EBPostRefresh ebPostRefresh) {
+        JLogUtils.D("loadData()");
+        loadData();
+    }
+
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        EventBus.getDefault().unregister(this);
+    }
+
+
 }
